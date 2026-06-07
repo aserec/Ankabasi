@@ -286,6 +286,43 @@ ul {
     color: var(--color-primary);
 }
 
+.nav__mundo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 0.35rem;
+    padding-left: 0.65rem;
+    border-left: 2px solid var(--color-primary-light);
+    flex-shrink: 0;
+}
+
+.nav__mundo-label {
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--color-secondary);
+    white-space: nowrap;
+    line-height: 1.2;
+}
+
+.nav__mundo-list {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    list-style: none;
+}
+
+.nav__link--mundo {
+    color: var(--color-primary);
+    font-weight: 600;
+}
+
+.nav__link--mundo::after {
+    background-color: var(--color-secondary);
+}
+
 .nav__actions {
     display: flex;
     align-items: center;
@@ -1024,6 +1061,123 @@ ul {
     border-radius: var(--border-radius);
 }
 
+/* ===== Mundo Ankabasi ===== */
+.mundo-ankabasi {
+    position: relative;
+    padding: var(--section-padding);
+    background-color: #faf8f5;
+    background-image:
+        linear-gradient(180deg, rgba(45, 80, 22, 0.04) 0%, transparent 120px),
+        radial-gradient(ellipse at 20% 0%, rgba(139, 111, 71, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 100%, rgba(74, 124, 42, 0.06) 0%, transparent 50%);
+    border-top: 1px solid rgba(139, 111, 71, 0.2);
+}
+
+.mundo-ankabasi__stripe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(
+        90deg,
+        var(--color-primary) 0%,
+        var(--color-primary-light) 35%,
+        var(--color-secondary) 65%,
+        var(--color-secondary-light) 100%
+    );
+}
+
+.mundo-ankabasi__header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 4rem;
+}
+
+.mundo-ankabasi__eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.mundo-ankabasi__title {
+    font-family: var(--font-heading);
+    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.02em;
+    margin-bottom: 1rem;
+}
+
+.mundo-ankabasi__divider {
+    width: 120px;
+    height: 3px;
+    margin: 0 auto 1.25rem;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        var(--color-secondary) 20%,
+        var(--color-secondary) 80%,
+        transparent
+    );
+    border-radius: 2px;
+}
+
+.mundo-ankabasi__subtitle {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+.mundo-ankabasi__blocks {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.mundo-ankabasi__block {
+    background: var(--color-white);
+    border-radius: calc(var(--border-radius) * 1.5);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(139, 111, 71, 0.12);
+}
+
+.mundo-ankabasi__block-title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.mundo-ankabasi__block-subtitle {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.mundo-ankabasi .blog-teaser__grid {
+    margin-bottom: 1.5rem;
+}
+
+.mundo-ankabasi .libro-teaser__content {
+    padding-bottom: 0;
+}
+
+.mundo-ankabasi__block,
+#mundo-ankabasi {
+    scroll-margin-top: 90px;
+}
+
 /* ===== Contact Section ===== */
 .contact {
     padding: var(--section-padding);
@@ -1216,6 +1370,11 @@ ul {
     gap: 2rem;
     margin-bottom: 2rem;
     align-items: flex-start;
+}
+
+.footer__section--mundo {
+    border-left: 3px solid var(--color-primary-light);
+    padding-left: 1.25rem;
 }
 
 .footer__logo {

@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Memoria de una Montaña — El libro de Ankabasi">
+    <title>Memoria de una Montaña — Ankabasi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/libro.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <header class="libro-header">
+        <a href="../index.html#libro" class="libro-header__back" data-i18n="libro.backHome">← Volver a Ankabasi</a>
+        <span class="libro-header__title" data-i18n="libro.bookTitle">Memoria de una Montaña</span>
+        <div class="libro-header__actions">
+            <div class="libro-header__mundo">
+                <span class="libro-header__mundo-label" data-i18n="nav.mundoAnkabasi">Mundo Ankabasi</span>
+                <a href="../blog/index.html" class="libro-header__mundo-link" data-i18n="nav.blog">Blog</a>
+                <a href="index.html" class="libro-header__mundo-link libro-header__mundo-link--active" data-i18n="nav.libro">Libro</a>
+            </div>
+            <button type="button" class="libro-header__toc-btn" id="libro-toc-toggle" data-i18n="libro.toc">Índice</button>
+        </div>
+    </header>
+
+    <div class="libro-progress" aria-hidden="true">
+        <div class="libro-progress__bar" id="libro-progress-bar"></div>
+    </div>
+
+    <div class="libro-sidebar-overlay" id="libro-sidebar-overlay"></div>
+
+    <div class="libro-layout">
+        <aside class="libro-sidebar" id="libro-sidebar">
+            <h2 class="libro-sidebar__heading" data-i18n="libro.toc">Índice</h2>
+
+            <nav class="libro-toc" aria-label="Índice del libro">
+                <div class="libro-toc__part">
+                    <p class="libro-toc__part-title">I. Origen</p>
+                    <ul class="libro-toc__list">
+                        <li><a href="#portada" class="libro-toc__link">Portada</a></li>
+                        <li><a href="#dedicatoria" class="libro-toc__link">Dedicatoria</a></li>
+                        <li><a href="#agradecimientos" class="libro-toc__link">Agradecimientos</a></li>
+                        <li><a href="#nacimiento-escrito" class="libro-toc__link">El nacimiento de este escrito</a></li>
+                        <li><a href="#prologo" class="libro-toc__link">Prólogo</a></li>
+                        <li><a href="#capitulo-3" class="libro-toc__link">Pueblo iku de Serankwa</a></li>
+                    </ul>
+                </div>
+                <div class="libro-toc__part">
+                    <p class="libro-toc__part-title">II. Historias que somos</p>
+                    <ul class="libro-toc__list">
+                        <li><a href="#capitulo-1" class="libro-toc__link">Conocimientos ancestrales</a></li>
+                        <li><a href="#capitulo-1" class="libro-toc__link">La Madre Tierra (Zaku)</a></li>
+                        <li><a href="#capitulo-3" class="libro-toc__link">El rol del pueblo iku</a></li>
+                        <li><a href="#capitulo-4" class="libro-toc__link">Comunidades y paisajes</a></li>
+                    </ul>
+                </div>
+                <div class="libro-toc__part">
+                    <p class="libro-toc__part-title">III. Raíces vivas</p>
+                    <ul class="libro-toc__list">
+                        <li><a href="#capitulo-2" class="libro-toc__link">El ayu, planta sagrada</a></li>
+                        <li><a href="#capitulo-3" class="libro-toc__link">El nacimiento de los pueblos</a></li>
+                        <li><a href="#capitulo-3" class="libro-toc__link">Características del pueblo iku</a></li>
+                        <li><a href="#capitulo-3" class="libro-toc__link">Trabajo comunitario y espiritualidad</a></li>
+                    </ul>
+                </div>
+                <div class="libro-toc__part">
+                    <p class="libro-toc__part-title">IV. Experiencias vividas</p>
+                    <ul class="libro-toc__list">
+                        <li><a href="#capitulo-4" class="libro-toc__link">La casa, el fuego y la vida diaria</a></li>
+                        <li><a href="#capitulo-4" class="libro-toc__link">El río Aracataca</a></li>
+                        <li><a href="#capitulo-4" class="libro-toc__link">Alimentos, cultivos y territorio</a></li>
+                    </ul>
+                </div>
+                <div class="libro-toc__part">
+                    <p class="libro-toc__part-title">V. Comunidad y vida cotidiana</p>
+                    <ul class="libro-toc__list">
+                        <li><a href="#capitulo-4" class="libro-toc__link">La casa, la choza, el fuego</a></li>
+                        <li><a href="#capitulo-4" class="libro-toc__link">Salud y educación</a></li>
+                    </ul>
+                </div>
+                <div class="libro-toc__part">
+                    <p class="libro-toc__part-title">VI. Memoria, miedo y espíritu</p>
+                    <ul class="libro-toc__list">
+                        <li><a href="#capitulo-5" class="libro-toc__link">Relatos de la infancia</a></li>
+                        <li><a href="#capitulo-5" class="libro-toc__link">Miedos transmitidos</a></li>
+                        <li><a href="#capitulo-5" class="libro-toc__link">El espíritu del bosque</a></li>
+                        <li><a href="#capitulo-5" class="libro-toc__link">Eclipse y relatos nocturnos</a></li>
+                    </ul>
+                </div>
+                <div class="libro-toc__part">
+                    <p class="libro-toc__part-title">VII. Encuentros y transformaciones</p>
+                    <ul class="libro-toc__list">
+                        <li><a href="#capitulo-6" class="libro-toc__link">Globalización y modernidad</a></li>
+                        <li><a href="#capitulo-6" class="libro-toc__link">Tecnología y saber ancestral</a></li>
+                        <li><a href="#capitulo-7" class="libro-toc__link">Resistencia cultural</a></li>
+                    </ul>
+                </div>
+                <div class="libro-toc__part">
+                    <p class="libro-toc__part-title">VIII. Los sabios de la montaña</p>
+                    <ul class="libro-toc__list">
+                        <li><a href="#capitulo-8" class="libro-toc__link">Pensamiento espiritual</a></li>
+                        <li><a href="#capitulo-8" class="libro-toc__link">Guardianes del equilibrio</a></li>
+                    </ul>
+                </div>
+                <div class="libro-toc__part">
+                    <p class="libro-toc__part-title">IX. Memoria que permanece</p>
+                    <ul class="libro-toc__list">
+                        <li><a href="#capitulo-9" class="libro-toc__link">Capítulo final</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="libro-main">
+            <section class="libro-section libro-section--portada" id="portada" data-nav-title="Portada">
+                <h1 class="libro-portada__title">Memoria de una Montaña</h1>
+                <p class="libro-portada__subtitle">Un relato desde la Sierra Nevada de Santa Marta</p>
+            </section>
+
+            <section class="libro-section" id="dedicatoria" data-nav-title="Dedicatoria">
+                <p class="libro-section__part">I. Origen</p>
+                <h2 class="libro-section__title">Dedicatoria</h2>
+                <div class="libro-section__content">
+                    <p>Dedico este trabajo a todas las personas que, con respeto, aprecio y amor, desean conocer y adentrarse en las experiencias y saberes de las comunidades ancestrales de la Sierra Nevada de Santa Marta.</p>
+                    <p>A las comunidades de Donachwi, donde nací; Arwamake, donde crecí hasta los seis años; Jechikin, Nabusímake, Serankwa y Gunmaku, donde aprendí a madurar y valorar a las personas y la cultura, y que me han permitido comprender, desde el compartir, los caminos del pensamiento ancestral.</p>
+                    <p>Este proyecto nace del reconocimiento profundo a la Madre Tierra y a los elementos sagrados que los ancestros sienten y enseñan a valorar, guiados por la palabra y la sabiduría de los mayores, que fortalecen la conciencia y el respeto por la vida.</p>
+                </div>
+            </section>
+
+            <section class="libro-section" id="agradecimientos" data-nav-title="Agradecimientos">
+                <h2 class="libro-section__title">Agradecimientos</h2>
+                <div class="libro-section__content">
+                    <p>Gratitud y reconocimiento.</p>
+                    <p>En primera instancia, agradezco al pueblo iku por su sabia memoria y enseñanza; a mi familia y a los hermanos, por cocrear espacios de intercambio cultural que me han permitido interactuar con diversas personas; y a los amigos honestos de mi raíz, porque su presencia confirma que la memoria vive en nosotros.</p>
+                    <p>Agradezco profundamente a las personas de este pueblo que han sabido orientar con sencillez y firmeza, con quienes he tenido el honor de compartir a lo largo de una vida temprana, y con quienes se ha ido definiendo gran parte de mi camino. De igual manera, reconozco a las distintas culturas originarias que, con esfuerzo y resistencia, mantienen vivas sus tradiciones a través del tiempo.</p>
+                    <p>Reconocer las particularidades de cada cultura, tanto sus fortalezas como sus desafíos, nos permite ser más conscientes y justos frente a las realidades que atraviesan las sociedades en distintos momentos históricos.</p>
+                    <p>Agradezco también a quienes trabajan incansablemente en la labor de preservar la vida, cada uno desde su forma de comprender la razón y el propósito de sus acciones. En el caso del pueblo iku, esta labor comienza y se sostiene en la sabiduría de la Tierra: se crece junto a ella, se aprende de ella y se le responde con respeto.</p>
+                </div>
+            </section>
+
+            <section class="libro-section" id="nacimiento-escrito" data-nav-title="El nacimiento de este escrito">
+                <h2 class="libro-section__title">El nacimiento de este escrito</h2>
+                <div class="libro-section__content">
+                    <p>Este escrito nace del compartir con las comunidades. Inicia en mis primeros años en la comunidad de Arwamake y Donachwi, y continúa, desde los seis años en adelante, en la comunidad de Gunmaku, ambas pertenecientes al pueblo arhuaco. Nace también del encuentro con otras comunidades que me han permitido distinguir diversas ideas que convergen en el punto desde el cual parto para este relato.</p>
+                    <p>El texto se construye desde una percepción alineada con el saber ancestral, entendiendo este conocimiento como una fuerza que valora la existencia de los elementos sagrados de la Tierra, sus recursos naturales e hídricos. Esta percepción es reflejo del lenguaje de los mayores, que trasciende generaciones originarias y nos conduce a comprender la vida desde una relación profunda con el territorio.</p>
+                </div>
+            </section>
+
+            <section class="libro-section" id="prologo" data-nav-title="Prólogo">
+                <h2 class="libro-section__title">Prólogo</h2>
+                <p class="libro-section__subtitle">Antes de la palabra</p>
+                <div class="libro-section__content">
+                    <p>Este libro no comienza en la primera página ni termina en la última. Comienza mucho antes, en el territorio, en la memoria compartida y en los pasos dados sobre la montaña. Nace del silencio, de la escucha y de una relación profunda con la Tierra.</p>
+                    <p>Las palabras que aquí se encuentran no fueron pensadas para ser escritas desde el inicio. Se fueron formando con el tiempo, en la convivencia, en la observación y en la experiencia cotidiana. Cada relato, cada reflexión y cada recuerdo surge de una vida caminada en comunidad, donde el conocimiento no se separa del sentir.</p>
+                    <p>La montaña no es un escenario. Es presencia viva. Es pensamiento que ordena y que enseña sin necesidad de imponerse. Quien ha crecido en su abrigo aprende que la vida no se acelera, que todo tiene su tiempo y que el equilibrio se sostiene en el respeto.</p>
+                    <p>Este libro no pretende representar a todos, ni hablar por una cultura entera. Es una voz que nace desde dentro, consciente de que la memoria es colectiva y de que la palabra solo tiene sentido cuando se pronuncia con responsabilidad. Lo que aquí se comparte es una experiencia vivida, no una verdad absoluta.</p>
+                    <p>Leer estas páginas es acercarse a otra forma de entender el mundo. Una forma donde la Tierra es madre, donde la comunidad sostiene al individuo y donde el conocimiento no se acumula, sino que se cuida. No se trata de mirar desde fuera, sino de escuchar con atención.</p>
+                    <p>Que este libro sea leído con calma. Que no se busquen respuestas rápidas ni explicaciones cerradas. Que cada lector permita que la palabra haga su propio camino, así como la montaña enseña a caminar despacio.</p>
+                    <p>Lo que sigue no es solo memoria. Es vida que continúa.</p>
+                </div>
+            </section>
+
+            <hr class="libro-divider">
+
+            <section class="libro-section" id="capitulo-1" data-nav-title="Capítulo I">
+                <p class="libro-section__part">II. Historias que somos</p>
+                <h2 class="libro-section__title">Capítulo I</h2>
+                <p class="libro-section__subtitle">Historias que somos — Conocimientos ancestrales</p>
+                <div class="libro-section__content">
+                    <p>Lugares como la Sierra se entrelazan a través del diálogo constante de nuestros mayores. En sus palabras, los conocimientos ancestrales trascienden generaciones y nos permiten sentir una esencia única, un vínculo que irradia armonía tanto en las personas como en el entorno que habitamos.</p>
+                    <p>Estas ideas, aunque diversas, convergen en un mismo propósito presente en todas las culturas: comprender la vida en todas sus formas, tanto en su simplicidad como en su complejidad, y tener un camino claro para recorrerla. Es un entendimiento que se teje como un delicado tejido, uniendo lo tangible con lo abstracto, lo mundano con lo espiritual.</p>
+                    <p>Este equilibrio, observado desde múltiples perspectivas, revela una verdad innegable: los sentimientos que compartimos con la Tierra son la base de nuestra existencia. Por ello, el pueblo iku la reconoce como Madre, o en su palabra propia, Zaku. Según los sabios de la Sierra, de ella se desprenden las nociones fundamentales de la vida.</p>
+                    <p>No existe un vínculo más poderoso ni más puro que el que surge de esta relación. En cada movimiento —grande o pequeño, significativo o aparentemente insignificante— la naturaleza ofrece lecciones. Estas enseñanzas no se perciben solo con los ojos, sino también con el pensar y el sentir. Son como susurros silenciosos que resuenan profundamente en el alma de quienes están dispuestos a escuchar.</p>
+                    <p>Esta conexión transforma nuestra percepción de la realidad. Nos conduce de lo físico a lo emocional y nos devuelve a lo tangible con una nueva comprensión. Al observar el tejido social que conecta a todos los seres vivos, e incluso a los elementos inertes, entendemos que no somos más que una parte de un todo mucho más amplio. Lo que antes parecía abstracto se vuelve íntimo y simple, una verdad que habita en la mente y en el corazón.</p>
+                    <p>A lo largo del tiempo, este camino ha sido trazado por nuestros antepasados, quienes dejaron un legado de claridad y entendimiento. Comprendieron los elementos más simples de la naturaleza: el viento que roza el rostro, el canto que se cuela entre las ramas, el murmullo del agua al fluir. Estos mensajes, aunque comunes en apariencia, contienen una fuerza profunda para quienes saben interpretarlos.</p>
+                    <p>El viento, por ejemplo, puede parecer insignificante, pero posee una fuerza inmensa capaz de mover todo lo que existe. Es un recordatorio de que lo simple tiene un impacto profundo. Cada elemento natural, a menudo subestimado, se convierte en una herramienta para enfrentar los desafíos de la existencia.</p>
+                    <p>De estas experiencias surgen las habilidades que han permitido a las comunidades resistir y sobrevivir, incluso en circunstancias adversas. Aunque su número ha disminuido con el tiempo, continúan defendiendo su identidad, tejiendo con paciencia su vínculo con la naturaleza. Vestidos de blanco como símbolo de pureza y hablando lenguajes propios, evocan un discurso que no pertenece al mundo moderno, sino al espíritu mismo de la Tierra.</p>
+                    <p>Sin embargo, no todos comprenden esta conexión. El mundo contemporáneo, enfocado en la invención, la creación y la destrucción, se ha alejado de la esencia de la vida. Ha priorizado la satisfacción de necesidades inmediatas sin considerar las consecuencias sobre el equilibrio natural, poniendo en riesgo no solo los recursos que sostienen la existencia, sino también la tranquilidad con la que nacemos.</p>
+                    <p>El ser humano moderno, en su afán por avanzar, ha relegado la sabiduría que surge de la Tierra. Se apoya en teorías y libros, pero olvida observar y sentir con el corazón. Esta desconexión ha generado una pérdida de sentido, alejándonos de aquello que nos hace verdaderamente humanos.</p>
+                    <p>Desde la mirada iku, lo físico y lo espiritual no pueden separarse. El mundo no es una suma de objetos, sino una red viva donde cada elemento tiene un propósito. Esta comprensión nos invita a reflexionar sobre nuestra relación con lo que nos rodea.</p>
+                    <p>Este escrito no es un concepto abstracto. Es una fuerza viva que nace de la conexión con la naturaleza, con los elementos y con los otros. Es una invitación a volver al origen, a escuchar la sabiduría que siempre ha estado presente, esperando ser reconocida.</p>
+                </div>
+            </section>
+
+            <section class="libro-section" id="capitulo-2" data-nav-title="Capítulo II">
+                <p class="libro-section__part">III. Raíces vivas</p>
+                <h2 class="libro-section__title">Capítulo II</h2>
+                <p class="libro-section__subtitle">Raíces vivas — El ayu, planta sagrada</p>
+                <div class="libro-section__content">
+                    <p>El ayu no es solo una planta. Es pensamiento, es palabra y es vínculo. Para el pueblo iku, su uso no responde a una costumbre vacía, sino a un acto profundo de conexión con la Madre Tierra y con el origen del pensamiento.</p>
+                    <p>Desde temprana edad, el ayu acompaña los procesos de aprendizaje. No se entrega de manera arbitraria ni se usa sin orientación. Su presencia está guiada por la palabra de los mayores, quienes enseñan que su propósito no es alterar la conciencia, sino ordenarla. A través del ayu, el pensamiento se aquieta, se escucha y se aclara.</p>
+                    <p>En los espacios de diálogo, especialmente entre hombres, el ayu cumple una función central. Mientras se comparte la palabra, se teje el pensamiento colectivo. Cada intervención no busca imponerse, sino equilibrarse con la de los otros. El silencio, en este contexto, también habla. Es parte del aprendizaje.</p>
+                    <p>El ayu fortalece la memoria. Permite recordar no solo hechos, sino sentidos. Ayuda a reconocer errores, a comprender responsabilidades y a asumir decisiones con mayor conciencia. Por eso su uso está profundamente ligado al respeto: respeto por uno mismo, por la comunidad y por la Tierra que lo ofrece.</p>
+                    <p>Desde una mirada externa, muchas veces se malinterpreta su significado. Se le reduce a una práctica aislada, sin comprender su dimensión espiritual y cultural. Esta visión fragmentada ignora que, para el pueblo iku, no existe separación entre cuerpo, pensamiento y territorio.</p>
+                    <p>La planta, como todo elemento de la naturaleza, tiene un espíritu y un propósito. No se toma para escapar de la realidad, sino para enfrentarla con claridad. En este sentido, el ayu no aleja del mundo: acerca al origen.</p>
+                    <p>El aprendizaje que se transmite alrededor del ayu no está escrito en libros. Vive en la palabra compartida, en la observación atenta y en la experiencia. Es un conocimiento que se construye con el tiempo, que no se acelera ni se fuerza.</p>
+                    <p>Así, el ayu se convierte en un puente. Une generaciones, sostiene la memoria y mantiene vivo el equilibrio entre el pensar y el sentir. Su enseñanza no termina en quien lo recibe, sino que se proyecta hacia la comunidad y hacia la vida misma.</p>
+                </div>
+            </section>
+
+            <section class="libro-section" id="capitulo-3" data-nav-title="Capítulo III">
+                <h2 class="libro-section__title">Capítulo III</h2>
+                <p class="libro-section__subtitle">El nacimiento de los pueblos y las características del pueblo iku</p>
+                <div class="libro-section__content">
+                    <p>El nacimiento de los pueblos no se cuenta como una historia que quedó atrás. No es un relato cerrado ni una explicación fija. Para el pueblo iku, el origen está siempre presente, porque no pertenece solo al pasado, sino al equilibrio que se sostiene día a día en el territorio.</p>
+                    <p>Los mayores enseñan que antes de que existieran los caminos visibles, ya existía el pensamiento. Antes de que hubiera casas, cultivos o comunidades, la Madre Tierra ya había dispuesto el orden de la vida. De ese orden nacieron los pueblos, cada uno con una función específica, con una responsabilidad clara frente al cuidado del mundo.</p>
+                    <p>El pueblo iku no nació para dominar la Tierra, sino para cuidarla. Esta idea se repite en la palabra de los sabios y se reafirma en la vida cotidiana. Cuidar no significa solo proteger, sino comprender. Comprender los ciclos del agua, los movimientos de la montaña, los mensajes del viento y los silencios del bosque.</p>
+                    <p>Desde niños, aprendemos que no estamos solos en el territorio. Todo tiene vida y pensamiento. Las piedras, los ríos, los árboles y los animales no son recursos: son seres con los que se establece una relación. Esta forma de entender el mundo define profundamente la identidad iku.</p>
+                    <p>La vestimenta blanca que caracteriza al pueblo iku no es solo una tradición visible. Representa la claridad del pensamiento y la relación directa con la nieve de las cumbres, de donde nace el agua que alimenta la vida. El gorro, tejido con paciencia, y el poporo, que acompaña el pensamiento del hombre, son símbolos de procesos largos, de aprendizajes que no se apresuran.</p>
+                    <p>La organización del pueblo iku se sostiene en la palabra de los mayores. Ellos no mandan por imposición, sino por coherencia. Su autoridad nace de la experiencia, del conocimiento del territorio y de la capacidad de escuchar antes de hablar. Las decisiones importantes no se toman de manera individual, sino colectiva, considerando siempre el equilibrio de la comunidad y de la naturaleza.</p>
+                    <p>La familia es el primer espacio donde se aprende a vivir. En ella se transmite el respeto, la paciencia y la observación. El trabajo diario —sembrar, caminar, cargar, construir— no se vive como una carga, sino como una forma de participar en el orden del mundo. Cada acción tiene sentido cuando se hace con conciencia.</p>
+                    <p>El pueblo iku también ha aprendido a resistir. A lo largo del tiempo, ha enfrentado presiones externas, cambios forzados y miradas que no comprenden su forma de vida. Sin embargo, la fuerza de la comunidad ha estado en no perder la memoria. La memoria no solo como recuerdo, sino como práctica viva.</p>
+                    <p>Ser iku no es una identidad que se declara con palabras. Es una forma de caminar, de hablar, de relacionarse con los demás y con la Tierra. Es una responsabilidad que se asume todos los días, incluso en medio de los cambios que trae el mundo exterior.</p>
+                    <p>Así, el nacimiento de los pueblos no es un evento lejano. Continúa ocurriendo cada vez que un niño aprende a escuchar, cada vez que un mayor comparte su palabra, y cada vez que la comunidad decide cuidar el equilibrio antes que el beneficio individual.</p>
+                </div>
+            </section>
+
+            <section class="libro-section" id="capitulo-4" data-nav-title="Capítulo IV">
+                <p class="libro-section__part">IV. Experiencias vividas en la Sierra</p>
+                <h2 class="libro-section__title">Capítulo IV</h2>
+                <p class="libro-section__subtitle">Experiencias vividas — La casa, el fuego y la vida diaria</p>
+                <div class="libro-section__content">
+                    <p>La casa en la Sierra no es solo un lugar para dormir. Es un espacio donde la vida se ordena. Desde pequeño entendí que la casa es un punto de encuentro entre el pensamiento, el cuerpo y el territorio. Allí se descansa, pero también se aprende a escuchar.</p>
+                    <p>Las casas no siempre eran iguales, pero todas compartían algo: el fuego. El fuego ocupa un lugar central. No solo sirve para cocinar o para dar calor durante las noches frías, sino que reúne a la familia. Alrededor del fuego se conversa, se guarda silencio, se escuchan historias y se aprende sin darse cuenta.</p>
+                    <p>La madre está siempre cerca de ese espacio. Su presencia es constante, firme y silenciosa. No necesita levantar la voz para enseñar. Con su forma de hacer las cosas, va transmitiendo el respeto, la paciencia y el cuidado. Desde ella se aprende a tratar los alimentos, a no desperdiciar, a agradecer lo que la Tierra ofrece.</p>
+                    <p>El día comienza temprano. No hay relojes que marquen la hora exacta, pero el cuerpo aprende a despertar con la luz, con el canto de los pájaros y con el movimiento de la comunidad. Cada día trae tareas distintas, pero todas tienen un sentido. Nada se hace porque sí.</p>
+                    <p>Salir de la casa implica caminar. Caminar hacia el río, hacia el cultivo, hacia otra comunidad. El camino es parte de la vida. No se mide por distancia, sino por lo que se aprende en él. Mientras se camina, se observa el cambio del clima, la forma en que la montaña se cubre de nubes o se despeja lentamente.</p>
+                    <p>El río ocupa un lugar especial en la memoria. No es solo agua que corre. Es un ser vivo que acompaña. En él se lava, se juega, se conversa y se aprende a respetar la fuerza de la naturaleza. Desde niño se entiende que el río puede dar vida, pero también exige cuidado. No se entra sin pensar, no se ensucia, no se toma más de lo necesario.</p>
+                    <p>La relación con el río enseña equilibrio. Enseña que todo fluye, que nada permanece quieto y que la vida, como el agua, sigue su curso incluso cuando parece tranquila. Escuchar el sonido del agua al caer sobre las piedras calma el pensamiento y ordena el sentir.</p>
+                    <p>La alimentación también forma parte del aprendizaje diario. Los alimentos no llegan empaquetados ni separados de su origen. Se siembra, se cuida, se espera y luego se recoge. Cada alimento tiene su tiempo. Aprender a esperar es una lección constante.</p>
+                    <p>En la Sierra no se come solo para saciar el hambre. Se come para fortalecer el cuerpo y el pensamiento. Antes de tomar, antes de comer, se agradece. Este gesto sencillo va formando una conciencia profunda sobre la relación con la Tierra.</p>
+                    <p>La noche trae otro ritmo. El silencio se vuelve más intenso y los sonidos del bosque se hacen presentes. El fuego vuelve a ser centro. Las conversaciones se vuelven más pausadas. Los mayores cuentan historias, no siempre para entretener, sino para enseñar.</p>
+                    <p>Muchas de esas historias hablan de respeto. De lo que no se debe hacer. De lo que puede pasar cuando se camina sin cuidado o cuando se ignoran las señales del territorio. El miedo no se usa para controlar, sino para orientar. Enseña a no burlarse de lo que no se comprende.</p>
+                    <p>Dormir en la Sierra es entregarse al sonido de la noche. El cuerpo aprende a descansar con poco, a adaptarse al frío, a la lluvia, al viento. Todo esto va formando carácter. No se nota de inmediato, pero se queda en la memoria.</p>
+                    <p>Estas experiencias no son extraordinarias para quien nace allí. Son la vida misma. Pero con el tiempo, se entiende que en esa cotidianidad sencilla se guarda una sabiduría profunda. Una forma de vivir que no separa lo humano de lo natural, ni el pensamiento del territorio.</p>
+                </div>
+            </section>
+
+            <section class="libro-section" id="capitulo-5" data-nav-title="Capítulo V">
+                <p class="libro-section__part">VI. Memoria, miedo y espíritu</p>
+                <h2 class="libro-section__title">Capítulo V</h2>
+                <p class="libro-section__subtitle">Memoria, miedo y espíritu</p>
+                <div class="libro-section__content">
+                    <p>En la Sierra, el miedo no se aprende de golpe. Se va formando con las historias que se escuchan desde niño, con los silencios que acompañan la noche y con la manera en que los mayores miran el territorio antes de hablar. No es un miedo que paraliza, es un miedo que enseña.</p>
+                    <p>Desde pequeño entendí que no todo se explica con palabras. Hay cosas que se sienten. Cuando cae la noche y el bosque cambia su sonido, el cuerpo lo percibe de inmediato. Los pájaros se callan, otros animales comienzan a moverse y el viento toma otra fuerza. La oscuridad no es ausencia de vida, es presencia de algo distinto.</p>
+                    <p>Los mayores contaban historias alrededor del fuego. No siempre decían los nombres completos, ni daban detalles innecesarios. Bastaba una frase, una advertencia, una mirada seria. Así se transmitía el respeto por lo invisible. No se hablaba para asustar, se hablaba para cuidar.</p>
+                    <p>Se decía que no todos los lugares debían ser transitados a cualquier hora. Que había caminos que solo se cruzaban con permiso, y otros que era mejor rodear. El territorio tiene dueños espirituales, y caminar sin conciencia podía traer consecuencias. Estas enseñanzas se quedaban grabadas, no como una amenaza, sino como una guía.</p>
+                    <p>El bosque, de noche, se siente distinto. Cada sonido parece más cercano. Una rama que se quiebra, un paso que no se ve, un susurro que no se identifica. En esos momentos, el cuerpo aprende a escuchar con atención. Se aprende a no correr, a no gritar, a mantener la calma.</p>
+                    <p>El miedo también enseñaba a caminar acompañado. No solo físicamente, sino espiritualmente. Antes de salir, se recomendaba pensar bien el camino, tener claridad en la intención y respetar el lugar al que se iba. Nada se hacía de manera impulsiva.</p>
+                    <p>Recuerdo relatos sobre apariciones, sobre personas que se perdían por no escuchar las advertencias, sobre espíritus que cuidaban ciertos espacios. No eran historias para entretener, eran lecciones envueltas en palabras. Cada relato tenía un propósito.</p>
+                    <p>Uno de los momentos que más marcaba la memoria era el eclipse. Cuando el sol o la luna se ocultaban de manera repentina, la comunidad entraba en un estado de atención profunda. No se trataba de un fenómeno cualquiera. Se guardaba silencio, se evitaban ciertas acciones y se respetaba ese momento como un cambio en el orden natural.</p>
+                    <p>Los mayores explicaban que durante esos eventos el equilibrio se movía, y que era necesario mantenerse en calma. El miedo aparecía, pero no como pánico, sino como respeto. Se entendía que la naturaleza estaba hablando.</p>
+                    <p>La noche también era espacio de aprendizaje personal. Acostado, escuchando el sonido del viento golpeando suavemente la casa o la lluvia cayendo sin descanso, el pensamiento se iba ordenando. El cuerpo se acostumbraba a no controlar todo, a confiar.</p>
+                    <p>Con el tiempo, comprendí que el miedo no era algo negativo. Era una forma de cuidado. Enseñaba límites, recordaba que no todo nos pertenece y que el ser humano no está solo ni es el centro de todo. Aprender a convivir con ese miedo era parte del crecimiento.</p>
+                    <p>Estas experiencias forjaron una relación distinta con el mundo. No se trataba de vivir con temor constante, sino con conciencia. Saber cuándo avanzar y cuándo detenerse. Saber cuándo hablar y cuándo callar.</p>
+                    <p>La memoria de estas historias permanece. No se borra con el tiempo ni con la llegada de nuevas ideas. Al contrario, se fortalece cuando se comprende su sentido profundo. En ellas vive una sabiduría que protege, que orienta y que mantiene el equilibrio entre lo visible y lo invisible.</p>
+                </div>
+            </section>
+
+            <section class="libro-section" id="capitulo-6" data-nav-title="Capítulo VI">
+                <p class="libro-section__part">VII. Encuentros y transformaciones</p>
+                <h2 class="libro-section__title">Capítulo VI</h2>
+                <p class="libro-section__subtitle">Encuentros y transformaciones</p>
+                <div class="libro-section__content">
+                    <p>Con el paso del tiempo, el mundo externo empezó a hacerse más presente. No llegó de golpe, llegó poco a poco, como llegan los cambios que al principio no se notan. Nuevas palabras, nuevos objetos, nuevas formas de pensar comenzaron a aparecer en la vida cotidiana de la comunidad.</p>
+                    <p>Al principio, estos cambios despertaban curiosidad. Ver herramientas distintas, escuchar otros idiomas, observar costumbres diferentes generaba preguntas. No todo era rechazo. El pueblo iku siempre ha sabido observar antes de decidir. Sin embargo, no todo lo que llega trae equilibrio.</p>
+                    <p>La modernidad se presenta muchas veces como progreso. Promete facilidad, rapidez y comodidad. Pero en la Sierra, todo se mide de otra manera. La pregunta no es si algo es nuevo, sino si respeta el orden de la vida. Esa es la medida real.</p>
+                    <p>Algunas herramientas ayudaron a aliviar cargas físicas, a mejorar ciertos procesos. Otras, en cambio, comenzaron a debilitar prácticas importantes. Cuando algo reemplaza el caminar por la prisa, o el silencio por el ruido constante, el pensamiento empieza a dispersarse.</p>
+                    <p>La tecnología trajo consigo una forma distinta de relacionarse. La atención se fue desplazando poco a poco. Antes, la palabra se compartía mirando a los ojos; ahora, muchas veces se dirige a objetos que no responden. Esta transformación no pasó desapercibida para los mayores.</p>
+                    <p>Los sabios advirtieron que no todo debía adoptarse sin reflexión. Enseñaron que cada cosa nueva debía pasar por el pensamiento, por la consulta, por la observación de sus consecuencias. No se trataba de cerrarse al mundo, sino de no perderse en él.</p>
+                    <p>Uno de los cambios más visibles fue en los jóvenes. Al tener contacto con otras realidades, comenzaron a surgir tensiones internas. El deseo de salir, de conocer, de experimentar otras formas de vida convivía con la responsabilidad de mantener la memoria. No siempre fue fácil equilibrar ambas cosas.</p>
+                    <p>Algunos se alejaron del territorio, buscando oportunidades fuera. Otros regresaron con nuevas ideas. Cada camino trajo aprendizajes, pero también preguntas profundas sobre la identidad. ¿Cómo seguir siendo iku en un mundo que avanza rápido y muchas veces no escucha?</p>
+                    <p>La educación formal también tuvo un impacto. Aprender a leer y escribir en otros sistemas abrió puertas, pero al mismo tiempo planteó retos. El conocimiento escrito comenzó a competir con la palabra oral. Fue necesario recordar que una no debía reemplazar a la otra, sino complementarse.</p>
+                    <p>Los mayores insistieron en que el saber ancestral no puede perderse por falta de práctica. No basta con recordarlo: hay que vivirlo. Por eso, la enseñanza tradicional siguió siendo fundamental, incluso cuando nuevas formas de aprendizaje se hicieron presentes.</p>
+                    <p>El contacto con personas externas trajo miradas distintas sobre la cultura. Algunas llenas de respeto, otras cargadas de prejuicio. Ser observado como algo extraño o exótico generó incomodidad. La identidad no se construye para ser mostrada, sino para ser vivida.</p>
+                    <p>En medio de estas transformaciones, la comunidad tuvo que reafirmar sus principios. Volver al origen, escuchar a los mayores, fortalecer los espacios de diálogo. Recordar que el equilibrio no está en rechazar todo ni en aceptarlo todo, sino en saber elegir.</p>
+                    <p>Estas transformaciones siguen ocurriendo. No son un capítulo cerrado. Forman parte de un proceso continuo donde la memoria se pone a prueba y se reafirma. En ese movimiento constante, el pueblo iku sigue caminando, cuidando lo esencial mientras aprende a convivir con un mundo cambiante.</p>
+                </div>
+            </section>
+
+            <section class="libro-section" id="capitulo-7" data-nav-title="Capítulo VII">
+                <h2 class="libro-section__title">Capítulo VII</h2>
+                <p class="libro-section__subtitle">Resistencia y memoria viva</p>
+                <div class="libro-section__content">
+                    <p>La resistencia no siempre se muestra como lucha visible. En la Sierra, muchas veces se manifiesta en silencio, en la decisión diaria de no soltar lo aprendido. Resistir no es oponerse con fuerza, es permanecer.</p>
+                    <p>La memoria vive en los actos pequeños. En seguir caminando el territorio, en escuchar a los mayores, en mantener los rituales aunque el mundo exterior no los comprenda. Cada gesto cotidiano se convierte en una forma de cuidar lo que somos.</p>
+                    <p>Los mayores enseñan que la memoria no se guarda solo en la mente. Vive en el cuerpo, en la forma de hablar, en la manera de sembrar y de caminar. Por eso, cuando una práctica se abandona, no solo se pierde una costumbre: se debilita un equilibrio.</p>
+                    <p>La resistencia cultural del pueblo iku no nace del rechazo al otro, sino del amor profundo por el origen. Amar el origen implica protegerlo, incluso cuando hacerlo resulta difícil. Implica decir no cuando algo amenaza con romper el tejido comunitario.</p>
+                    <p>Con el paso del tiempo, comprendí que resistir también significa adaptarse sin perderse. Aprender nuevas formas de comunicarse, de moverse en otros espacios, pero sin olvidar de dónde se viene. La memoria se vuelve entonces una brújula.</p>
+                    <p>Muchos jóvenes caminan hoy entre dos mundos. Uno que avanza rápido y exige respuestas inmediatas, y otro que enseña a esperar, a escuchar, a respetar los ciclos. Esa caminata no es sencilla. Genera dudas, cansancio y a veces dolor. Pero también fortalece.</p>
+                    <p>La comunidad cumple un papel fundamental en ese proceso. Volver al territorio, participar en los espacios colectivos, escuchar nuevamente la palabra de los sabios permite reordenar el pensamiento. Nadie se sostiene solo. La resistencia siempre es compartida.</p>
+                    <p>La lengua, la vestimenta, los rituales y la relación con la Tierra no son símbolos vacíos. Son formas de mantener viva la memoria. Cada vez que se practican con conciencia, el pueblo se reafirma.</p>
+                    <p>Resistir no es quedarse inmóvil. Es moverse con cuidado. Es elegir qué se toma del mundo externo y qué se deja pasar. Es comprender que no todo lo que brilla es necesario y que no todo lo antiguo debe ser abandonado.</p>
+                    <p>La memoria viva también se proyecta hacia afuera. Compartir la palabra, escribir, dialogar con otros pueblos no es una traición al origen. Al contrario, puede ser una forma de protegerlo, siempre que se haga con respeto y claridad.</p>
+                    <p>Este libro nace desde esa intención. No como una defensa agresiva, sino como una afirmación serena. Decir quiénes somos, cómo pensamos y por qué cuidamos la Tierra no es un acto de confrontación, es un acto de responsabilidad.</p>
+                    <p>Mientras la memoria siga siendo practicada, mientras la palabra de los mayores siga siendo escuchada y mientras el territorio sea respetado, la resistencia continuará. No como un recuerdo del pasado, sino como una fuerza presente.</p>
+                </div>
+            </section>
+
+            <section class="libro-section" id="capitulo-8" data-nav-title="Capítulo VIII">
+                <p class="libro-section__part">VIII. Los sabios de la montaña</p>
+                <h2 class="libro-section__title">Capítulo VIII</h2>
+                <p class="libro-section__subtitle">Los sabios de la montaña — La palabra que orienta</p>
+                <div class="libro-section__content">
+                    <p>En la Sierra, la sabiduría no se anuncia. Se reconoce. Los sabios no necesitan levantar la voz ni ocupar un lugar visible para ser escuchados. Su presencia se siente en la forma en que caminan, en cómo observan el territorio y en el peso sereno de su palabra.</p>
+                    <p>Desde niño aprendí que no cualquiera puede llamarse sabio. No basta con el paso del tiempo. La sabiduría nace de la coherencia entre lo que se piensa, lo que se dice y lo que se hace. Los mayores enseñan que un sabio es aquel que ha aprendido a escuchar antes de hablar, y a pensar antes de actuar.</p>
+                    <p>Los sabios de la montaña no enseñan con discursos largos. Muchas veces una sola frase, dicha en el momento justo, puede acompañar a una persona durante toda su vida. Otras veces enseñan con el silencio, dejando que cada quien descubra por sí mismo lo que necesita comprender.</p>
+                    <p>Su relación con el territorio es profunda. Conocen los ciclos del agua, los cambios del clima, los lugares que deben ser protegidos y los momentos en que la comunidad necesita orientación. No hablan desde la teoría, hablan desde la experiencia vivida.</p>
+                    <p>El pensamiento espiritual que transmiten no está separado de la vida cotidiana. No es algo que se practique solo en momentos especiales. Está presente en la forma de sembrar, de caminar, de relacionarse con los demás y de tomar decisiones colectivas. Todo está conectado.</p>
+                    <p>Para llegar a ser sabio, el camino es largo. Comienza desde la infancia, con la observación, el respeto y la disciplina. No se trata de acumular conocimientos, sino de ordenar el pensamiento. El sabio no busca reconocimiento; busca equilibrio.</p>
+                    <p>En los espacios de consulta, cuando la comunidad enfrenta dificultades o decisiones importantes, la palabra del sabio ayuda a aclarar el camino. No impone una solución, sino que orienta para que el pensamiento colectivo encuentre su propio orden.</p>
+                    <p>Los sabios también cargan una gran responsabilidad. Son guardianes del equilibrio espiritual del territorio. Su trabajo no siempre se ve, pero se siente. Cuando el orden se mantiene, es porque alguien está pensando y cuidando en silencio.</p>
+                    <p>Con el paso del tiempo, comprendí que la sabiduría no es algo lejano ni inaccesible. Es una posibilidad que se cultiva con paciencia, respeto y compromiso. No todos serán sabios, pero todos pueden aprender a vivir con conciencia.</p>
+                    <p>La palabra de los mayores no pertenece solo a ellos. Se entrega para que continúe. Para que no se pierda cuando ellos ya no estén físicamente. En cada enseñanza hay una intención clara: que la vida siga en equilibrio.</p>
+                    <p>Escuchar a los sabios es escuchar a la montaña misma. Es permitir que el territorio hable a través de quienes han dedicado su vida a comprenderlo. Por eso su palabra no envejece. Permanece vigente, incluso en medio de los cambios del mundo.</p>
+                </div>
+            </section>
+
+            <section class="libro-section" id="capitulo-9" data-nav-title="Capítulo IX">
+                <p class="libro-section__part">IX. Memoria que permanece</p>
+                <h2 class="libro-section__title">Capítulo IX</h2>
+                <p class="libro-section__subtitle">Memoria que permanece</p>
+                <div class="libro-section__content">
+                    <p>No escribí estas páginas para enseñar una verdad única ni para explicar un mundo que no puede encerrarse en palabras. Escribí porque la memoria insiste, porque lo vivido pide ser recordado y porque la montaña no olvida a quienes han caminado sobre su cuerpo con respeto.</p>
+                    <p>Todo lo que aquí se ha dicho nace de la experiencia, del compartir y de la escucha. No es una historia ajena ni una mirada distante. Es una palabra que surge desde dentro, desde el territorio, desde la infancia, desde la comunidad y desde el pensamiento que se forma al caminar despacio.</p>
+                    <p>La Sierra no es un paisaje. Es un ser vivo que piensa, siente y responde. En sus ríos corre la memoria de los pueblos, en sus montañas se sostiene el equilibrio del mundo y en su silencio habita una enseñanza que no grita, pero permanece. Quien aprende a escucharla entiende que la vida no se trata de acumular, sino de cuidar.</p>
+                    <p>A lo largo de este camino, comprendí que la memoria no es un recuerdo inmóvil. Es una práctica diaria. Vive en la forma de relacionarse con la Tierra, en la manera de hablar, en la decisión de respetar los ciclos y en la responsabilidad de pensar antes de actuar. Cuando la memoria se abandona, el equilibrio se debilita.</p>
+                    <p>El pueblo iku ha sostenido su existencia no por aislamiento, sino por claridad. Saber quién se es permite dialogar con otros sin perderse. Abrirse al mundo no significa olvidar el origen, sino llevarlo consigo como guía. Esa ha sido una de las enseñanzas más profundas.</p>
+                    <p>Hoy el mundo atraviesa un momento de desequilibrio evidente. La Tierra da señales claras de cansancio. Los ríos se agotan, los bosques se reducen y el pensamiento humano se acelera sin detenerse a escuchar las consecuencias. Frente a esto, los saberes ancestrales no son un recuerdo del pasado: son una advertencia y una posibilidad.</p>
+                    <p>Este escrito no busca idealizar ni romantizar una forma de vida. Busca recordar que existen otras maneras de habitar el mundo. Maneras donde el respeto no es un discurso, sino una práctica cotidiana. Donde la palabra tiene peso y el silencio también enseña.</p>
+                    <p>Si estas páginas llegan a otras manos, que no sea para observar una cultura como algo lejano o exótico. Que sea para mirarse a uno mismo. Porque, en el fondo, todos venimos de la Tierra. Todos dependemos de ella. Y todos tenemos una responsabilidad frente a su cuidado.</p>
+                    <p>La memoria que aquí se comparte no me pertenece solo a mí. Pertenece a los mayores que enseñaron, a las comunidades que sostienen la vida y a la montaña que permitió aprender. Mi palabra es solo un puente.</p>
+                    <p>Mientras el agua siga corriendo por los ríos de la Sierra, mientras los sabios sigan pensando en silencio y mientras haya personas dispuestas a escuchar, la memoria permanecerá viva.</p>
+                    <p>La montaña sigue en pie. Y mientras ella esté, la palabra seguirá caminando.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <nav class="libro-nav-bottom" aria-label="Navegación entre capítulos">
+        <button type="button" class="libro-nav-bottom__btn" id="libro-prev" disabled>
+            <span class="libro-nav-bottom__label" data-i18n="libro.prev">Anterior</span>
+            <span class="libro-nav-bottom__text"></span>
+        </button>
+        <button type="button" class="libro-nav-bottom__btn libro-nav-bottom__btn--next" id="libro-next">
+            <span class="libro-nav-bottom__label" data-i18n="libro.next">Siguiente</span>
+            <span class="libro-nav-bottom__text"></span>
+        </button>
+    </nav>
+
+    <script src="../js/i18n.js"></script>
+    <script src="../js/libro.js"></script>
+</body>
+</html>

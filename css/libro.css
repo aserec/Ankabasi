@@ -1,0 +1,363 @@
+/* ===== Libro — Memoria de una Montaña ===== */
+.libro-layout {
+    --libro-sidebar-width: 260px;
+    --libro-page-padding: 1rem;
+    --libro-header-height: 60px;
+    --libro-nav-height: 56px;
+    --libro-bg: #faf8f5;
+    --libro-text: #2c2c2c;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: calc(var(--libro-header-height) + 3px) var(--libro-page-padding) var(--libro-nav-height);
+    gap: 0;
+    background-color: var(--libro-bg);
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.libro-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--libro-header-height);
+    background: var(--color-white);
+    border-bottom: 1px solid var(--color-bg-lighter);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    padding: 0 var(--libro-page-padding);
+    gap: 1rem;
+}
+
+.libro-header__back {
+    font-size: 0.875rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.libro-header__back:hover {
+    color: var(--color-primary-light);
+}
+
+.libro-header__title {
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    flex: 1;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.libro-header__toc-btn {
+    display: none;
+    background: none;
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--border-radius);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.libro-header__toc-btn:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+}
+
+.libro-header__mundo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding-left: 0.65rem;
+    border-left: 2px solid var(--color-primary-light);
+    flex-shrink: 0;
+}
+
+.libro-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.libro-header__mundo-label {
+    font-family: var(--font-heading);
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-secondary);
+    white-space: nowrap;
+}
+
+.libro-header__mundo-link {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    white-space: nowrap;
+}
+
+.libro-header__mundo-link:hover,
+.libro-header__mundo-link--active {
+    color: var(--color-primary-light);
+}
+
+.libro-progress {
+    position: fixed;
+    top: var(--libro-header-height);
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-bg-lighter);
+    z-index: 199;
+}
+
+.libro-progress__bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
+    transition: width 0.1s linear;
+}
+
+.libro-sidebar {
+    position: sticky;
+    top: calc(var(--libro-header-height) + 3px);
+    flex: 0 0 var(--libro-sidebar-width);
+    width: var(--libro-sidebar-width);
+    min-width: var(--libro-sidebar-width);
+    max-height: calc(100vh - var(--libro-header-height) - 3px - var(--libro-nav-height));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    padding: 1.25rem 0.75rem 1rem 0;
+    background: var(--libro-bg);
+    border-right: 1px solid var(--color-bg-lighter);
+    box-sizing: border-box;
+}
+
+.libro-sidebar__heading {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+
+.libro-toc__part {
+    margin-bottom: 1.25rem;
+}
+
+.libro-toc__part-title {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.libro-toc__list {
+    list-style: none;
+    padding-left: 0.5rem;
+}
+
+.libro-toc__link {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--color-text-light);
+    padding: 0.35rem 0.5rem;
+    border-left: 2px solid transparent;
+    line-height: 1.35;
+    transition: var(--transition);
+}
+
+.libro-toc__link:hover,
+.libro-toc__link.active {
+    color: var(--color-primary);
+    border-left-color: var(--color-primary-light);
+    background: rgba(45, 80, 22, 0.05);
+}
+
+.libro-main {
+    flex: 1;
+    min-width: 0;
+    max-width: none;
+    margin: 0;
+    padding: 2rem 0.5rem 2rem 1.5rem;
+    box-sizing: border-box;
+}
+
+.libro-section {
+    margin-bottom: 4rem;
+    scroll-margin-top: calc(var(--libro-header-height) + 20px);
+}
+
+.libro-section--portada {
+    text-align: center;
+    padding: 4rem 0 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--color-bg-lighter);
+}
+
+.libro-portada__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.75rem, 5vw, 2.75rem);
+    font-weight: 700;
+    color: var(--color-primary);
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.libro-portada__subtitle {
+    font-size: 1.125rem;
+    color: var(--color-secondary);
+    font-style: italic;
+}
+
+.libro-section__part {
+    font-family: var(--font-heading);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+}
+
+.libro-section__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.35rem;
+    line-height: 1.25;
+}
+
+.libro-section__subtitle {
+    font-size: 1.05rem;
+    color: var(--color-secondary);
+    font-style: italic;
+    margin-bottom: 1.75rem;
+}
+
+.libro-section__content p {
+    font-size: 1.0625rem;
+    line-height: 1.85;
+    color: var(--libro-text);
+    margin-bottom: 1.25rem;
+}
+
+.libro-section__content p:last-child {
+    margin-bottom: 0;
+}
+
+.libro-divider {
+    border: none;
+    border-top: 1px solid var(--color-bg-lighter);
+    margin: 3rem 0;
+}
+
+.libro-nav-bottom {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--libro-nav-height);
+    background: var(--color-white);
+    border-top: 1px solid var(--color-bg-lighter);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--libro-page-padding);
+    z-index: 200;
+    gap: 1rem;
+}
+
+.libro-nav-bottom__btn {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    max-width: 45%;
+    text-align: left;
+    line-height: 1.3;
+}
+
+.libro-nav-bottom__btn--next {
+    text-align: right;
+    margin-left: auto;
+}
+
+.libro-nav-bottom__btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.libro-nav-bottom__btn:not(:disabled):hover {
+    color: var(--color-primary-light);
+}
+
+.libro-nav-bottom__label {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 400;
+    color: var(--color-text-light);
+}
+
+.libro-sidebar-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 150;
+}
+
+.libro-sidebar-overlay.active {
+    display: block;
+}
+
+.libro-teaser {
+    background: transparent;
+}
+
+.libro-teaser__content {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 1rem 0 2rem;
+}
+
+.libro-teaser__book-title {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.03em;
+}
+
+.libro-teaser__excerpt {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--color-text-light);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}

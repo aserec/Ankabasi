@@ -25,11 +25,14 @@
                 actividades: 'Actividades',
                 precios: 'Precios',
                 galeria: 'Galería',
+                blog: 'Blog',
+                libro: 'Libro',
                 folleto: 'Folleto',
                 testimonios: 'Testimonios',
                 donde: 'Dónde',
                 contacto: 'Contacto',
                 reservar: 'Reservar ahora',
+                mundoAnkabasi: 'Mundo Ankabasi',
             },
             main: {
                 title: 'Ankabasi',
@@ -123,6 +126,33 @@
                     'Descarga nuestro folleto completo con información detallada sobre la experiencia, actividades, precios y más.',
                 download: '📥 Descargar Folleto',
             },
+            blog: {
+                title: 'Blog',
+                subtitle:
+                    'Historias, memorias y reflexiones desde el corazón de la Sierra Nevada',
+                readMore: 'Leer artículo',
+                allPosts: 'Ver todos los artículos',
+                prev: 'Artículo anterior',
+                next: 'Artículo siguiente',
+            },
+            mundo: {
+                eyebrow: 'Más allá de la experiencia',
+                subtitle:
+                    'Historias, memorias y sabiduría compartida desde la Sierra Nevada',
+            },
+            libro: {
+                title: 'El libro de Ankabasi',
+                subtitle:
+                    'Memoria de una Montaña — un relato desde la Sierra Nevada de Santa Marta',
+                bookTitle: 'Memoria de una Montaña',
+                excerpt:
+                    'Este libro no comienza en la primera página ni termina en la última. Comienza mucho antes, en el territorio, en la memoria compartida y en los pasos dados sobre la montaña.',
+                startReading: 'Comenzar lectura',
+                backHome: '← Volver a Ankabasi',
+                toc: 'Índice',
+                prev: 'Anterior',
+                next: 'Siguiente',
+            },
             testimonials: {
                 title: 'Experiencias de nuestros visitantes',
                 t1: '"Una experiencia que cambió mi perspectiva sobre la vida y la naturaleza. Conectar con los Arhuacos fue profundamente transformador."',
@@ -181,11 +211,14 @@
                 actividades: 'Activities',
                 precios: 'Pricing',
                 galeria: 'Gallery',
+                blog: 'Blog',
+                libro: 'Book',
                 folleto: 'Brochure',
                 testimonios: 'Testimonials',
                 donde: 'Location',
                 contacto: 'Contact',
                 reservar: 'Book now',
+                mundoAnkabasi: 'Ankabasi World',
             },
             main: {
                 title: 'Ankabasi',
@@ -278,6 +311,33 @@
                     'Download our full brochure with detailed information on the experience, activities, prices, and more.',
                 download: '📥 Download brochure',
             },
+            blog: {
+                title: 'Blog',
+                subtitle:
+                    'Stories, memories and reflections from the heart of the Sierra Nevada',
+                readMore: 'Read article',
+                allPosts: 'View all articles',
+                prev: 'Previous article',
+                next: 'Next article',
+            },
+            mundo: {
+                eyebrow: 'Beyond the experience',
+                subtitle:
+                    'Stories, memories and wisdom shared from the Sierra Nevada',
+            },
+            libro: {
+                title: 'The Ankabasi book',
+                subtitle:
+                    'Memory of a Mountain — a story from the Sierra Nevada de Santa Marta',
+                bookTitle: 'Memory of a Mountain',
+                excerpt:
+                    'This book does not begin on the first page nor end on the last. It begins much earlier, in the territory, in shared memory and in steps taken on the mountain.',
+                startReading: 'Start reading',
+                backHome: '← Back to Ankabasi',
+                toc: 'Contents',
+                prev: 'Previous',
+                next: 'Next',
+            },
             testimonials: {
                 title: 'What our visitors say',
                 t1: '"An experience that changed my perspective on life and nature. Connecting with the Arhuaco people was deeply transformative."',
@@ -336,11 +396,14 @@
                 actividades: 'Aktivitäten',
                 precios: 'Preise',
                 galeria: 'Galerie',
+                blog: 'Blog',
+                libro: 'Buch',
                 folleto: 'Broschüre',
                 testimonios: 'Stimmen',
                 donde: 'Ort',
                 contacto: 'Kontakt',
                 reservar: 'Jetzt buchen',
+                mundoAnkabasi: 'Ankabasi Welt',
             },
             main: {
                 title: 'Ankabasi',
@@ -434,6 +497,33 @@
                     'Lade unsere vollständige Broschüre mit Details zum Erlebnis, Aktivitäten, Preisen und mehr herunter.',
                 download: '📥 Broschüre herunterladen',
             },
+            blog: {
+                title: 'Blog',
+                subtitle:
+                    'Geschichten, Erinnerungen und Reflexionen aus dem Herzen der Sierra Nevada',
+                readMore: 'Artikel lesen',
+                allPosts: 'Alle Artikel ansehen',
+                prev: 'Vorheriger Artikel',
+                next: 'Nächster Artikel',
+            },
+            mundo: {
+                eyebrow: 'Jenseits des Erlebnisses',
+                subtitle:
+                    'Geschichten, Erinnerungen und Weisheit aus der Sierra Nevada',
+            },
+            libro: {
+                title: 'Das Buch von Ankabasi',
+                subtitle:
+                    'Erinnerung an einen Berg — ein Bericht aus der Sierra Nevada de Santa Marta',
+                bookTitle: 'Erinnerung an einen Berg',
+                excerpt:
+                    'Dieses Buch beginnt nicht auf der ersten Seite und endet nicht auf der letzten. Es beginnt viel früher, im Territorium, im geteilten Gedächtnis und in den Schritten auf dem Berg.',
+                startReading: 'Lesen beginnen',
+                backHome: '← Zurück zu Ankabasi',
+                toc: 'Inhalt',
+                prev: 'Zurück',
+                next: 'Weiter',
+            },
             testimonials: {
                 title: 'Stimmen unserer Besucher',
                 t1: '"Ein Erlebnis, das meine Sicht auf Leben und Natur verändert hat. Die Begegnung mit den Arhuaco war tief bewegend."',
@@ -492,11 +582,14 @@
                 actividades: 'Activités',
                 precios: 'Tarifs',
                 galeria: 'Galerie',
+                blog: 'Blog',
+                libro: 'Livre',
                 folleto: 'Brochure',
                 testimonios: 'Témoignages',
                 donde: 'Lieu',
                 contacto: 'Contact',
                 reservar: 'Réserver',
+                mundoAnkabasi: 'Monde Ankabasi',
             },
             main: {
                 title: 'Ankabasi',
@@ -589,6 +682,33 @@
                 cardDesc:
                     'Téléchargez notre brochure complète avec l’expérience, les activités, les tarifs et plus encore.',
                 download: '📥 Télécharger la brochure',
+            },
+            blog: {
+                title: 'Blog',
+                subtitle:
+                    'Histoires, mémoires et réflexions depuis le cœur de la Sierra Nevada',
+                readMore: 'Lire l\'article',
+                allPosts: 'Voir tous les articles',
+                prev: 'Article précédent',
+                next: 'Article suivant',
+            },
+            mundo: {
+                eyebrow: 'Au-delà de l\'expérience',
+                subtitle:
+                    'Histoires, mémoires et sagesse partagées depuis la Sierra Nevada',
+            },
+            libro: {
+                title: 'Le livre d\'Ankabasi',
+                subtitle:
+                    'Mémoire d\'une montagne — un récit depuis la Sierra Nevada de Santa Marta',
+                bookTitle: 'Mémoire d\'une montagne',
+                excerpt:
+                    'Ce livre ne commence pas à la première page ni ne se termine à la dernière. Il commence bien avant, sur le territoire, dans la mémoire partagée et dans les pas sur la montagne.',
+                startReading: 'Commencer la lecture',
+                backHome: '← Retour à Ankabasi',
+                toc: 'Sommaire',
+                prev: 'Précédent',
+                next: 'Suivant',
             },
             testimonials: {
                 title: 'Expériences de nos visiteurs',
