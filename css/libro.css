@@ -33,6 +33,19 @@
     gap: 1rem;
 }
 
+.libro-header__logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.libro-header__logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
 .libro-header__back {
     font-size: 0.875rem;
     color: var(--color-primary);

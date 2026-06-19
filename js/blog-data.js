@@ -4,10 +4,7 @@
 const BLOG_POSTS = [
     {
         slug: 'los-sabios-de-la-montana',
-        title: 'Los sabios de la montaña',
         date: '2026-05-20',
-        excerpt:
-            'En ese lugar en las horas de la mañana de cualquier día de verano o invierno se lograba percibir la insinuación apreciativa de la presencia de aquellas personas anónimas…',
         featuredImage: '../images/blog/DSC09240.jpg',
         images: [
             '../images/blog/DSC09240.jpg',
@@ -19,10 +16,7 @@ const BLOG_POSTS = [
     },
     {
         slug: 'donachwi-y-su-entorno',
-        title: 'Donachwi y su entorno',
         date: '2026-05-08',
-        excerpt:
-            'Así como Wade Davis y otros autores han escrito sobre sus recorridos en los lugares de la Sierra. Empezaré contando mis vivencias.',
         featuredImage: '../images/blog/DSC09322.jpg',
         images: [
             '../images/blog/DSC09322.jpg',

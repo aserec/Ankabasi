@@ -1,5 +1,5 @@
 /**
- * Ankabasi — libro reader (TOC, progress, navigation)
+ * Ankabasi — libro reader (TOC, progress, navigation, i18n)
  */
 (function () {
     'use strict';
@@ -10,8 +10,120 @@
     var tocLinks = [];
     var currentIndex = 0;
 
+    function getLang() {
+        return window.AnkabasiI18n && window.AnkabasiI18n.getLang
+            ? window.AnkabasiI18n.getLang()
+            : 'es';
+    }
+
     function getSections() {
         return Array.from(document.querySelectorAll('.libro-section[id]'));
+    }
+
+    function renderSectionContent(sectionEl, sectionData) {
+        if (!sectionData) return;
+
+        sectionEl.setAttribute('data-nav-title', sectionData.navTitle);
+
+        var partEl = sectionEl.querySelector('.libro-section__part');
+        if (partEl) {
+            if (sectionData.part) {
+                partEl.textContent = sectionData.part;
+                partEl.hidden = false;
+            } else {
+                partEl.hidden = true;
+            }
+        }
+
+        var titleEl =
+            sectionEl.querySelector('.libro-portada__title') ||
+            sectionEl.querySelector('.libro-section__title');
+        if (titleEl && sectionData.title) {
+            titleEl.textContent = sectionData.title;
+        }
+
+        var subtitleEl =
+            sectionEl.querySelector('.libro-portada__subtitle') ||
+            sectionEl.querySelector('.libro-section__subtitle');
+        if (subtitleEl) {
+            if (sectionData.subtitle) {
+                subtitleEl.textContent = sectionData.subtitle;
+                subtitleEl.hidden = false;
+            } else {
+                subtitleEl.hidden = true;
+            }
+        }
+
+        var contentEl = sectionEl.querySelector('.libro-section__content');
+        if (contentEl && sectionData.paragraphs && sectionData.paragraphs.length) {
+            contentEl.innerHTML = sectionData.paragraphs
+                .map(function (p) {
+                    return '<p>' + p + '</p>';
+                })
+                .join('');
+        }
+    }
+
+    function renderToc(lang) {
+        var content =
+            typeof getLibroContent === 'function'
+                ? getLibroContent(lang)
+                : null;
+        var tocNav = document.querySelector('.libro-toc');
+        if (!tocNav || !content || !content.toc) return;
+
+        tocNav.innerHTML = content.toc
+            .map(function (part) {
+                return (
+                    '<div class="libro-toc__part">' +
+                    '<p class="libro-toc__part-title">' +
+                    part.partTitle +
+                    '</p>' +
+                    '<ul class="libro-toc__list">' +
+                    part.links
+                        .map(function (link) {
+                            return (
+                                '<li><a href="' +
+                                link.href +
+                                '" class="libro-toc__link">' +
+                                link.label +
+                                '</a></li>'
+                            );
+                        })
+                        .join('') +
+                    '</ul></div>'
+                );
+            })
+            .join('');
+    }
+
+    function applyLibroI18n() {
+        if (typeof getLibroContent !== 'function') return;
+
+        var lang = getLang();
+        var content = getLibroContent(lang);
+
+        document.title = content.meta.title;
+        var desc = document.querySelector('meta[name="description"]');
+        if (desc) desc.setAttribute('content', content.meta.description);
+
+        var headerTitle = document.querySelector('.libro-header__title');
+        if (headerTitle && content.sections.portada) {
+            headerTitle.textContent = content.sections.portada.title;
+        }
+
+        renderToc(lang);
+
+        Object.keys(content.sections).forEach(function (sectionId) {
+            var sectionEl = document.getElementById(sectionId);
+            if (sectionEl) {
+                renderSectionContent(sectionEl, content.sections[sectionId]);
+            }
+        });
+
+        sections = getSections();
+        tocLinks = Array.from(document.querySelectorAll('.libro-toc__link'));
+        setActiveToc(getActiveSectionIndex());
     }
 
     function updateProgress() {
@@ -145,19 +257,23 @@
     }
 
     function initToc() {
-        tocLinks = Array.from(document.querySelectorAll('.libro-toc__link'));
+        var tocNav = document.querySelector('.libro-toc');
+        if (!tocNav || tocNav.dataset.bound === 'true') return;
 
-        tocLinks.forEach(function (link) {
-            link.addEventListener('click', function (e) {
-                e.preventDefault();
-                var id = link.getAttribute('href').slice(1);
-                var el = document.getElementById(id);
-                if (el) {
-                    el.scrollIntoView({ behavior: 'smooth' });
-                    closeSidebar();
-                }
-            });
+        tocNav.addEventListener('click', function (e) {
+            var link = e.target.closest('.libro-toc__link');
+            if (!link) return;
+            e.preventDefault();
+            var id = link.getAttribute('href').slice(1);
+            var el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+                closeSidebar();
+            }
         });
+
+        tocNav.dataset.bound = 'true';
+        tocLinks = Array.from(document.querySelectorAll('.libro-toc__link'));
     }
 
     function initNav() {
@@ -188,9 +304,10 @@
         }
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    function init() {
         if (!document.querySelector('.libro-layout')) return;
 
+        applyLibroI18n();
         sections = getSections();
         initToc();
         initNav();
@@ -207,5 +324,11 @@
                 }, 100);
             }
         }
+    }
+
+    document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('ankabasi:languagechange', function () {
+        if (!document.querySelector('.libro-layout')) return;
+        applyLibroI18n();
     });
 })();

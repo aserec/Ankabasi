@@ -4,9 +4,36 @@
 (function () {
     'use strict';
 
-    function formatDate(dateStr, locale) {
+    var DATE_LOCALES = {
+        es: 'es-CO',
+        en: 'en-US',
+        de: 'de-DE',
+        fr: 'fr-FR',
+    };
+
+    function getLang() {
+        return window.AnkabasiI18n && window.AnkabasiI18n.getLang
+            ? window.AnkabasiI18n.getLang()
+            : 'es';
+    }
+
+    function localizePost(post, lang) {
+        lang = lang || getLang();
+        var title =
+            typeof getBlogPostTitle === 'function'
+                ? getBlogPostTitle(post.slug, lang)
+                : post.slug;
+        var excerpt =
+            typeof getBlogPostExcerpt === 'function'
+                ? getBlogPostExcerpt(post.slug, lang)
+                : '';
+        return Object.assign({}, post, { title: title, excerpt: excerpt });
+    }
+
+    function formatDate(dateStr, lang) {
+        var locale = DATE_LOCALES[lang || getLang()] || 'es-CO';
         var date = new Date(dateStr + 'T12:00:00');
-        return date.toLocaleDateString(locale || 'es-CO', {
+        return date.toLocaleDateString(locale, {
             year: 'numeric',
             month: 'long',
             day: 'numeric',
@@ -43,8 +70,10 @@
         return (basePath || '') + 'blog/' + post.slug + '.html';
     }
 
-    function renderBlogCard(post, readMoreLabel, basePath, inBlogFolder) {
+    function renderBlogCard(post, readMoreLabel, basePath, inBlogFolder, lang) {
         basePath = basePath || '';
+        lang = lang || getLang();
+        var localized = localizePost(post, lang);
         var href = postHref(post, basePath, inBlogFolder);
         return (
             '<article class="blog-card" data-aos="fade-up">' +
@@ -54,24 +83,24 @@
             '<img class="blog-card__image" src="' +
             post.featuredImage +
             '" alt="' +
-            post.title +
+            localized.title +
             '" loading="lazy">' +
             '</a>' +
             '<div class="blog-card__body">' +
             '<time class="blog-card__date" datetime="' +
             post.date +
             '">' +
-            formatDate(post.date) +
+            formatDate(post.date, lang) +
             '</time>' +
             '<h2 class="blog-card__title">' +
             '<a href="' +
             href +
             '">' +
-            post.title +
+            localized.title +
             '</a>' +
             '</h2>' +
             '<p class="blog-card__excerpt">' +
-            post.excerpt +
+            localized.excerpt +
             '</p>' +
             '<a href="' +
             href +
@@ -98,9 +127,10 @@
             options.inBlogFolder ||
             container.getAttribute('data-in-blog-folder') === 'true';
         var sorted = getSortedPosts(posts);
+        var lang = getLang();
         container.innerHTML = sorted
             .map(function (post) {
-                return renderBlogCard(post, readMore, basePath, inBlogFolder);
+                return renderBlogCard(post, readMore, basePath, inBlogFolder, lang);
             })
             .join('');
         if (typeof AOS !== 'undefined') {
@@ -126,7 +156,7 @@
                 'Leer más';
             homeEl.innerHTML = sorted
                 .map(function (post) {
-                    return renderBlogCard(post, readMore, '');
+                    return renderBlogCard(post, readMore, '', false, getLang());
                 })
                 .join('');
         }

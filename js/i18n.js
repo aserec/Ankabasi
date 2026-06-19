@@ -777,6 +777,7 @@
     }
 
     function updateMeta(lang) {
+        if (document.querySelector('.libro-layout, .blog-article')) return;
         const m = T[lang].meta;
         document.title = m.title;
         const desc = document.querySelector('meta[name="description"]');

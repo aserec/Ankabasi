@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Ankabasi - Una experiencia ancestral con los Arhuacos en la Sierra Nevada de Santa Marta, Colombia">
     <title>Ankabasi - Una Experiencia Ancestral</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo/favicon-32.png">
+    <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +35,7 @@
         <nav class="nav">
             <div class="nav__logo">
                 <a href="#inicio">
-                    <img src="images/logo.png" alt="Ankabasi Logo" class="logo-img">
+                    <img src="images/logo/ankabasi-icon-outline.png" alt="Ankabasi Logo" class="logo-img">
                 </a>
             </div>
             
@@ -101,18 +103,6 @@
     </header>
 
     <section class="main" id="inicio">
-        <video 
-            class="main__video" 
-            autoplay 
-            muted 
-            loop 
-            playsinline 
-            aria-hidden="true"
-            preload="metadata"
-            poster="images/hero/main-background-poster.jpg">
-            <source src="videos/main-background.webm" type="video/webm">
-            <source src="videos/main-background.mp4" type="video/mp4">
-        </video>
         <div class="main__overlay"></div>
         <div class="main__content container" data-aos="fade-up">
             <h1 class="main__title" data-i18n="main.title">Ankabasi</h1>
@@ -825,7 +815,9 @@
         <div class="container">
             <div class="footer__content">
                 <div class="footer__section">
-                    <h3 class="footer__logo">Ankabasi</h3>
+                    <a href="#inicio" class="footer__logo-link">
+                        <img src="images/logo/ankabasi-logo-full.png" alt="Ankabasi" class="footer__logo-img" width="160" height="155">
+                    </a>
                     <p class="footer__description" data-i18n="footer.tagline">
                         Una experiencia ancestral con los Arhuacos en la Sierra Nevada de Santa Marta
                     </p>
@@ -890,6 +882,7 @@
     <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
     <script src="js/blog-data.js"></script>
+    <script src="js/blog-content.js"></script>
     <script src="js/blog.js"></script>
     <script src="js/gallery.js"></script>
     <script src="js/contact.js"></script>
