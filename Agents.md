@@ -1,7 +1,7 @@
 # Agents.md - Plan para Página Web de Ankabasi
 
 ## Objetivo
-Crear una página web moderna de una sola página (SPA) para Ankabasi, empresa de turismo sostenible en la Sierra Nevada de Santa Marta con los Arhuacos en Gwimake. La web debe ser similar a gwimake.com con diseño moderno, animaciones sutiles y fondos no invasivos.
+Crear una página web moderna de una sola página (SPA) para Ankabasi, experiencias de intercambio cultural en la Sierra Nevada de Santa Marta con los Arhuacos en Gwimake. La web debe ser similar a gwimake.com con diseño moderno, animaciones sutiles y fondos no invasivos.
 
 ## Estructura de la Página
 
@@ -32,7 +32,7 @@ Crear una página web moderna de una sola página (SPA) para Ankabasi, empresa d
   - Reconexión con sabiduría ancestral
   - Participación en rituales, comida, historias
 - **Fondo**: Imagen sutil de naturaleza con blur/overlay
-- **Animación**: Fade-in al hacer scroll
+- **Animación**: Fade-in al hacer scroll`
 
 ### 4. Sección de Actividades
 - **Título**: "¿Qué incluye tu experiencia?"
@@ -41,7 +41,7 @@ Crear una página web moderna de una sola página (SPA) para Ankabasi, empresa d
   - Trabajo espiritual con el mamo
   - Alimentación completa
   - Alojamiento en hamaca o bohío
-  - Servicio de guía turístico
+  - Acompañamiento cultural
   - Caminatas en la naturaleza
   - Charlas con los arhuacos
   - Entrega de hilos de protección
@@ -243,7 +243,7 @@ Ankabasi/
 ## Notas Adicionales
 
 - La web debe transmitir respeto por la cultura Arhuaca
-- Enfoque en sostenibilidad y turismo responsable
+- Enfoque en sostenibilidad e intercambio cultural responsable
 - Diseño que refleje la conexión con la naturaleza
 - Mensajes auténticos y no comercializados
 - Considerar aspectos culturales y sensibles

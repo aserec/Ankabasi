@@ -45,7 +45,7 @@
             },
             experience: {
                 title: 'Una Aventura Ancestral',
-                p1: 'Sumérgete en el corazón de la Sierra Nevada de Santa Marta y comparte la vida con la comunidad de <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>. Esta no es solo una visita turística; es una invitación a desconectarte del mundo moderno y reconectarte con la sabiduría ancestral de la Tierra.',
+                p1: 'Sumérgete en el corazón de la Sierra Nevada de Santa Marta y comparte la vida con la comunidad de <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>. Esto no es una visita superficial: es un verdadero intercambio cultural que te invita a desconectarte del mundo moderno y reconectarte con la sabiduría ancestral de la Tierra.',
                 p2: 'Aprende sobre la cosmovisión Arhuaca, participa en sus rituales diarios, comparte su comida y escucha sus historias. Saldrás con una perspectiva renovada y un profundo respeto por una cultura que protege el corazón del mundo.',
                 cta: 'Descubre las Actividades',
             },
@@ -70,8 +70,8 @@
                 craft_d: 'Aprende técnicas tradicionales',
                 planting_t: 'Siembra de Plantas',
                 planting_d: 'Alimenticias o medicinales',
-                guide_t: 'Guía Turístico',
-                guide_d: 'Servicio de guía durante tu estadía',
+                guide_t: 'Guía Cultural',
+                guide_d: 'Acompañamiento cultural durante tu estadía',
             },
             pricing: {
                 title: 'Elige tu Experiencia',
@@ -231,7 +231,7 @@
             },
             experience: {
                 title: 'An Ancestral Adventure',
-                p1: 'Dive into the heart of the Sierra Nevada de Santa Marta and share life with the community of <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>. This is not just a tourist visit; it is an invitation to disconnect from the modern world and reconnect with the ancestral wisdom of the Earth.',
+                p1: 'Dive into the heart of the Sierra Nevada de Santa Marta and share life with the community of <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>. This is not a superficial visit: it is a true cultural exchange that invites you to disconnect from the modern world and reconnect with the ancestral wisdom of the Earth.',
                 p2: 'Learn about the Arhuaco worldview, take part in daily rituals, share their food, and listen to their stories. You will leave with a renewed perspective and deep respect for a culture that protects the heart of the world.',
                 cta: 'Discover the activities',
             },
@@ -256,8 +256,8 @@
                 craft_d: 'Learn traditional techniques',
                 planting_t: 'Planting',
                 planting_d: 'Food or medicinal plants',
-                guide_t: 'Tour guide',
-                guide_d: 'Guiding service during your stay',
+                guide_t: 'Cultural guide',
+                guide_d: 'Cultural accompaniment during your stay',
             },
             pricing: {
                 title: 'Choose your experience',
@@ -416,7 +416,7 @@
             },
             experience: {
                 title: 'Ein uraltes Abenteuer',
-                p1: 'Tauche ein ins Herz der Sierra Nevada de Santa Marta und teile das Leben mit der Gemeinschaft von <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>. Dies ist nicht nur ein Touristenbesuch; es ist eine Einladung, sich von der modernen Welt zu lösen und sich mit dem uralten Wissen der Erde zu verbinden.',
+                p1: 'Tauche ein ins Herz der Sierra Nevada de Santa Marta und teile das Leben mit der Gemeinschaft von <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>. Dies ist kein oberflächlicher Besuch: es ist ein echter kultureller Austausch, der dich einlädt, dich von der modernen Welt zu lösen und dich mit dem uralten Wissen der Erde zu verbinden.',
                 p2: 'Lerne die Arhuaco-Kosmologie kennen, nimm an täglichen Ritualen teil, iss mit ihnen und höre ihre Geschichten. Du wirst mit neuen Perspektiven und tiefem Respekt für eine Kultur gehen, die das Herz der Welt schützt.',
                 cta: 'Aktivitäten entdecken',
             },
@@ -441,8 +441,8 @@
                 craft_d: 'Traditionelle Techniken lernen',
                 planting_t: 'Pflanzen',
                 planting_d: 'Nahrung oder Heilpflanzen',
-                guide_t: 'Reiseführer',
-                guide_d: 'Begleitung während deines Aufenthalts',
+                guide_t: 'Kultureller Begleiter',
+                guide_d: 'Kulturelle Begleitung während deines Aufenthalts',
             },
             pricing: {
                 title: 'Wähle dein Erlebnis',
@@ -602,7 +602,7 @@
             },
             experience: {
                 title: 'Une aventure ancestrale',
-                p1: 'Plongez au cœur de la Sierra Nevada de Santa Marta et partagez la vie de la communauté de <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>. Ce n’est pas qu’une visite touristique ; c’est une invitation à vous déconnecter du monde moderne et à vous reconnecter à la sagesse ancestrale de la Terre.',
+                p1: 'Plongez au cœur de la Sierra Nevada de Santa Marta et partagez la vie de la communauté de <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>. Ce n’est pas une visite superficielle : c’est un véritable échange culturel qui vous invite à vous déconnecter du monde moderne et à vous reconnecter à la sagesse ancestrale de la Terre.',
                 p2: 'Découvrez la cosmovision arhuaco, participez aux rituels quotidiens, partagez leurs repas et leurs histoires. Vous repartirez avec un regard renouvelé et un profond respect pour une culture qui protège le cœur du monde.',
                 cta: 'Découvrir les activités',
             },
@@ -627,8 +627,8 @@
                 craft_d: 'Apprenez les techniques traditionnelles',
                 planting_t: 'Plantation',
                 planting_d: 'Plantes alimentaires ou médicinales',
-                guide_t: 'Guide touristique',
-                guide_d: 'Accompagnement pendant votre séjour',
+                guide_t: 'Guide culturel',
+                guide_d: 'Accompagnement culturel pendant votre séjour',
             },
             pricing: {
                 title: 'Choisissez votre expérience',

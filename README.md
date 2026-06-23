@@ -1,6 +1,6 @@
-# Ankabasi - Página Web de Turismo Sostenible
+# Ankabasi - Página Web de Intercambio Cultural
 
-Página web moderna de una sola página (SPA) para Ankabasi, empresa de turismo sostenible en la Sierra Nevada de Santa Marta con los Arhuacos en Gwimake.
+Página web moderna de una sola página (SPA) para Ankabasi, experiencias de intercambio cultural en la Sierra Nevada de Santa Marta con los Arhuacos en Gwimake.
 
 ## 🚀 Características
 
