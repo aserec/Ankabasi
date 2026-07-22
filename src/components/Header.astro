@@ -1,0 +1,106 @@
+---
+import type { Locale } from '../i18n/utils';
+import { t, localePath } from '../i18n/utils';
+import { faqPath } from '../i18n/routes';
+import LangSwitcher from './LangSwitcher.astro';
+
+interface Props {
+	locale: Locale;
+	pathAfterLocale?: string;
+}
+const { locale, pathAfterLocale = '' } = Astro.props;
+const home = localePath(locale);
+---
+
+<header class="header" id="header">
+	<nav class="nav" aria-label="Primary">
+		<div class="nav__logo">
+			<a href={home + '#inicio'}>
+				<img
+					src="/images/logo/ankabasi-icon-outline.png"
+					alt="Ankabasi"
+					class="logo-img"
+					width="48"
+					height="48"
+				/>
+			</a>
+		</div>
+
+		<div class="nav__menu" id="nav-menu">
+			<ul class="nav__list">
+				<li class="nav__item">
+					<a href={home + '#inicio'} class="nav__link">{t(locale, 'nav.inicio')}</a>
+				</li>
+				<li class="nav__item">
+					<a href={home + '#experiencia'} class="nav__link">{t(locale, 'nav.experiencia')}</a>
+				</li>
+				<li class="nav__item">
+					<a href={home + '#actividades'} class="nav__link">{t(locale, 'nav.actividades')}</a>
+				</li>
+				<li class="nav__item">
+					<a href={home + '#precios'} class="nav__link">{t(locale, 'nav.precios')}</a>
+				</li>
+				<li class="nav__item">
+					<a href={home + '#galeria'} class="nav__link">{t(locale, 'nav.galeria')}</a>
+				</li>
+				<li class="nav__item">
+					<a href={home + '#folleto'} class="nav__link">{t(locale, 'nav.folleto')}</a>
+				</li>
+				<li class="nav__item">
+					<a href={faqPath(locale)} class="nav__link">FAQ</a>
+				</li>
+				<li class="nav__item">
+					<a href={home + '#testimonios'} class="nav__link">{t(locale, 'nav.testimonios')}</a>
+				</li>
+				<li class="nav__item">
+					<a href={home + '#donde'} class="nav__link">{t(locale, 'nav.donde')}</a>
+				</li>
+				<li class="nav__item">
+					<a href={home + '#contacto'} class="nav__link">{t(locale, 'nav.contacto')}</a>
+				</li>
+			</ul>
+			<div class="nav__mundo">
+				<span class="nav__mundo-label">{t(locale, 'nav.mundoAnkabasi')}</span>
+				<ul class="nav__mundo-list">
+					<li class="nav__item nav__item--mundo">
+						<a href={localePath(locale, 'blog/')} class="nav__link nav__link--mundo"
+							>{t(locale, 'nav.blog')}</a
+						>
+					</li>
+					<li class="nav__item nav__item--mundo">
+						<a href={localePath(locale, 'libro/')} class="nav__link nav__link--mundo"
+							>{t(locale, 'nav.libro')}</a
+						>
+					</li>
+					<li class="nav__item nav__item--mundo">
+						<a href={home + '#productos'} class="nav__link nav__link--mundo"
+							>{t(locale, 'nav.productos')}</a
+						>
+					</li>
+					<li class="nav__item nav__item--mundo">
+						<a href={home + '#cursos'} class="nav__link nav__link--mundo"
+							>{t(locale, 'nav.cursos')}</a
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="nav__actions">
+			<a href={home + '#contacto'} class="btn btn--primary">{t(locale, 'nav.reservar')}</a>
+			<LangSwitcher locale={locale} pathAfterLocale={pathAfterLocale} />
+			<button
+				type="button"
+				class="nav__toggle"
+				id="nav-toggle"
+				aria-expanded="false"
+				aria-controls="nav-menu"
+				aria-label="Menu"
+			>
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+		</div>
+	</nav>
+</header>

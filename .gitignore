@@ -70,3 +70,9 @@ build/
 
 
 
+
+dist/
+node_modules/
+.astro/
+.gitignore.tmp
+green-galaxy/

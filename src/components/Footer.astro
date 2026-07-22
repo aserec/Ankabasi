@@ -1,0 +1,91 @@
+---
+import type { Locale } from '../i18n/utils';
+import { t, localePath } from '../i18n/utils';
+import { faqPath, guidePath } from '../i18n/routes';
+import { SITE } from '../data/site';
+
+interface Props {
+	locale: Locale;
+}
+const { locale } = Astro.props;
+const home = localePath(locale);
+---
+
+<footer class="footer">
+	<div class="container">
+		<div class="footer__content">
+			<div class="footer__section">
+				<a href={home + '#inicio'} class="footer__logo-link">
+					<img
+						src="/images/logo/ankabasi-logo-full.png"
+						alt="Ankabasi"
+						class="footer__logo-img"
+						width="160"
+						height="155"
+					/>
+				</a>
+				<p class="footer__description">{t(locale, 'footer.tagline')}</p>
+			</div>
+
+			<div class="footer__section">
+				<h4 class="footer__title">{t(locale, 'footer.quick')}</h4>
+				<ul class="footer__links">
+					<li><a href={home + '#inicio'}>{t(locale, 'nav.inicio')}</a></li>
+					<li><a href={home + '#experiencia'}>{t(locale, 'nav.experiencia')}</a></li>
+					<li><a href={home + '#precios'}>{t(locale, 'nav.precios')}</a></li>
+					<li><a href={guidePath(locale, 'packages')}>{t(locale, 'pricing.title')}</a></li>
+					<li><a href={faqPath(locale)}>FAQ</a></li>
+					<li>
+						<a href={guidePath(locale, 'howToGetThere')}>{t(locale, 'nav.donde')}</a>
+					</li>
+					<li><a href={home + '#contacto'}>{t(locale, 'nav.contacto')}</a></li>
+				</ul>
+			</div>
+
+			<div class="footer__section footer__section--mundo">
+				<h4 class="footer__title">{t(locale, 'nav.mundoAnkabasi')}</h4>
+				<ul class="footer__links">
+					<li><a href={localePath(locale, 'blog/')}>{t(locale, 'nav.blog')}</a></li>
+					<li><a href={localePath(locale, 'libro/')}>{t(locale, 'nav.libro')}</a></li>
+					<li>
+						<a href={guidePath(locale, 'responsibleVisit')}>Responsible visit</a>
+					</li>
+					<li>
+						<a href={guidePath(locale, 'whatToExpect')}>What to expect</a>
+					</li>
+				</ul>
+			</div>
+
+			<div class="footer__section">
+				<h4 class="footer__title">{t(locale, 'footer.contact')}</h4>
+				<ul class="footer__links">
+					<li>
+						<i class="fa-solid fa-envelope-open-text footer__icon" aria-hidden="true"></i>
+						{' '}{SITE.email}
+					</li>
+					<li>
+						<i class="fa-brands fa-whatsapp footer__icon" aria-hidden="true"></i>
+						{' '}{SITE.phoneDisplay}
+					</li>
+					<li>
+						<i class="fa-solid fa-location-dot footer__icon" aria-hidden="true"></i>
+						{' '}{SITE.place.region}, {SITE.place.country}
+					</li>
+				</ul>
+				<div class="footer__social">
+					<a
+						href={SITE.instagram}
+						target="_blank"
+						rel="noopener noreferrer"
+						aria-label="Instagram"
+					>
+						<i class="fa-brands fa-instagram" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer__bottom">
+			<p class="footer__copy">{t(locale, 'footer.copy')}</p>
+		</div>
+	</div>
+</footer>

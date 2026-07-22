@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { locales, isLocale, t, localePath, type Locale } from '../../i18n/utils';
+import { faqItems, faqJsonLd } from '../../data/faq';
+import { guidePath } from '../../i18n/routes';
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale: localeParam } = Astro.params;
+if (!localeParam || !isLocale(localeParam)) return Astro.redirect('/es/faq/');
+const locale = localeParam as Locale;
+
+const title = `FAQ — Ankabasi`;
+const description = t(locale, 'meta.description');
+const home = localePath(locale);
+---
+
+<BaseLayout
+	locale={locale}
+	title={title}
+	description={description}
+	pathAfterLocale="faq/"
+	jsonLd={faqJsonLd(locale)}
+>
+	<article class="guide container" style="padding: 6rem 1.25rem 4rem; max-width: 720px;">
+		<p class="guide__lead" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">
+			{
+				locale === 'es'
+					? 'Respuestas claras sobre la experiencia Ankabasi con los Arhuacos en Gwimake, Sierra Nevada de Santa Marta.'
+					: locale === 'en'
+						? 'Clear answers about the Ankabasi experience with the Arhuaco people in Gwimake, Sierra Nevada de Santa Marta.'
+						: locale === 'de'
+							? 'Klare Antworten zur Ankabasi-Erfahrung mit den Arhuaco in Gwimake, Sierra Nevada de Santa Marta.'
+							: 'Réponses claires sur l’expérience Ankabasi avec le peuple arhuaco à Gwimake, Sierra Nevada de Santa Marta.'
+			}
+		</p>
+		{
+			faqItems.map((item) => (
+				<section style="margin-bottom: 1.75rem;">
+					<h2 style="font-size: 1.2rem; margin-bottom: 0.5rem;">{item.question[locale]}</h2>
+					<p style="line-height: 1.65; color: #4a4a4a;">{item.answer[locale]}</p>
+				</section>
+			))
+		}
+		<p style="margin-top: 2.5rem;">
+			<a class="btn btn--primary" href={home + '#contacto'}>{t(locale, 'nav.reservar')}</a>
+			{' '}
+			<a class="btn btn--secondary" href={guidePath(locale, 'packages')}>{t(locale, 'pricing.title')}</a>
+		</p>
+	</article>
+</BaseLayout>

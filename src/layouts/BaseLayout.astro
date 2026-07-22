@@ -1,0 +1,138 @@
+---
+import type { Locale } from '../i18n/utils';
+import { locales, defaultLocale, localePath } from '../i18n/utils';
+import { SITE, organizationJsonLd } from '../data/site';
+import SkipLink from '../components/SkipLink.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/style.css';
+import '../styles/blog.css';
+import '../styles/libro.css';
+import '../styles/responsive.css';
+
+interface Props {
+	locale: Locale;
+	title: string;
+	description: string;
+	/** Path after locale without leading slash, e.g. '' or 'faq/' or 'blog/slug/' */
+	pathAfterLocale?: string;
+	ogImage?: string;
+	jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+const {
+	locale,
+	title,
+	description,
+	pathAfterLocale = '',
+	ogImage = SITE.ogImage,
+	jsonLd,
+} = Astro.props;
+
+const rest = pathAfterLocale.replace(/^\/+/, '');
+const canonical = new URL(localePath(locale, rest), Astro.site).href;
+const ogAbs = new URL(ogImage, Astro.site).href;
+
+const alternates = locales.map((code) => ({
+	hreflang: code,
+	href: new URL(localePath(code, rest), Astro.site).href,
+}));
+alternates.push({
+	hreflang: 'x-default',
+	href: new URL(localePath(defaultLocale, rest), Astro.site).href,
+});
+
+const schemas = [organizationJsonLd(), ...(jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [])];
+---
+
+<!doctype html>
+<html lang={locale}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={canonical} />
+		{
+			alternates.map((a) => (
+				<link rel="alternate" hreflang={a.hreflang} href={a.href} />
+			))
+		}
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content={SITE.name} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogAbs} />
+		<meta property="og:locale" content={locale} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogAbs} />
+		<link rel="icon" type="image/png" sizes="32x32" href="/images/logo/favicon-32.png" />
+		<link rel="apple-touch-icon" href="/images/logo/apple-touch-icon.png" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400;600&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		{
+			schemas.map((schema) => (
+				<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+			))
+		}
+	</head>
+	<body>
+		<SkipLink />
+		<Header locale={locale} pathAfterLocale={rest} />
+		<main id="main-content">
+			<slot />
+		</main>
+		<Footer locale={locale} />
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+		<script
+			src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"
+			defer></script>
+		<script is:inline>
+			document.addEventListener('DOMContentLoaded', function () {
+				var toggle = document.getElementById('nav-toggle');
+				var menu = document.getElementById('nav-menu');
+				if (toggle && menu) {
+					toggle.addEventListener('click', function () {
+						var open = menu.classList.toggle('active');
+						toggle.classList.toggle('active', open);
+						toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+					});
+					document.addEventListener('keydown', function (e) {
+						if (e.key === 'Escape' && menu.classList.contains('active')) {
+							menu.classList.remove('active');
+							toggle.classList.remove('active');
+							toggle.setAttribute('aria-expanded', 'false');
+							toggle.focus();
+						}
+					});
+				}
+				if (window.AOS) {
+					AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 100 });
+				}
+				if (window.GLightbox) {
+					GLightbox({ selector: '.gallery__link' });
+				}
+			});
+		</script>
+		<script>
+			import '../scripts/main-astro.js';
+		</script>
+	</body>
+</html>

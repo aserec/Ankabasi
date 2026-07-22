@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, isLocale, t, localePath, type Locale } from '../../../i18n/utils';
+import { BLOG_POSTS } from '../../../data/blog-data';
+import { getBlogPostContent } from '../../../data/blog-content';
+import { SITE } from '../../../data/site';
+
+export function getStaticPaths() {
+	const paths: { params: { locale: string; slug: string } }[] = [];
+	for (const locale of locales) {
+		for (const post of BLOG_POSTS) {
+			paths.push({ params: { locale, slug: post.slug } });
+		}
+	}
+	return paths;
+}
+
+const { locale: localeParam, slug } = Astro.params;
+if (!localeParam || !isLocale(localeParam) || !slug) return Astro.redirect('/es/blog/');
+const locale = localeParam as Locale;
+const meta = BLOG_POSTS.find((p) => p.slug === slug);
+const content = getBlogPostContent(slug, locale);
+if (!meta || !content) return Astro.redirect(localePath(locale, 'blog/'));
+
+const title = `${content.title} — Ankabasi`;
+const description = content.metaDescription || content.excerpt;
+const home = localePath(locale);
+const blog = localePath(locale, 'blog/');
+
+const jsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'BlogPosting',
+	headline: content.title,
+	description,
+	datePublished: meta.date,
+	image: new URL(meta.featuredImage, Astro.site).href,
+	author: { '@type': 'Organization', name: SITE.name },
+	publisher: { '@type': 'Organization', name: SITE.name },
+	inLanguage: locale,
+	mainEntityOfPage: new URL(localePath(locale, `blog/${slug}/`), Astro.site).href,
+};
+---
+
+<BaseLayout
+	locale={locale}
+	title={title}
+	description={description}
+	pathAfterLocale={`blog/${slug}/`}
+	ogImage={meta.featuredImage}
+	jsonLd={jsonLd}
+>
+	<article class="blog-article container" style="padding-top: 5.5rem; padding-bottom: 3rem;">
+		<header class="blog-article__header">
+			<nav class="blog-breadcrumb" aria-label="Breadcrumb">
+				<a href={home}>{t(locale, 'nav.inicio')}</a> →
+				<a href={blog}>{t(locale, 'nav.blog')}</a> →
+				<span>{content.title}</span>
+			</nav>
+			<time class="blog-article__date" datetime={meta.date}>{meta.date}</time>
+			<h1 class="blog-article__title">{content.title}</h1>
+		</header>
+		<figure class="blog-article__featured">
+			<img
+				src={meta.featuredImage}
+				alt={content.featuredAlt || content.title}
+				width="1200"
+				height="800"
+				fetchpriority="high"
+			/>
+		</figure>
+		<div class="blog-article__content" set:html={content.bodyHtml} />
+		<p style="margin-top: 2rem;">
+			<a class="btn btn--secondary" href={blog}>{t(locale, 'blog.allPosts')}</a>
+			<a class="btn btn--primary" href={home + '#contacto'}>{t(locale, 'nav.reservar')}</a>
+		</p>
+	</article>
+</BaseLayout>

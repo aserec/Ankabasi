@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { locales, isLocale, t, localePath, type Locale } from '../../../i18n/utils';
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale: localeParam } = Astro.params;
+if (!localeParam || !isLocale(localeParam)) return Astro.redirect('/es/libro/');
+const locale = localeParam as Locale;
+const home = localePath(locale);
+---
+
+<BaseLayout
+	locale={locale}
+	title={`${t(locale, 'libro.title')} — Ankabasi`}
+	description={t(locale, 'libro.subtitle')}
+	pathAfterLocale="libro/"
+>
+	<section class="container" style="padding: 6rem 1.25rem 4rem; max-width: 720px;">
+		<h1>{t(locale, 'libro.bookTitle')}</h1>
+		<p style="line-height: 1.7; margin: 1.25rem 0;">{t(locale, 'libro.excerpt')}</p>
+		<p style="color: #4a4a4a; margin-bottom: 2rem;">{t(locale, 'libro.subtitle')}</p>
+		<p>
+			<a class="btn btn--primary" href="/libro/index.html">{t(locale, 'libro.startReading')}</a>
+			{' '}
+			<a class="btn btn--secondary" href={home}>{t(locale, 'libro.backHome')}</a>
+		</p>
+		<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #666;">
+			{
+				locale === 'es'
+					? 'La lectura completa interactiva sigue disponible; la migraremos íntegramente a Astro en una siguiente iteración.'
+					: 'The full interactive reader remains available; a full Astro port follows in a later iteration.'
+			}
+		</p>
+	</section>
+</BaseLayout>

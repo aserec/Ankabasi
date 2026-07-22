@@ -1,52 +1,57 @@
 # Ankabasi - Página Web de Intercambio Cultural
 
-Página web moderna de una sola página (SPA) para Ankabasi, experiencias de intercambio cultural en la Sierra Nevada de Santa Marta con los Arhuacos en Gwimake.
+Sitio estático **Astro** (SEO + GEO) para experiencias de intercambio cultural con los Arhuacos en Gwimake, Sierra Nevada de Santa Marta.
 
-## 🚀 Características
+## Desarrollo (Astro)
 
-- ✅ Diseño moderno y responsivo
-- ✅ Animaciones sutiles al hacer scroll
-- ✅ Galería de fotos y videos con lightbox
-- ✅ Formulario de contacto con validación
-- ✅ Sección de precios y formatos de experiencia
-- ✅ Testimonios de visitantes
-- ✅ Navegación suave entre secciones
-- ✅ Optimizado para móvil, tablet y desktop
-
-## 📁 Estructura de Archivos
-
-```
-Ankabasi/
-├── index.html              # Página principal
-├── css/
-│   ├── style.css          # Estilos principales
-│   └── responsive.css     # Estilos responsive
-├── js/
-│   ├── main.js            # Navegación, scroll y efectos
-│   ├── gallery.js         # Galería y filtros
-│   └── contact.js         # Formulario de contacto
-├── images/                 # Imágenes (agregar tus propias imágenes)
-│   ├── hero/
-│   ├── gallery/
-│   └── testimonials/
-└── videos/                # Videos (opcional)
+```bash
+npm install
+npm run dev      # http://localhost:4321 → redirige a /es/
+npm run build    # salida en dist/
+npm run preview
 ```
 
-## 🛠️ Tecnologías Utilizadas
+**Idiomas:** `/es/`, `/en/`, `/de/`, `/fr/`  
+**SEO:** meta/OG/hreflang, JSON-LD, `robots.txt`, sitemap, `llms.txt`  
+**Guías:** FAQ, paquetes, cómo llegar, visita responsable, qué esperar  
+**Specs:** `docs/superpowers/specs/2026-07-22-seo-geo-design.md`
 
-- **HTML5**: Estructura semántica
-- **CSS3**: Variables CSS, Flexbox, Grid, Animaciones
-- **JavaScript (Vanilla)**: Funcionalidades interactivas
-- **Librerías Externas**:
-  - [AOS](https://michalsnik.github.io/aos/) - Animate On Scroll
-  - [GLightbox](https://biati-digital.github.io/glightbox/) - Lightbox para galería
-  - [Google Fonts](https://fonts.google.com/) - Montserrat y Open Sans
+> El `index.html` legado en la raíz queda obsoleto: despliega el contenido de `dist/`.
 
-## 📦 Instalación
+## Características
 
-1. Clona o descarga este repositorio
-2. Abre `index.html` en tu navegador
-3. ¡Listo! No requiere servidor para desarrollo local
+- Diseño moderno y responsivo (CSS existente)
+- Páginas localizadas crawlables (sin depender del switcher JS)
+- Galería, precios, blog multilingüe, contacto WhatsApp
+- Optimizado para búsqueda clásica y respuestas de IA (GEO/AEO)
+
+## Estructura (Astro)
+
+```
+src/
+├── pages/[locale]/     # home, faq, guías, blog, libro
+├── layouts/BaseLayout.astro
+├── components/          # Header, Footer, HomeSections…
+├── i18n/                # diccionarios y rutas
+├── data/                # site facts, FAQ, guides, blog
+└── styles/              # CSS portado
+public/                  # images, videos, robots.txt, llms.txt
+```
+
+## Tecnologías
+
+- **Astro** (static) + TypeScript
+- CSS existente + AOS / GLightbox / Font Awesome (CDN)
+- `@astrojs/sitemap`
+
+## Instalación legacy (solo referencia)
+
+Los archivos `index.html` / `css/` / `js/` en la raíz son el sitio anterior. Preferir `npm run dev` / `dist/`.
+
+## 📦 Instalación (legacy note)
+
+1. Preferido: `npm install && npm run build` y publicar `dist/`
+2. Alternativa histórica: abrir `index.html` (sin i18n por URL)
 
 ## 🎨 Personalización
 
