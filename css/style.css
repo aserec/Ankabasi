@@ -1052,6 +1052,136 @@ ul {
     border-radius: var(--border-radius);
 }
 
+/* ===== Community Sections (Productos & Cursos) ===== */
+.community-section {
+    position: relative;
+    padding: var(--section-padding);
+    scroll-margin-top: 90px;
+}
+
+.community-section--productos {
+    background-color: #faf8f5;
+    background-image:
+        linear-gradient(180deg, rgba(45, 80, 22, 0.04) 0%, transparent 120px),
+        radial-gradient(ellipse at 15% 0%, rgba(139, 111, 71, 0.08) 0%, transparent 50%);
+    border-top: 1px solid rgba(139, 111, 71, 0.15);
+}
+
+.community-section--cursos {
+    background-color: var(--color-bg);
+    background-image:
+        radial-gradient(ellipse at 85% 0%, rgba(74, 124, 42, 0.06) 0%, transparent 50%);
+    border-top: 1px solid rgba(139, 111, 71, 0.1);
+}
+
+.community-section__stripe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--color-primary) 0%,
+        var(--color-primary-light) 35%,
+        var(--color-secondary) 65%,
+        var(--color-secondary-light) 100%
+    );
+}
+
+.community-section__content {
+    max-width: 720px;
+    margin: 2rem auto 0;
+}
+
+.community-section__card {
+    background: var(--color-white);
+    padding: 2.5rem;
+    border-radius: calc(var(--border-radius) * 1.5);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(139, 111, 71, 0.12);
+    text-align: center;
+    transition: var(--transition);
+}
+
+.community-section__card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.community-section__icon {
+    font-size: 2.75rem;
+    color: var(--color-primary);
+    margin-bottom: 1.25rem;
+}
+
+.community-section__text {
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+.community-section__intro {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 2.5rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+
+.cursos__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.cursos__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: var(--color-white);
+    padding: 2rem 1.5rem;
+    border-radius: calc(var(--border-radius) * 1.5);
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(139, 111, 71, 0.12);
+    transition: var(--transition);
+}
+
+.cursos__card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.cursos__icon {
+    font-size: 2.25rem;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+
+.cursos__title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.75rem;
+}
+
+.cursos__desc {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    font-size: 0.95rem;
+}
+
+.cursos__card .btn {
+    width: 100%;
+}
+
 /* ===== Mundo Ankabasi ===== */
 .mundo-ankabasi {
     position: relative;

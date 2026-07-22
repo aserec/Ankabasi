@@ -27,6 +27,8 @@
                 galeria: 'Galería',
                 blog: 'Blog',
                 libro: 'Libro',
+                productos: 'Productos',
+                cursos: 'Cursos',
                 folleto: 'Folleto',
                 testimonios: 'Testimonios',
                 donde: 'Dónde',
@@ -153,6 +155,33 @@
                 prev: 'Anterior',
                 next: 'Siguiente',
             },
+            productos: {
+                title: 'Productos de la Sierra Nevada',
+                subtitle: 'Artesanías y productos hechos en el territorio arhuaco',
+                description:
+                    'Descubre mochilas, tejidos y artesanías elaboradas en la Sierra Nevada de Santa Marta por artesanos y artesanas arhuacos. Cada pieza refleja sabiduría ancestral, comercio justo y respeto por la cultura del territorio.',
+                cta: 'Ver tienda',
+            },
+            cursos: {
+                title: 'Formación para jóvenes Arhuacos',
+                subtitle:
+                    'Cursos del Gobierno de Colombia para el desarrollo de la juventud indígena',
+                description:
+                    'Programas de formación apoyados por el Gobierno de Colombia, orientados a fortalecer las capacidades de los jóvenes arhuacos en emprendimiento, tecnología y liderazgo comunitario.',
+                cta: 'Ver curso',
+                course1: {
+                    title: 'Emprendimiento comunitario',
+                    desc: 'Herramientas para iniciar y fortalecer proyectos productivos en el territorio.',
+                },
+                course2: {
+                    title: 'Alfabetización digital',
+                    desc: 'Formación en tecnologías digitales para la educación y el trabajo.',
+                },
+                course3: {
+                    title: 'Liderazgo y territorio',
+                    desc: 'Fortalecimiento del liderazgo juvenil en la defensa del territorio ancestral.',
+                },
+            },
             testimonials: {
                 title: 'Experiencias de nuestros visitantes',
                 t1: '"Una experiencia que cambió mi perspectiva sobre la vida y la naturaleza. Conectar con los Arhuacos fue profundamente transformador."',
@@ -213,6 +242,8 @@
                 galeria: 'Gallery',
                 blog: 'Blog',
                 libro: 'Book',
+                productos: 'Products',
+                cursos: 'Courses',
                 folleto: 'Brochure',
                 testimonios: 'Testimonials',
                 donde: 'Location',
@@ -338,6 +369,33 @@
                 prev: 'Previous',
                 next: 'Next',
             },
+            productos: {
+                title: 'Products from the Sierra Nevada',
+                subtitle: 'Handcrafts and products made in Arhuaco territory',
+                description:
+                    'Discover bags, weavings, and crafts made in the Sierra Nevada de Santa Marta by Arhuaco artisans. Each piece reflects ancestral wisdom, fair trade, and respect for the culture of the territory.',
+                cta: 'Visit store',
+            },
+            cursos: {
+                title: 'Training for young Arhuaco people',
+                subtitle:
+                    'Colombian Government courses for indigenous youth development',
+                description:
+                    'Training programs supported by the Colombian Government, aimed at strengthening the skills of young Arhuaco people in entrepreneurship, technology, and community leadership.',
+                cta: 'View course',
+                course1: {
+                    title: 'Community entrepreneurship',
+                    desc: 'Tools to start and strengthen productive projects in the territory.',
+                },
+                course2: {
+                    title: 'Digital literacy',
+                    desc: 'Training in digital technologies for education and work.',
+                },
+                course3: {
+                    title: 'Leadership and territory',
+                    desc: 'Strengthening youth leadership in the defense of ancestral territory.',
+                },
+            },
             testimonials: {
                 title: 'What our visitors say',
                 t1: '"An experience that changed my perspective on life and nature. Connecting with the Arhuaco people was deeply transformative."',
@@ -398,6 +456,8 @@
                 galeria: 'Galerie',
                 blog: 'Blog',
                 libro: 'Buch',
+                productos: 'Produkte',
+                cursos: 'Kurse',
                 folleto: 'Broschüre',
                 testimonios: 'Stimmen',
                 donde: 'Ort',
@@ -524,6 +584,33 @@
                 prev: 'Zurück',
                 next: 'Weiter',
             },
+            productos: {
+                title: 'Produkte aus der Sierra Nevada',
+                subtitle: 'Handwerk und Produkte aus dem Arhuaco-Territorium',
+                description:
+                    'Entdecken Sie Taschen, Webereien und Handwerk aus der Sierra Nevada de Santa Marta, hergestellt von Arhuaco-Handwerkern. Jedes Stück spiegelt uralte Weisheit, fairen Handel und Respekt für die Kultur des Territoriums wider.',
+                cta: 'Shop besuchen',
+            },
+            cursos: {
+                title: 'Ausbildung für junge Arhuaco',
+                subtitle:
+                    'Kurse der kolumbianischen Regierung zur Förderung indigener Jugendlicher',
+                description:
+                    'Ausbildungsprogramme mit Unterstützung der kolumbianischen Regierung, die darauf abzielen, die Fähigkeiten junger Arhuaco in Unternehmertum, Technologie und Gemeinschaftsführung zu stärken.',
+                cta: 'Kurs ansehen',
+                course1: {
+                    title: 'Gemeinschaftliches Unternehmertum',
+                    desc: 'Werkzeuge zum Starten und Stärken produktiver Projekte im Territorium.',
+                },
+                course2: {
+                    title: 'Digitale Alphabetisierung',
+                    desc: 'Schulung in digitalen Technologien für Bildung und Arbeit.',
+                },
+                course3: {
+                    title: 'Führung und Territorium',
+                    desc: 'Stärkung der Jugendführung beim Schutz des angestammten Territoriums.',
+                },
+            },
             testimonials: {
                 title: 'Stimmen unserer Besucher',
                 t1: '"Ein Erlebnis, das meine Sicht auf Leben und Natur verändert hat. Die Begegnung mit den Arhuaco war tief bewegend."',
@@ -584,6 +671,8 @@
                 galeria: 'Galerie',
                 blog: 'Blog',
                 libro: 'Livre',
+                productos: 'Produits',
+                cursos: 'Cours',
                 folleto: 'Brochure',
                 testimonios: 'Témoignages',
                 donde: 'Lieu',
@@ -709,6 +798,33 @@
                 toc: 'Sommaire',
                 prev: 'Précédent',
                 next: 'Suivant',
+            },
+            productos: {
+                title: 'Produits de la Sierra Nevada',
+                subtitle: 'Artisanat et produits fabriqués sur le territoire arhuaco',
+                description:
+                    'Découvrez des sacs, tissages et artisanats réalisés dans la Sierra Nevada de Santa Marta par des artisans arhuaco. Chaque pièce reflète une sagesse ancestrale, le commerce équitable et le respect de la culture du territoire.',
+                cta: 'Voir la boutique',
+            },
+            cursos: {
+                title: 'Formation pour les jeunes Arhuaco',
+                subtitle:
+                    'Cours du gouvernement colombien pour le développement de la jeunesse indigène',
+                description:
+                    'Programmes de formation soutenus par le gouvernement colombien, visant à renforcer les capacités des jeunes Arhuaco en entrepreneuriat, technologie et leadership communautaire.',
+                cta: 'Voir le cours',
+                course1: {
+                    title: 'Entrepreneuriat communautaire',
+                    desc: 'Outils pour lancer et renforcer des projets productifs sur le territoire.',
+                },
+                course2: {
+                    title: 'Alphabétisation numérique',
+                    desc: 'Formation aux technologies numériques pour l\'éducation et le travail.',
+                },
+                course3: {
+                    title: 'Leadership et territoire',
+                    desc: 'Renforcement du leadership des jeunes dans la défense du territoire ancestral.',
+                },
             },
             testimonials: {
                 title: 'Expériences de nos visiteurs',

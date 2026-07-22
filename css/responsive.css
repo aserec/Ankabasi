@@ -21,6 +21,10 @@
     .experience {
         background-attachment: scroll;
     }
+
+    .cursos__grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
 }
 
 /* Navigation: hamburger menu when viewport is smaller than 1000px */
@@ -316,6 +320,15 @@
 
     .mundo-ankabasi__block {
         padding: 1.75rem 1.25rem;
+    }
+
+    .community-section__card {
+        padding: 2rem 1.5rem;
+    }
+
+    .cursos__grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
     .mundo-ankabasi__header {
