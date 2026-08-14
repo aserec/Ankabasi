@@ -10,16 +10,16 @@ export const faqItems: FaqItem[] = [
 	{
 		id: 'what-is',
 		question: {
-			es: '¿Qué es Ankabasi?',
-			en: 'What is Ankabasi?',
-			de: 'Was ist Ankabasi?',
-			fr: 'Qu’est-ce qu’Ankabasi ?',
+			es: '¿Qué es ANKABASI?',
+			en: 'What is ANKABASI?',
+			de: 'Was ist ANKABASI?',
+			fr: 'Qu’est-ce qu’ANKABASI ?',
 		},
 		answer: {
-			es: 'Ankabasi es una experiencia de intercambio cultural con la comunidad Arhuaca en Gwimake, en la Sierra Nevada de Santa Marta (Colombia). No es un tour superficial: compartes vida cotidiana, caminatas, alimentación y diálogo con líderes espirituales.',
-			en: 'Ankabasi is a cultural exchange experience with the Arhuaco community in Gwimake, in the Sierra Nevada de Santa Marta (Colombia). It is not a surface-level tour: you share daily life, walks, meals, and dialogue with spiritual leaders.',
-			de: 'Ankabasi ist ein kultureller Austausch mit der Arhuaco-Gemeinschaft in Gwimake in der Sierra Nevada de Santa Marta (Kolumbien). Es ist keine oberflächliche Tour: Du teilst Alltag, Wanderungen, Mahlzeiten und Gespräche mit spirituellen Führern.',
-			fr: 'Ankabasi est une expérience d’échange culturel avec la communauté arhuaco à Gwimake, dans la Sierra Nevada de Santa Marta (Colombie). Ce n’est pas une visite superficielle : vous partagez le quotidien, des marches, les repas et un dialogue avec des leaders spirituels.',
+			es: 'ANKABASI es una empresa tecnológica y digital que nace desde la comunidad Arhuaca de Gwimake. Integramos tecnología, cultura, educación, contenido e intercambio cultural para generar conexiones entre el territorio y personas, instituciones y organizaciones de diferentes partes del mundo. Las experiencias de intercambio cultural son una de las líneas de servicio de ANKABASI.',
+			en: 'ANKABASI is a technology and digital company born from the Arhuaco community of Gwimake. We integrate technology, culture, education, content, and cultural exchange to connect the territory with people, institutions, and organizations around the world. Cultural exchange experiences are one of ANKABASI’s service lines.',
+			de: 'ANKABASI ist ein Technologie- und Digitalunternehmen, das aus der Arhuaco-Gemeinschaft von Gwimake entsteht. Wir verbinden Technologie, Kultur, Bildung, Inhalte und kulturellen Austausch, um das Territorium mit Menschen, Institutionen und Organisationen weltweit zu verknüpfen. Der kulturelle Austausch ist eine der Leistungslinien von ANKABASI.',
+			fr: 'ANKABASI est une entreprise technologique et numérique née de la communauté arhuaco de Gwimake. Nous intégrons technologie, culture, éducation, contenus et échange culturel pour relier le territoire à des personnes, institutions et organisations du monde entier. Les expériences d’échange culturel sont l’une des lignes de service d’ANKABASI.',
 		},
 	},
 	{
@@ -46,10 +46,10 @@ export const faqItems: FaqItem[] = [
 			fr: 'Que comprend l’expérience ?',
 		},
 		answer: {
-			es: 'Según el paquete: transporte desde Aracataca, alimentación completa, alojamiento en hamaca o bohío, trabajo espiritual con el mamo, caminatas, charlas nocturnas y, en planes más largos, talleres de artesanía y siembra.',
-			en: 'Depending on the package: transport from Aracataca, full meals, lodging in a hammock or traditional bohío, spiritual work with the mamo, walks, evening talks, and on longer plans craft workshops and planting.',
-			de: 'Je nach Paket: Transport ab Aracataca, Vollverpflegung, Unterkunft in Hängematte oder traditionellem Bohío, spirituelle Arbeit mit dem Mamo, Wanderungen, Abendgespräche und bei längeren Plänen Handwerks-Workshops und Aussaat.',
-			fr: 'Selon le forfait : transport depuis Aracataca, repas complets, hébergement en hamac ou bohío traditionnel, travail spirituel avec le mamo, marches, causeries du soir, et pour les séjours plus longs ateliers d’artisanat et semis.',
+			es: 'Según el paquete: transporte desde Aracataca, alimentación, alojamiento en hamaca o bohío, caminatas, espacios de diálogo cultural y, en planes más largos, talleres de artesanía y actividades educativas autorizadas por la comunidad.',
+			en: 'Depending on the package: transport from Aracataca, meals, lodging in a hammock or bohío, walks, cultural dialogue, and on longer plans craft workshops and educational activities authorized by the community.',
+			de: 'Je nach Paket: Transport ab Aracataca, Verpflegung, Unterkunft in Hängematte oder Bohío, Wanderungen, kultureller Dialog und bei längeren Plänen Handwerks-Workshops sowie von der Gemeinschaft autorisierte Bildungsaktivitäten.',
+			fr: 'Selon le forfait : transport depuis Aracataca, repas, hébergement en hamac ou bohío, marches, dialogue culturel, et pour les séjours plus longs ateliers d’artisanat et activités éducatives autorisées par la communauté.',
 		},
 	},
 	{

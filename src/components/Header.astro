@@ -1,7 +1,6 @@
 ---
 import type { Locale } from '../i18n/utils';
 import { t, localePath } from '../i18n/utils';
-import { faqPath } from '../i18n/routes';
 import LangSwitcher from './LangSwitcher.astro';
 
 interface Props {
@@ -32,62 +31,41 @@ const home = localePath(locale);
 					<a href={home + '#inicio'} class="nav__link">{t(locale, 'nav.inicio')}</a>
 				</li>
 				<li class="nav__item">
-					<a href={home + '#experiencia'} class="nav__link">{t(locale, 'nav.experiencia')}</a>
+					<a href={home + '#quienes-somos'} class="nav__link">{t(locale, 'nav.quienesSomos')}</a>
 				</li>
 				<li class="nav__item">
-					<a href={home + '#actividades'} class="nav__link">{t(locale, 'nav.actividades')}</a>
+					<a href={home + '#tecnologia'} class="nav__link">{t(locale, 'nav.tecnologia')}</a>
 				</li>
 				<li class="nav__item">
-					<a href={home + '#precios'} class="nav__link">{t(locale, 'nav.precios')}</a>
+					<a href={home + '#experiencia'} class="nav__link">{t(locale, 'nav.intercambio')}</a>
 				</li>
 				<li class="nav__item">
-					<a href={home + '#galeria'} class="nav__link">{t(locale, 'nav.galeria')}</a>
+					<a href={home + '#contenido'} class="nav__link">{t(locale, 'nav.contenido')}</a>
 				</li>
 				<li class="nav__item">
-					<a href={home + '#folleto'} class="nav__link">{t(locale, 'nav.folleto')}</a>
-				</li>
-				<li class="nav__item">
-					<a href={faqPath(locale)} class="nav__link">FAQ</a>
-				</li>
-				<li class="nav__item">
-					<a href={home + '#testimonios'} class="nav__link">{t(locale, 'nav.testimonios')}</a>
-				</li>
-				<li class="nav__item">
-					<a href={home + '#donde'} class="nav__link">{t(locale, 'nav.donde')}</a>
-				</li>
-				<li class="nav__item">
-					<a href={home + '#contacto'} class="nav__link">{t(locale, 'nav.contacto')}</a>
+					<a href={home + '#productos'} class="nav__link">{t(locale, 'nav.productosServicios')}</a>
 				</li>
 			</ul>
 			<div class="nav__mundo">
 				<span class="nav__mundo-label">{t(locale, 'nav.mundoAnkabasi')}</span>
 				<ul class="nav__mundo-list">
 					<li class="nav__item nav__item--mundo">
-						<a href={localePath(locale, 'blog/')} class="nav__link nav__link--mundo"
-							>{t(locale, 'nav.blog')}</a
-						>
+						<a href={localePath(locale, 'blog/')} class="nav__link nav__link--mundo">{t(locale, 'nav.blog')}</a>
 					</li>
 					<li class="nav__item nav__item--mundo">
-						<a href={localePath(locale, 'libro/')} class="nav__link nav__link--mundo"
-							>{t(locale, 'nav.libro')}</a
-						>
-					</li>
-					<li class="nav__item nav__item--mundo">
-						<a href={home + '#productos'} class="nav__link nav__link--mundo"
-							>{t(locale, 'nav.productos')}</a
-						>
-					</li>
-					<li class="nav__item nav__item--mundo">
-						<a href={home + '#cursos'} class="nav__link nav__link--mundo"
-							>{t(locale, 'nav.cursos')}</a
-						>
+						<a href={localePath(locale, 'libro/')} class="nav__link nav__link--mundo">{t(locale, 'nav.libro')}</a>
 					</li>
 				</ul>
 			</div>
+			<ul class="nav__list">
+				<li class="nav__item">
+					<a href={home + '#contacto'} class="nav__link">{t(locale, 'nav.contacto')}</a>
+				</li>
+			</ul>
 		</div>
 
 		<div class="nav__actions">
-			<a href={home + '#contacto'} class="btn btn--primary">{t(locale, 'nav.reservar')}</a>
+			<a href={home + '#experiencia'} class="btn btn--primary">{t(locale, 'nav.ctaExperiencias')}</a>
 			<LangSwitcher locale={locale} pathAfterLocale={pathAfterLocale} />
 			<button
 				type="button"

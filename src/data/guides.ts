@@ -32,22 +32,22 @@ export const guides: GuideContent[] = [
 		},
 		body: {
 			es: [
-				'El plan de 1 día / 1 noche es ideal para una primera inmersión: caminata a la cascada, charla nocturna y trabajo espiritual con el mamo.',
+				'El plan de 1 día / 1 noche es ideal para una primera inmersión: caminata a la cascada, charla nocturna y acompañamiento cultural y espacios de diálogo.',
 				'El plan de 3 días / 2 noches profundiza con talleres de artesanía, siembra y más tiempo de convivencia; incluye una mochila arhuaca como obsequio.',
 				'La semana permite una inmersión extendida. Contáctanos para diseñar fechas y ritmo con la comunidad.',
 			],
 			en: [
-				'The 1 day / 1 night plan is ideal for a first immersion: waterfall walk, evening talk, and spiritual work with the mamo.',
+				'The 1 day / 1 night plan is ideal for a first immersion: waterfall walk, evening talk, and cultural accompaniment and spaces for dialogue.',
 				'The 3 days / 2 nights plan deepens the stay with craft workshops, planting, and more shared time; it includes an Arhuaco mochila as a gift.',
 				'The week enables an extended immersion. Contact us to shape dates and pace with the community.',
 			],
 			de: [
-				'Der Plan 1 Tag / 1 Nacht eignet sich für eine erste Immersion: Wasserfallwanderung, Abendgespräch und spirituelle Arbeit mit dem Mamo.',
+				'Der Plan 1 Tag / 1 Nacht eignet sich für eine erste Immersion: Wasserfallwanderung, Abendgespräch und kulturelle Begleitung und Räume für Dialog.',
 				'Der Plan 3 Tage / 2 Nächte vertieft mit Handwerks-Workshops, Aussaat und mehr gemeinsamer Zeit; inklusive Arhuaco-Mochila als Geschenk.',
 				'Die Woche ermöglicht eine längere Immersion. Kontaktiere uns für Termine und Rhythmus mit der Gemeinschaft.',
 			],
 			fr: [
-				'Le forfait 1 jour / 1 nuit convient à une première immersion : marche à la cascade, causerie du soir et travail spirituel avec le mamo.',
+				'Le forfait 1 jour / 1 nuit convient à une première immersion : marche à la cascade, causerie du soir et accompagnement culturel et espaces de dialogue.',
 				'Le forfait 3 jours / 2 nuits approfondit avec ateliers d’artisanat, semis et plus de temps partagé ; une mochila arhuaco est offerte.',
 				'La semaine permet une immersion prolongée. Contactez-nous pour caler dates et rythme avec la communauté.',
 			],
@@ -148,16 +148,16 @@ export const guides: GuideContent[] = [
 			fr: 'À quoi s’attendre avec Ankabasi',
 		},
 		description: {
-			es: 'Ritmo, alojamiento, comida y convivencia en la experiencia ancestral Ankabasi en Gwimake.',
-			en: 'Pace, lodging, food, and shared life in the Ankabasi ancestral experience in Gwimake.',
-			de: 'Rhythmus, Unterkunft, Essen und Zusammenleben bei der Ankabasi-Erfahrung in Gwimake.',
-			fr: 'Rythme, hébergement, repas et vie partagée dans l’expérience ancestrale Ankabasi à Gwimake.',
+			es: 'Ritmo, alojamiento, comida y convivencia en el intercambio cultural Ankabasi en Gwimake.',
+			en: 'Pace, lodging, food, and shared life in the Ankabasi cultural exchange in Gwimake.',
+			de: 'Rhythmus, Unterkunft, Essen und Zusammenleben beim kulturellen Austausch Ankabasi in Gwimake.',
+			fr: 'Rythme, hébergement, repas et vie partagée dans l’échange culturel Ankabasi à Gwimake.',
 		},
 		lead: {
-			es: 'En Ankabasi dormirás en hamaca o bohío, compartirás alimentación completa y participarás en caminatas, charlas y trabajo espiritual. El ritmo sigue la vida de la comunidad en Gwimake, no un itinerario de resort.',
-			en: 'At Ankabasi you sleep in a hammock or bohío, share full meals, and join walks, talks, and spiritual work. The pace follows community life in Gwimake — not a resort itinerary.',
-			de: 'Bei Ankabasi schläfst du in Hängematte oder Bohío, teilst Vollverpflegung und nimmst an Wanderungen, Gesprächen und spiritueller Arbeit teil. Der Rhythmus folgt dem Gemeinschaftsleben in Gwimake — keinem Resort-Plan.',
-			fr: 'Chez Ankabasi vous dormez en hamac ou bohío, partagez les repas et participez à marches, causeries et travail spirituel. Le rythme suit la vie communautaire à Gwimake — pas un emploi du temps de resort.',
+			es: 'En Ankabasi dormirás en hamaca o bohío, compartirás alimentación completa y participarás en caminatas, charlas y acompañamiento cultural y diálogo. El ritmo sigue la vida de la comunidad en Gwimake, no un itinerario de resort.',
+			en: 'At Ankabasi you sleep in a hammock or bohío, share full meals, and join walks, talks, and cultural accompaniment and dialogue. The pace follows community life in Gwimake — not a resort itinerary.',
+			de: 'Bei Ankabasi schläfst du in Hängematte oder Bohío, teilst Vollverpflegung und nimmst an Wanderungen, Gesprächen und kultureller Begleitung und Dialog teil. Der Rhythmus folgt dem Gemeinschaftsleben in Gwimake — keinem Resort-Plan.',
+			fr: 'Chez Ankabasi vous dormez en hamac ou bohío, partagez les repas et participez à marches, causeries et accompagnement culturel et dialogue. Le rythme suit la vie communautaire à Gwimake — pas un emploi du temps de resort.',
 		},
 		body: {
 			es: [

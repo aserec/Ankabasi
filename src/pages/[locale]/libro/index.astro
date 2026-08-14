@@ -21,9 +21,10 @@ const home = localePath(locale);
 	<section class="container" style="padding: 6rem 1.25rem 4rem; max-width: 720px;">
 		<h1>{t(locale, 'libro.bookTitle')}</h1>
 		<p style="line-height: 1.7; margin: 1.25rem 0;">{t(locale, 'libro.excerpt')}</p>
-		<p style="color: #4a4a4a; margin-bottom: 2rem;">{t(locale, 'libro.subtitle')}</p>
+		<p>{t(locale, 'libro.subtitle')}</p>
+		<p><strong>{t(locale, 'libro.status')}</strong></p>
 		<p>
-			<a class="btn btn--primary" href="/libro/index.html">{t(locale, 'libro.startReading')}</a>
+			<a class="btn btn--primary" href="/libro/">{t(locale, 'libro.startReading')}</a>
 			{' '}
 			<a class="btn btn--secondary" href={home}>{t(locale, 'libro.backHome')}</a>
 		</p>

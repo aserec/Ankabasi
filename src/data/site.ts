@@ -45,8 +45,9 @@ export const SITE = {
 export function organizationJsonLd() {
 	return {
 		'@context': 'https://schema.org',
-		'@type': 'TouristAttraction',
+		'@type': 'Organization',
 		name: SITE.name,
+		legalName: SITE.legalName,
 		url: SITE.url,
 		email: SITE.email,
 		telephone: SITE.phoneDisplay,
@@ -59,6 +60,6 @@ export function organizationJsonLd() {
 		},
 		sameAs: SITE.sameAs,
 		description:
-			'Cultural exchange experience with the Arhuaco community in Gwimake, Sierra Nevada de Santa Marta, Colombia.',
+			'Technology and digital company of the Arhuaco community of Gwimake, connecting territory and world through technology, knowledge, education, content, and cultural exchange.',
 	};
 }

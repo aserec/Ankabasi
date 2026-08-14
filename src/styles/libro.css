@@ -367,6 +367,13 @@
     letter-spacing: 0.03em;
 }
 
+.libro-teaser__status {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin: 0 0 0.75rem;
+}
+
 .libro-teaser__excerpt {
     font-size: 1.05rem;
     line-height: 1.75;

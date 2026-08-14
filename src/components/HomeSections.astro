@@ -3,8 +3,10 @@ import type { Locale } from '../i18n/utils';
 import { t, tHtml, localePath } from '../i18n/utils';
 import { SITE } from '../data/site';
 import { BLOG_POSTS } from '../data/blog-data';
+import { TESTIMONIALS } from '../data/testimonials';
 import { getBlogPostContent } from '../data/blog-content';
-import { faqPath, guidePath } from '../i18n/routes';
+import { faqItems } from '../data/faq';
+import { faqPath } from '../i18n/routes';
 
 interface Props {
   locale: Locale;
@@ -16,20 +18,72 @@ const libro = localePath(locale, 'libro/');
 const waText = encodeURIComponent(t(locale, 'whatsapp.prefill'));
 const waHref = `https://wa.me/${SITE.whatsappE164}?text=${waText}`;
 const teaserPosts = BLOG_POSTS.slice(0, 2);
+const teaserFaqs = faqItems.slice(0, 3);
 ---
 
 <section class="main" id="inicio">
-        <div class="main__overlay"></div>
-        <div class="main__content container" data-aos="fade-up">
-            <h1 class="main__title">{t(locale, 'main.title')}</h1>
-            <h2 class="main__subtitle">{t(locale, 'main.subtitle')}</h2>
-            <p class="main__description">{t(locale, 'main.description')}</p>
-            <div class="main__support" data-aos="fade-up" data-aos-delay="200">
-                <p class="main__support-text" set:html={tHtml(locale, 'main.support')}></p>
-            </div>
-            <a href={home + "#contacto"} class="btn btn--primary btn--large">{t(locale, 'main.cta')}</a>
-        </div>
-    </section>
+  <div class="main__overlay"></div>
+  <div class="main__content container" data-aos="fade-up">
+    <h1 class="main__title">{t(locale, 'main.title')}</h1>
+    <h2 class="main__subtitle">{t(locale, 'main.subtitle')}</h2>
+    <p class="main__description">{t(locale, 'main.description')}</p>
+    <p class="main__tagline">{t(locale, 'main.tagline')}</p>
+    <div class="main__support" data-aos="fade-up" data-aos-delay="200">
+      <p class="main__support-text" set:html={tHtml(locale, 'main.support')}></p>
+    </div>
+    <div class="main__actions">
+      <a href={home + '#quienes-somos'} class="btn btn--primary btn--large">{t(locale, 'main.cta')}</a>
+      <a href={home + '#experiencia'} class="btn btn--secondary btn--large">{t(locale, 'main.ctaSecondary')}</a>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="quienes-somos">
+  <div class="container">
+    <h2 class="section__title" data-aos="fade-up">{t(locale, 'about.title')}</h2>
+    <div class="section__underline" data-aos="fade-up"></div>
+    <div class="about__text" data-aos="fade-up">
+      <p>{t(locale, 'about.p1')}</p>
+      <p>{t(locale, 'about.p2')}</p>
+      <p>{t(locale, 'about.p3')}</p>
+      <p class="about__closing">{t(locale, 'about.closing')}</p>
+    </div>
+  </div>
+</section>
+
+<section class="pillars" id="pilares">
+  <div class="container">
+    <h2 class="section__title" data-aos="fade-up">{t(locale, 'pillars.title')}</h2>
+    <div class="section__underline" data-aos="fade-up"></div>
+    <div class="pillars__grid">
+      <a class="pillars__card" href={home + '#tecnologia'} data-aos="fade-up" data-aos-delay="100">
+        <div class="pillars__icon" aria-hidden="true"><i class="fa-solid fa-laptop-code"></i></div>
+        <h3 class="pillars__title">{t(locale, 'pillars.tech_t')}</h3>
+        <p class="pillars__desc">{t(locale, 'pillars.tech_d')}</p>
+      </a>
+      <a class="pillars__card" href={home + '#contenido'} data-aos="fade-up" data-aos-delay="150">
+        <div class="pillars__icon" aria-hidden="true"><i class="fa-solid fa-video"></i></div>
+        <h3 class="pillars__title">{t(locale, 'pillars.content_t')}</h3>
+        <p class="pillars__desc">{t(locale, 'pillars.content_d')}</p>
+      </a>
+      <a class="pillars__card" href={home + '#cursos'} data-aos="fade-up" data-aos-delay="200">
+        <div class="pillars__icon" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
+        <h3 class="pillars__title">{t(locale, 'pillars.training_t')}</h3>
+        <p class="pillars__desc">{t(locale, 'pillars.training_d')}</p>
+      </a>
+      <a class="pillars__card" href={home + '#experiencia'} data-aos="fade-up" data-aos-delay="250">
+        <div class="pillars__icon" aria-hidden="true"><i class="fa-solid fa-earth-americas"></i></div>
+        <h3 class="pillars__title">{t(locale, 'pillars.exchange_t')}</h3>
+        <p class="pillars__desc">{t(locale, 'pillars.exchange_d')}</p>
+      </a>
+      <a class="pillars__card" href={home + '#productos'} data-aos="fade-up" data-aos-delay="300">
+        <div class="pillars__icon" aria-hidden="true"><i class="fa-solid fa-rocket"></i></div>
+        <h3 class="pillars__title">{t(locale, 'pillars.venture_t')}</h3>
+        <p class="pillars__desc">{t(locale, 'pillars.venture_d')}</p>
+      </a>
+    </div>
+  </div>
+</section>
 
     <!-- Sección Experiencia Transformadora -->
     <section class="experience" id="experiencia">
@@ -39,10 +93,11 @@ const teaserPosts = BLOG_POSTS.slice(0, 2);
                 <h2 class="section__title">{t(locale, 'experience.title')}</h2>
                 <div class="section__underline"></div>
                 <div class="experience__text">
-                    <p set:html={tHtml(locale, 'experience.p1')}></p>
-                    <p set:html={tHtml(locale, 'experience.p2')}></p>
+                    <p>{t(locale, 'experience.intro')}</p>
+                    <p>{t(locale, 'experience.p1')}</p>
+                    <p>{t(locale, 'experience.p2')}</p>
                 </div>
-                <a href={home + "#actividades"} class="btn btn--secondary">{t(locale, 'experience.cta')}</a>
+                <a href={home + '#precios'} class="btn btn--secondary">{t(locale, 'experience.cta')}</a>
             </div>
         </div>
     </section>
@@ -55,63 +110,99 @@ const teaserPosts = BLOG_POSTS.slice(0, 2);
             
             <div class="activities__grid">
                 <div class="activity__card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="activity__icon"><i class="fa-solid fa-car"></i></div>
-                    <h3 class="activity__title">{t(locale, 'activities.transport_t')}</h3>
-                    <p class="activity__description" set:html={tHtml(locale, 'activities.transport_d')}></p>
+                    <div class="activity__icon"><i class="fa-solid fa-mountain"></i></div>
+                    <h3 class="activity__title">{t(locale, 'activities.territory_t')}</h3>
+                    <p class="activity__description">{t(locale, 'activities.territory_d')}</p>
                 </div>
                 
-                <div class="activity__card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="activity__icon"><i class="fa-solid fa-spa"></i></div>
-                    <h3 class="activity__title">{t(locale, 'activities.spiritual_t')}</h3>
-                    <p class="activity__description">{t(locale, 'activities.spiritual_d')}</p>
-                </div>
-                
-                <div class="activity__card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="activity__icon"><i class="fa-solid fa-utensils"></i></div>
-                    <h3 class="activity__title">{t(locale, 'activities.food_t')}</h3>
-                    <p class="activity__description">{t(locale, 'activities.food_d')}</p>
-                </div>
-                
-                <div class="activity__card" data-aos="fade-up" data-aos-delay="400">
-                    <div class="activity__icon"><i class="fa-solid fa-bed"></i></div>
-                    <h3 class="activity__title">{t(locale, 'activities.lodging_t')}</h3>
-                    <p class="activity__description">{t(locale, 'activities.lodging_d')}</p>
-                </div>
-                
-                <div class="activity__card" data-aos="fade-up" data-aos-delay="500">
+                <div class="activity__card" data-aos="fade-up" data-aos-delay="150">
                     <div class="activity__icon"><i class="fa-solid fa-person-hiking"></i></div>
                     <h3 class="activity__title">{t(locale, 'activities.walks_t')}</h3>
                     <p class="activity__description">{t(locale, 'activities.walks_d')}</p>
                 </div>
                 
-                <div class="activity__card" data-aos="fade-up" data-aos-delay="600">
+                <div class="activity__card" data-aos="fade-up" data-aos-delay="200">
                     <div class="activity__icon"><i class="fa-solid fa-comments"></i></div>
-                    <h3 class="activity__title">{t(locale, 'activities.talks_t')}</h3>
-                    <p class="activity__description">{t(locale, 'activities.talks_d')}</p>
+                    <h3 class="activity__title">{t(locale, 'activities.dialogue_t')}</h3>
+                    <p class="activity__description">{t(locale, 'activities.dialogue_d')}</p>
                 </div>
                 
-                <div class="activity__card" data-aos="fade-up" data-aos-delay="700">
-                    <div class="activity__icon"><i class="fa-solid fa-thread"></i></div>
-                    <h3 class="activity__title">{t(locale, 'activities.threads_t')}</h3>
-                    <p class="activity__description">{t(locale, 'activities.threads_d')}</p>
+                <div class="activity__card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="activity__icon"><i class="fa-solid fa-utensils"></i></div>
+                    <h3 class="activity__title">{t(locale, 'activities.food_t')}</h3>
+                    <p class="activity__description">{t(locale, 'activities.food_d')}</p>
                 </div>
                 
-                <div class="activity__card" data-aos="fade-up" data-aos-delay="800">
+                <div class="activity__card" data-aos="fade-up" data-aos-delay="300">
                     <div class="activity__icon"><i class="fa-solid fa-palette"></i></div>
                     <h3 class="activity__title">{t(locale, 'activities.craft_t')}</h3>
                     <p class="activity__description">{t(locale, 'activities.craft_d')}</p>
                 </div>
                 
-                <div class="activity__card" data-aos="fade-up" data-aos-delay="900">
-                    <div class="activity__icon"><i class="fa-solid fa-seedling"></i></div>
-                    <h3 class="activity__title">{t(locale, 'activities.planting_t')}</h3>
-                    <p class="activity__description">{t(locale, 'activities.planting_d')}</p>
+                <div class="activity__card" data-aos="fade-up" data-aos-delay="350">
+                    <div class="activity__icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h3 class="activity__title">{t(locale, 'activities.education_t')}</h3>
+                    <p class="activity__description">{t(locale, 'activities.education_d')}</p>
                 </div>
                 
-                <div class="activity__card" data-aos="fade-up" data-aos-delay="1000">
-                    <div class="activity__icon"><i class="fa-solid fa-person-circle-question"></i></div>
-                    <h3 class="activity__title">{t(locale, 'activities.guide_t')}</h3>
-                    <p class="activity__description">{t(locale, 'activities.guide_d')}</p>
+                <div class="activity__card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="activity__icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3 class="activity__title">{t(locale, 'activities.stories_t')}</h3>
+                    <p class="activity__description">{t(locale, 'activities.stories_d')}</p>
+                </div>
+                
+                <div class="activity__card" data-aos="fade-up" data-aos-delay="450">
+                    <div class="activity__icon"><i class="fa-solid fa-people-group"></i></div>
+                    <h3 class="activity__title">{t(locale, 'activities.community_t')}</h3>
+                    <p class="activity__description">{t(locale, 'activities.community_d')}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Donde -->
+    <section class="location" id="donde">
+        <div class="container">
+            <h2 class="section__title" data-aos="fade-up">{t(locale, 'location.title')}</h2>
+            <div class="section__underline" data-aos="fade-up"></div>
+            <p class="section__subtitle" data-aos="fade-up" set:html={tHtml(locale, 'location.subtitle')}></p>
+            <p class="location__identity" data-aos="fade-up">{t(locale, 'location.identity')}</p>
+            
+            <div class="location__content" data-aos="fade-up" data-aos-delay="100">
+                <div class="location__info">
+                    <div class="location__item">
+                        <div class="location__icon">📍</div>
+                        <div class="location__details">
+                            <h3 class="location__title">{t(locale, 'location.meeting_t')}</h3>
+                            <p class="location__text">{t(locale, 'location.meeting_line')}</p>
+                            <p class="location__description" set:html={tHtml(locale, 'location.meeting_d')}></p>
+                        </div>
+                    </div>
+                    
+                    <div class="location__item">
+                        <div class="location__icon">🏔️</div>
+                        <div class="location__details">
+                            <h3 class="location__title">{t(locale, 'location.dest_t')}</h3>
+                            <p class="location__text" set:html={tHtml(locale, 'location.dest_line')}></p>
+                            <p class="location__description" set:html={tHtml(locale, 'location.dest_d')}></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location__map-wrapper">
+                    <!-- Mapa de Gwimake -->
+                    <div class="location__map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4646.288295789986!2d-74.06006062425755!3d10.63665798950371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef50dedd571c8bb%3A0xfaa19f2c09fb39be!2sGwimake!5e1!3m2!1ses!2ses!4v1764967181148!5m2!1ses!2ses"
+                        class="location__map"
+                        width="100%"
+                        height="450"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title={t(locale, 'location.mapTitle')}></iframe>
+                      
+                    </div>
                 </div>
             </div>
         </div>
@@ -122,6 +213,7 @@ const teaserPosts = BLOG_POSTS.slice(0, 2);
         <div class="container">
             <h2 class="section__title" data-aos="fade-up">{t(locale, 'pricing.title')}</h2>
             <div class="section__underline" data-aos="fade-up"></div>
+            <p class="section__subtitle" data-aos="fade-up">{t(locale, 'pricing.disclaimer')}</p>
             
             <!-- Sección de Formas de Pago -->
             <div class="payment__methods" data-aos="fade-up" data-aos-delay="100">
@@ -211,11 +303,55 @@ const teaserPosts = BLOG_POSTS.slice(0, 2);
         </div>
     </section>
 
+    <!-- Sección Folleto -->
+    <section class="brochure" id="folleto">
+        <div class="container">
+            <h2 class="section__title" data-aos="fade-up">{t(locale, 'brochure.title')}</h2>
+            <div class="section__underline" data-aos="fade-up"></div>
+            <p class="section__subtitle" data-aos="fade-up">{t(locale, 'brochure.subtitle')}</p>
+            
+            <div class="brochure__content" data-aos="fade-up" data-aos-delay="100">
+                <div class="brochure__preview">
+                    <div class="brochure__icon">📄</div>
+                    <h3 class="brochure__title">{t(locale, 'brochure.cardTitle')}</h3>
+                    <p class="brochure__description">{t(locale, 'brochure.cardDesc')}</p>
+                    <a href="/Ankabasi%20folleto.pdf" 
+                       download 
+                       class="btn btn--primary btn--large"
+                      >{t(locale, 'brochure.download')}</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section class="tech" id="tecnologia">
+  <div class="container">
+    <h2 class="section__title" data-aos="fade-up">{t(locale, 'tech.title')}</h2>
+    <div class="section__underline" data-aos="fade-up"></div>
+    <p class="section__subtitle" data-aos="fade-up">{t(locale, 'tech.lead')}</p>
+    <div class="tech__body" data-aos="fade-up">
+      <p>{t(locale, 'tech.p1')}</p>
+      <h3 class="tech__vision-title">{t(locale, 'tech.visionTitle')}</h3>
+      <p class="tech__vision">{t(locale, 'tech.vision')}</p>
+      <p>{t(locale, 'tech.futureIntro')}</p>
+      <ul class="tech__list">
+        <li>{t(locale, 'tech.item1')}</li>
+        <li>{t(locale, 'tech.item2')}</li>
+        <li>{t(locale, 'tech.item3')}</li>
+        <li>{t(locale, 'tech.item4')}</li>
+        <li>{t(locale, 'tech.item5')}</li>
+        <li>{t(locale, 'tech.item6')}</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
     <!-- Sección Galería -->
-    <section class="gallery" id="galeria">
+    <section class="gallery" id="contenido">
         <div class="container">
             <h2 class="section__title" data-aos="fade-up">{t(locale, 'gallery.title')}</h2>
             <p class="section__subtitle" data-aos="fade-up">{t(locale, 'gallery.subtitle')}</p>
+            <p class="gallery__tags">{t(locale, 'gallery.tags')}</p>
             
             <div class="gallery__filters" data-aos="fade-up">
                 <button class="gallery__filter active" data-filter="all">{t(locale, 'gallery.filter_all')}</button>
@@ -320,7 +456,7 @@ const teaserPosts = BLOG_POSTS.slice(0, 2);
                 
                 <div class="gallery__item" data-category="photos" data-aos="fade-up" data-aos-delay="1200">
                     <a href="/images/gallery/foto11.jpeg" class="gallery__link" data-glightbox="type: image">
-                        <img src="/images/gallery/foto11.jpeg" alt="Ankabasi - Experiencia Ancestral" class="gallery__image" loading="lazy">
+                        <img src="/images/gallery/foto11.jpeg" alt="Historias desde Gwimake" class="gallery__image" loading="lazy">
                         <div class="gallery__overlay">
                             <span class="gallery__icon">🔍</span>
                         </div>
@@ -403,7 +539,7 @@ const teaserPosts = BLOG_POSTS.slice(0, 2);
                 
                 <div class="gallery__item" data-category="photos" data-aos="fade-up" data-aos-delay="2200">
                     <a href="/images/gallery/foto21.jpeg" class="gallery__link" data-glightbox="type: image">
-                        <img src="/images/gallery/foto21.jpeg" alt="Ankabasi - Experiencia Ancestral" class="gallery__image" loading="lazy">
+                        <img src="/images/gallery/foto21.jpeg" alt="Historias desde Gwimake" class="gallery__image" loading="lazy">
                         <div class="gallery__overlay">
                             <span class="gallery__icon">🔍</span>
                         </div>
@@ -452,122 +588,171 @@ const teaserPosts = BLOG_POSTS.slice(0, 2);
         </div>
     </section>
 
-    <!-- Sección Folleto -->
-    <section class="brochure" id="folleto">
+    <!-- Sección Cursos -->
+    <section class="community-section community-section--cursos" id="cursos">
+      <div class="community-section__stripe" aria-hidden="true"></div>
+      <div class="container">
+        <h2 class="section__title" data-aos="fade-up">{t(locale, 'cursos.title')}</h2>
+        <div class="section__underline" data-aos="fade-up"></div>
+        <p class="section__subtitle" data-aos="fade-up">{t(locale, 'cursos.subtitle')}</p>
+        <p class="community-section__intro" data-aos="fade-up">{t(locale, 'cursos.description')}</p>
+        <div class="cursos__grid">
+          <article class="cursos__card" data-aos="fade-up" data-aos-delay="100">
+            <div class="cursos__icon" aria-hidden="true"><i class="fa-solid fa-laptop"></i></div>
+            <h3 class="cursos__title">{t(locale, 'cursos.course1.title')}</h3>
+            <p class="cursos__desc">{t(locale, 'cursos.course1.desc')}</p>
+          </article>
+          <article class="cursos__card" data-aos="fade-up" data-aos-delay="150">
+            <div class="cursos__icon" aria-hidden="true"><i class="fa-solid fa-seedling"></i></div>
+            <h3 class="cursos__title">{t(locale, 'cursos.course2.title')}</h3>
+            <p class="cursos__desc">{t(locale, 'cursos.course2.desc')}</p>
+          </article>
+          <article class="cursos__card" data-aos="fade-up" data-aos-delay="200">
+            <div class="cursos__icon" aria-hidden="true"><i class="fa-solid fa-comments"></i></div>
+            <h3 class="cursos__title">{t(locale, 'cursos.course3.title')}</h3>
+            <p class="cursos__desc">{t(locale, 'cursos.course3.desc')}</p>
+          </article>
+          <article class="cursos__card" data-aos="fade-up" data-aos-delay="250">
+            <div class="cursos__icon" aria-hidden="true"><i class="fa-solid fa-microchip"></i></div>
+            <h3 class="cursos__title">{t(locale, 'cursos.course4.title')}</h3>
+            <p class="cursos__desc">{t(locale, 'cursos.course4.desc')}</p>
+          </article>
+        </div>
+        <p class="cursos__soon" data-aos="fade-up">{t(locale, 'cursos.comingSoon')}</p>
+      </div>
+    </section>
+
+    <!-- Sección Productos -->
+    <section class="community-section community-section--productos" id="productos">
+        <div class="community-section__stripe" aria-hidden="true"></div>
         <div class="container">
-            <h2 class="section__title" data-aos="fade-up">{t(locale, 'brochure.title')}</h2>
+            <h2 class="section__title" data-aos="fade-up">{t(locale, 'productos.title')}</h2>
             <div class="section__underline" data-aos="fade-up"></div>
-            <p class="section__subtitle" data-aos="fade-up">{t(locale, 'brochure.subtitle')}</p>
-            
-            <div class="brochure__content" data-aos="fade-up" data-aos-delay="100">
-                <div class="brochure__preview">
-                    <div class="brochure__icon">📄</div>
-                    <h3 class="brochure__title">{t(locale, 'brochure.cardTitle')}</h3>
-                    <p class="brochure__description">{t(locale, 'brochure.cardDesc')}</p>
-                    <a href="/Ankabasi%20folleto.pdf" 
-                       download 
-                       class="btn btn--primary btn--large"
-                      >{t(locale, 'brochure.download')}</a>
+            <p class="section__subtitle" data-aos="fade-up">{t(locale, 'productos.subtitle')}</p>
+
+            <div class="community-section__content" data-aos="fade-up" data-aos-delay="100">
+                <div class="community-section__card">
+                    <div class="community-section__icon" aria-hidden="true">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </div>
+                    <p class="community-section__text">{t(locale, 'productos.description')}</p>
+                    <p class="productos__soon">{t(locale, 'productos.cta')}</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Sección Testimonios -->
+    <!-- Mundo Ankabasi: Blog y Libro -->
+    <section class="mundo-ankabasi" id="mundo-ankabasi">
+        <div class="mundo-ankabasi__stripe" aria-hidden="true"></div>
+        <div class="container">
+            <header class="mundo-ankabasi__header" data-aos="fade-up">
+                <p class="mundo-ankabasi__eyebrow">{t(locale, 'mundo.eyebrow')}</p>
+                <h2 class="mundo-ankabasi__title">{t(locale, 'nav.mundoAnkabasi')}</h2>
+                <div class="mundo-ankabasi__divider" aria-hidden="true"></div>
+                <p class="mundo-ankabasi__subtitle">{t(locale, 'mundo.subtitle')}</p>
+            </header>
+
+            <div class="mundo-ankabasi__blocks">
+                <section class="mundo-ankabasi__block blog" id="blog" data-aos="fade-up">
+                    <h3 class="mundo-ankabasi__block-title">{t(locale, 'blog.title')}</h3>
+                    <p class="mundo-ankabasi__block-subtitle">{t(locale, 'blog.subtitle')}</p>
+                    <div class="blog-teaser__grid">
+                        {
+                            teaserPosts.map((post) => {
+                                const content = getBlogPostContent(post.slug, locale);
+                                if (!content) return null;
+                                return (
+                                    <article class="blog-card">
+                                        <a href={localePath(locale, `blog/${post.slug}/`)} class="blog-card__link">
+                                            <img
+                                                src={post.featuredImage}
+                                                alt={content.featuredAlt || content.title}
+                                                class="blog-card__image"
+                                                loading="lazy"
+                                                width="480"
+                                                height="300"
+                                            />
+                                            <div class="blog-card__body">
+                                                <h4 class="blog-card__title">{content.title}</h4>
+                                                <p class="blog-card__excerpt">{content.excerpt}</p>
+                                                <span class="blog-card__more">{t(locale, 'blog.readMore')}</span>
+                                            </div>
+                                        </a>
+                                    </article>
+                                );
+                            })
+                        }
+                    </div>
+                    <div class="blog-teaser__actions">
+                        <a href={blog} class="btn btn--primary btn--large">{t(locale, 'blog.allPosts')}</a>
+                    </div>
+                </section>
+
+                <section class="mundo-ankabasi__block libro-teaser" id="libro" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="mundo-ankabasi__block-title">{t(locale, 'libro.title')}</h3>
+                    <p class="mundo-ankabasi__block-subtitle">{t(locale, 'libro.subtitle')}</p>
+                    <div class="libro-teaser__content">
+                        <h4 class="libro-teaser__book-title">{t(locale, 'libro.bookTitle')}</h4>
+                        <p class="libro-teaser__status">{t(locale, 'libro.status')}</p>
+                        <p class="libro-teaser__excerpt">{t(locale, 'libro.excerpt')}</p>
+                        <a href={libro} class="btn btn--secondary btn--large">{t(locale, 'libro.startReading')}</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-teaser" id="faq">
+        <div class="container">
+            <h2 class="section__title" data-aos="fade-up">{t(locale, 'faq.title')}</h2>
+            <div class="section__underline" data-aos="fade-up"></div>
+            <p class="section__subtitle" data-aos="fade-up">{t(locale, 'faq.subtitle')}</p>
+            <div class="faq-teaser__list" data-aos="fade-up">
+                {
+                    teaserFaqs.map((item, index) => (
+                        <details class="faq-teaser__item" open={index === 0}>
+                            <summary>{item.question[locale]}</summary>
+                            <p>{item.answer[locale]}</p>
+                        </details>
+                    ))
+                }
+            </div>
+            <div class="faq-teaser__actions" data-aos="fade-up">
+                <a href={faqPath(locale)} class="btn btn--secondary">{t(locale, 'faq.seeMore')}</a>
+            </div>
+        </div>
+    </section>
+
+    {TESTIMONIALS.length > 0 && (
     <section class="testimonials" id="testimonios">
         <div class="container">
             <h2 class="section__title" data-aos="fade-up">{t(locale, 'testimonials.title')}</h2>
             <div class="section__underline" data-aos="fade-up"></div>
-            
-            <div class="testimonials__grid">
-                <div class="testimonial__card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="testimonial__stars">★★★★★</div>
-                    <p class="testimonial__text">{t(locale, 'testimonials.t1')}</p>
-                    <div class="testimonial__author">
-                        <div class="testimonial__avatar">M</div>
-                        <div class="testimonial__info">
-                            <h4 class="testimonial__name">María González</h4>
-                            <p class="testimonial__location">Bogotá, Colombia</p>
-                        </div>
+        </div>
+        <div class="testimonials__marquee">
+            <div class="testimonials__track">
+                {[0, 1].map((copy) => (
+                    <div class="testimonials__group" aria-hidden={copy === 1 ? true : undefined}>
+                        {TESTIMONIALS.map((item) => (
+                            <article class="testimonial__card">
+                                <div class="testimonial__stars" aria-hidden="true">{'★'.repeat(item.stars)}</div>
+                                <p class="testimonial__text" lang={item.lang}>“{item.quote}”</p>
+                                <div class="testimonial__author">
+                                    <div class="testimonial__avatar">{item.name.charAt(0)}</div>
+                                    <div class="testimonial__info">
+                                        <h4 class="testimonial__name">{item.name}</h4>
+                                        <p class="testimonial__location">{item.location}</p>
+                                    </div>
+                                </div>
+                            </article>
+                        ))}
                     </div>
-                </div>
-                
-                <div class="testimonial__card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="testimonial__stars">★★★★★</div>
-                    <p class="testimonial__text">{t(locale, 'testimonials.t2')}</p>
-                    <div class="testimonial__author">
-                        <div class="testimonial__avatar">J</div>
-                        <div class="testimonial__info">
-                            <h4 class="testimonial__name">Juan Pérez</h4>
-                            <p class="testimonial__location">Medellín, Colombia</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial__card" data-aos="fade-up" data-aos-delay="300">
-                    <div class="testimonial__stars">★★★★★</div>
-                    <p class="testimonial__text">{t(locale, 'testimonials.t3')}</p>
-                    <div class="testimonial__author">
-                        <div class="testimonial__avatar">A</div>
-                        <div class="testimonial__info">
-                            <h4 class="testimonial__name">Ana Martínez</h4>
-                            <p class="testimonial__location">Cali, Colombia</p>
-                        </div>
-                    </div>
-                </div>
-                
-                
+                ))}
             </div>
         </div>
     </section>
-
-    <!-- Sección Donde -->
-    <section class="location" id="donde">
-        <div class="container">
-            <h2 class="section__title" data-aos="fade-up">{t(locale, 'location.title')}</h2>
-            <div class="section__underline" data-aos="fade-up"></div>
-            <p class="section__subtitle" data-aos="fade-up" set:html={tHtml(locale, 'location.subtitle')}></p>
-            
-            <div class="location__content" data-aos="fade-up" data-aos-delay="100">
-                <div class="location__info">
-                    <div class="location__item">
-                        <div class="location__icon">📍</div>
-                        <div class="location__details">
-                            <h3 class="location__title">{t(locale, 'location.meeting_t')}</h3>
-                            <p class="location__text">{t(locale, 'location.meeting_line')}</p>
-                            <p class="location__description" set:html={tHtml(locale, 'location.meeting_d')}></p>
-                        </div>
-                    </div>
-                    
-                    <div class="location__item">
-                        <div class="location__icon">🏔️</div>
-                        <div class="location__details">
-                            <h3 class="location__title">{t(locale, 'location.dest_t')}</h3>
-                            <p class="location__text" set:html={tHtml(locale, 'location.dest_line')}></p>
-                            <p class="location__description" set:html={tHtml(locale, 'location.dest_d')}></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="location__map-wrapper">
-                    <!-- Mapa de Gwimake -->
-                    <div class="location__map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4646.288295789986!2d-74.06006062425755!3d10.63665798950371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef50dedd571c8bb%3A0xfaa19f2c09fb39be!2sGwimake!5e1!3m2!1ses!2ses!4v1764967181148!5m2!1ses!2ses"
-                        class="location__map"
-                        width="100%"
-                        height="450"
-                        style="border:0;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title={t(locale, 'location.mapTitle')}
-                        title="Ubicación de Gwimake, Sierra Nevada de Santa Marta"></iframe>
-                      
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    )}
 
     <!-- Sección Contacto -->
     <section class="contact" id="contacto">
@@ -577,7 +762,7 @@ const teaserPosts = BLOG_POSTS.slice(0, 2);
             
             <div class="contact__content">
                 <div class="contact__form-wrapper contact__image-wrapper" data-aos="fade-up" data-aos-delay="100">
-                    <img src="/images/gallery/foto5.jpeg" alt="Ankabasi - Experiencia Ancestral" class="contact__image">
+                    <img src="/images/gallery/foto5.jpeg" alt={t(locale, 'contact.imageAlt')} class="contact__image">
                 </div>
                 
                 <div class="contact__info" data-aos="fade-up" data-aos-delay="200">
@@ -632,149 +817,6 @@ const teaserPosts = BLOG_POSTS.slice(0, 2);
                        data-wa-base="https://wa.me/573107186797"
                       >{t(locale, 'contact.whatsappBtn')}</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Productos -->
-    <section class="community-section community-section--productos" id="productos">
-        <div class="community-section__stripe" aria-hidden="true"></div>
-        <div class="container">
-            <h2 class="section__title" data-aos="fade-up">{t(locale, 'productos.title')}</h2>
-            <div class="section__underline" data-aos="fade-up"></div>
-            <p class="section__subtitle" data-aos="fade-up">{t(locale, 'productos.subtitle')}</p>
-
-            <div class="community-section__content" data-aos="fade-up" data-aos-delay="100">
-                <div class="community-section__card">
-                    <div class="community-section__icon" aria-hidden="true">
-                        <i class="fa-solid fa-basket-shopping"></i>
-                    </div>
-                    <p class="community-section__text">{t(locale, 'productos.description')}</p>
-                    <a href="https://example.com/tienda-ankabasi"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn btn--primary btn--large"
-                      >{t(locale, 'productos.cta')}</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección Cursos -->
-    <section class="community-section community-section--cursos" id="cursos">
-        <div class="community-section__stripe" aria-hidden="true"></div>
-        <div class="container">
-            <h2 class="section__title" data-aos="fade-up">{t(locale, 'cursos.title')}</h2>
-            <div class="section__underline" data-aos="fade-up"></div>
-            <p class="section__subtitle" data-aos="fade-up">{t(locale, 'cursos.subtitle')}</p>
-            <p class="community-section__intro" data-aos="fade-up">{t(locale, 'cursos.description')}</p>
-
-            <div class="cursos__grid">
-                <article class="cursos__card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="cursos__icon" aria-hidden="true">
-                        <i class="fa-solid fa-seedling"></i>
-                    </div>
-                    <h3 class="cursos__title">{t(locale, 'cursos.course1.title')}</h3>
-                    <p class="cursos__desc">{t(locale, 'cursos.course1.desc')}</p>
-                    <a href="https://example.com/curso-emprendimiento"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn btn--secondary btn--large"
-                      >{t(locale, 'cursos.cta')}</a>
-                </article>
-
-                <article class="cursos__card" data-aos="fade-up" data-aos-delay="150">
-                    <div class="cursos__icon" aria-hidden="true">
-                        <i class="fa-solid fa-laptop"></i>
-                    </div>
-                    <h3 class="cursos__title">{t(locale, 'cursos.course2.title')}</h3>
-                    <p class="cursos__desc">{t(locale, 'cursos.course2.desc')}</p>
-                    <a href="https://example.com/curso-digital"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn btn--secondary btn--large"
-                      >{t(locale, 'cursos.cta')}</a>
-                </article>
-
-                <article class="cursos__card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="cursos__icon" aria-hidden="true">
-                        <i class="fa-solid fa-people-group"></i>
-                    </div>
-                    <h3 class="cursos__title">{t(locale, 'cursos.course3.title')}</h3>
-                    <p class="cursos__desc">{t(locale, 'cursos.course3.desc')}</p>
-                    <a href="https://example.com/curso-liderazgo"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       class="btn btn--secondary btn--large"
-                      >{t(locale, 'cursos.cta')}</a>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mundo Ankabasi: Blog y Libro -->
-    <section class="mundo-ankabasi" id="mundo-ankabasi">
-        <div class="mundo-ankabasi__stripe" aria-hidden="true"></div>
-        <div class="container">
-            <header class="mundo-ankabasi__header" data-aos="fade-up">
-                <p class="mundo-ankabasi__eyebrow">{t(locale, 'mundo.eyebrow')}</p>
-                <h2 class="mundo-ankabasi__title">{t(locale, 'nav.mundoAnkabasi')}</h2>
-                <div class="mundo-ankabasi__divider" aria-hidden="true"></div>
-                <p class="mundo-ankabasi__subtitle">{t(locale, 'mundo.subtitle')}</p>
-            </header>
-
-            <div class="mundo-ankabasi__blocks">
-                <section class="mundo-ankabasi__block blog" id="blog" data-aos="fade-up">
-                    <h3 class="mundo-ankabasi__block-title">{t(locale, 'blog.title')}</h3>
-                    <p class="mundo-ankabasi__block-subtitle">{t(locale, 'blog.subtitle')}</p>
-                    <div class="blog-teaser__grid">
-                        {
-                            teaserPosts.map((post) => {
-                                const content = getBlogPostContent(post.slug, locale);
-                                if (!content) return null;
-                                return (
-                                    <article class="blog-card">
-                                        <a href={localePath(locale, `blog/${post.slug}/`)} class="blog-card__link">
-                                            <img
-                                                src={post.featuredImage}
-                                                alt={content.featuredAlt || content.title}
-                                                class="blog-card__image"
-                                                loading="lazy"
-                                                width="480"
-                                                height="300"
-                                            />
-                                            <div class="blog-card__body">
-                                                <h4 class="blog-card__title">{content.title}</h4>
-                                                <p class="blog-card__excerpt">{content.excerpt}</p>
-                                                <span class="blog-card__more">{t(locale, 'blog.readMore')}</span>
-                                            </div>
-                                        </a>
-                                    </article>
-                                );
-                            })
-                        }
-                    </div>
-                    <p style="margin: 1rem 0 0;">
-                        <a href={faqPath(locale)}>FAQ</a>
-                        {' · '}
-                        <a href={guidePath(locale, 'howToGetThere')}>{t(locale, 'nav.donde')}</a>
-                        {' · '}
-                        <a href={guidePath(locale, 'packages')}>{t(locale, 'pricing.title')}</a>
-                    </p>
-                    <div class="blog-teaser__actions">
-                        <a href={blog} class="btn btn--primary btn--large">{t(locale, 'blog.allPosts')}</a>
-                    </div>
-                </section>
-
-                <section class="mundo-ankabasi__block libro-teaser" id="libro" data-aos="fade-up" data-aos-delay="100">
-                    <h3 class="mundo-ankabasi__block-title">{t(locale, 'libro.title')}</h3>
-                    <p class="mundo-ankabasi__block-subtitle">{t(locale, 'libro.subtitle')}</p>
-                    <div class="libro-teaser__content">
-                        <h4 class="libro-teaser__book-title">{t(locale, 'libro.bookTitle')}</h4>
-                        <p class="libro-teaser__excerpt">{t(locale, 'libro.excerpt')}</p>
-                        <a href={libro} class="btn btn--secondary btn--large">{t(locale, 'libro.startReading')}</a>
-                    </div>
-                </section>
             </div>
         </div>
     </section>

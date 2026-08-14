@@ -2,6 +2,7 @@ export const BLOG_POSTS = [
     {
         slug: 'los-sabios-de-la-montana',
         date: '2026-05-20',
+        category: 'cultura',
         featuredImage: '/images/blog/DSC09240.jpg',
         images: [
             '/images/blog/DSC09240.jpg',
@@ -14,6 +15,7 @@ export const BLOG_POSTS = [
     {
         slug: 'donachwi-y-su-entorno',
         date: '2026-05-08',
+        category: 'territorio',
         featuredImage: '/images/blog/DSC09322.jpg',
         images: [
             '/images/blog/DSC09322.jpg',

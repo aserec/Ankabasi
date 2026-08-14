@@ -42,6 +42,7 @@ const description = t(locale, 'blog.subtitle');
 									/>
 									<div class="blog-card__body">
 										<time datetime={post.date}>{post.date}</time>
+										<p class="blog-card__cat">{t(locale, `blog.cat_${post.category}`)}</p>
 										<h2 class="blog-card__title">{content.title}</h2>
 										<p class="blog-card__excerpt">{content.excerpt}</p>
 										<span class="blog-card__more">{t(locale, 'blog.readMore')}</span>

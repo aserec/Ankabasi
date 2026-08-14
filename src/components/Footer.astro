@@ -25,19 +25,17 @@ const home = localePath(locale);
 					/>
 				</a>
 				<p class="footer__description">{t(locale, 'footer.tagline')}</p>
+				<p class="footer__pillars">{t(locale, 'footer.pillars')}</p>
 			</div>
 
 			<div class="footer__section">
 				<h4 class="footer__title">{t(locale, 'footer.quick')}</h4>
 				<ul class="footer__links">
 					<li><a href={home + '#inicio'}>{t(locale, 'nav.inicio')}</a></li>
-					<li><a href={home + '#experiencia'}>{t(locale, 'nav.experiencia')}</a></li>
-					<li><a href={home + '#precios'}>{t(locale, 'nav.precios')}</a></li>
-					<li><a href={guidePath(locale, 'packages')}>{t(locale, 'pricing.title')}</a></li>
+					<li><a href={home + '#quienes-somos'}>{t(locale, 'nav.quienesSomos')}</a></li>
+					<li><a href={home + '#tecnologia'}>{t(locale, 'nav.tecnologia')}</a></li>
+					<li><a href={home + '#experiencia'}>{t(locale, 'nav.intercambio')}</a></li>
 					<li><a href={faqPath(locale)}>FAQ</a></li>
-					<li>
-						<a href={guidePath(locale, 'howToGetThere')}>{t(locale, 'nav.donde')}</a>
-					</li>
 					<li><a href={home + '#contacto'}>{t(locale, 'nav.contacto')}</a></li>
 				</ul>
 			</div>

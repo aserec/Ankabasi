@@ -176,10 +176,14 @@
         gap: 1rem;
     }
     
-    /* Testimonials Grid */
-    .testimonials__grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    /* Testimonials marquee */
+    .testimonials__track {
+        animation-duration: 36s;
+    }
+
+    .testimonials__group {
+        gap: 1rem;
+        padding-right: 1rem;
     }
     
     /* Location Section */
