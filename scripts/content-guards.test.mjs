@@ -52,31 +52,31 @@ describe('ANKABASI repositioning guards', () => {
   it('does not present prototype testimonials as real people', () => {
     const page = home();
     const data = read('src/data/testimonials.ts');
-    for (const name of ['María González', 'Juan Pérez', 'Ana Martínez']) {
+    for (const name of [
+      'María González',
+      'Juan Pérez',
+      'Ana Martínez',
+      'Daniel Hart',
+      'Priya Nair',
+      'Thomas Reed',
+      'Léa Morel',
+      'Jonas Weber',
+      'Anna Schäfer',
+      'Stefan Hoffmann',
+      'Helen Brooks',
+    ]) {
       assert.equal(page.includes(name), false, name);
       assert.equal(data.includes(name), false, name);
     }
   });
 
-  it('lists visitor experiences in en, fr, de, and learner Spanish', () => {
+  it('hides the testimonials section when there are no visitor comments', () => {
     const data = read('src/data/testimonials.ts');
-    const countLang = (lang) => [...data.matchAll(new RegExp(`lang: '${lang}'`, 'g'))].length;
-    assert.equal(countLang('en'), 3);
-    assert.equal(countLang('fr'), 1);
-    assert.equal(countLang('de'), 2);
-    assert.equal(countLang('es'), 2);
-    assert.match(data, /id: 'stefan-es'/);
-    assert.match(data, /id: 'helen-es'/);
+    assert.match(data, /export const TESTIMONIALS/);
+    assert.match(data, /TESTIMONIALS[\s\S]*?=\s*\[\s*\]/);
     const page = home();
+    assert.match(page, /from '\.\.\/data\/testimonials'/);
     assert.match(page, /TESTIMONIALS\.length\s*>\s*0/);
-    assert.match(page, /TESTIMONIALS\.map/);
-    assert.match(page, /testimonials__marquee/);
-    assert.match(page, /testimonials__track/);
-    assert.doesNotMatch(page, /testimonials__grid/);
-    assert.match(ui(), /Experiencias de nuestros visitantes/);
-    const css = read('src/styles/style.css');
-    assert.match(css, /@keyframes testimonials-marquee/);
-    assert.match(css, /prefers-reduced-motion/);
   });
 
   it('JSON-LD describes an Organization, not a TouristAttraction', () => {
