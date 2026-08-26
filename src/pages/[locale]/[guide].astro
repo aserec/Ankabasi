@@ -7,7 +7,7 @@ import {
 	localePath,
 	type Locale,
 } from '../../i18n/utils';
-import { guideSlugs, guideKeyFromSlug, type GuideKey } from '../../i18n/routes';
+import { guideSlugs, guideKeyFromSlug, pagePath, type GuideKey } from '../../i18n/routes';
 import { getGuide } from '../../data/guides';
 import { SITE } from '../../data/site';
 
@@ -89,7 +89,7 @@ const crumbs = {
 			))
 		}
 		<p style="margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
-			<a class="btn btn--primary" href={home + '#contacto'}>{t(locale, 'nav.reservar')}</a>
+			<a class="btn btn--primary" href={pagePath(locale, 'contacto')}>{t(locale, 'nav.reservar')}</a>
 			<a class="btn btn--secondary" href={localePath(locale, 'faq/')}>FAQ</a>
 		</p>
 	</article>

@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { locales, isLocale, t, type Locale } from '../../i18n/utils';
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale: localeParam } = Astro.params;
+if (!localeParam || !isLocale(localeParam)) return Astro.redirect('/es/tecnologia/');
+const locale = localeParam as Locale;
+---
+
+<BaseLayout
+	locale={locale}
+	title={`${t(locale, 'tech.title')} — Ankabasi`}
+	description={t(locale, 'tech.lead')}
+	pathAfterLocale="tecnologia/"
+>
+	<section class="page tech" id="tecnologia">
+		<div class="container">
+			<header class="page__header" data-aos="fade-up">
+				<h1 class="section__title">{t(locale, 'tech.title')}</h1>
+				<div class="section__underline"></div>
+				<p class="section__subtitle">{t(locale, 'tech.lead')}</p>
+			</header>
+			<div class="tech__body" data-aos="fade-up">
+				<p>{t(locale, 'tech.p1')}</p>
+				<h2 class="tech__vision-title">{t(locale, 'tech.visionTitle')}</h2>
+				<p class="tech__vision">{t(locale, 'tech.vision')}</p>
+				<p>{t(locale, 'tech.futureIntro')}</p>
+				<ul class="tech__list">
+					<li>{t(locale, 'tech.item1')}</li>
+					<li>{t(locale, 'tech.item2')}</li>
+					<li>{t(locale, 'tech.item3')}</li>
+					<li>{t(locale, 'tech.item4')}</li>
+					<li>{t(locale, 'tech.item5')}</li>
+					<li>{t(locale, 'tech.item6')}</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

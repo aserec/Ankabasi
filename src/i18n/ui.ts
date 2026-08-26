@@ -35,6 +35,10 @@ export const ui = {
                 contenido: 'Contenido',
                 productosServicios: 'Productos y servicios',
                 ctaExperiencias: 'Conoce nuestras experiencias',
+                gwimake: 'Gwimake',
+                territorio: 'Dónde estamos',
+                formacion: 'Formación',
+                faq: 'FAQ',
             },
             main: {
                 title: 'ANKABASI',
@@ -43,35 +47,38 @@ export const ui = {
                     'Una empresa tecnológica y digital de la comunidad Arhuaca que conecta el territorio con el mundo mediante tecnología, conocimiento, educación, contenido e intercambio cultural.',
                 support:
                     'Con el apoyo de la <strong>Universidad del Magdalena</strong> para apoyar a <strong>Asoarhuaco</strong> y el <strong>Cabildo Arhuaco del Magdalena y La Guajira</strong>',
-                cta: 'Conoce ANKABASI',
+                cta: 'Qué es ANKABASI',
                 tagline:
                     'Conectamos la sabiduría ancestral con las herramientas del presente para construir oportunidades hacia el futuro.',
-                ctaSecondary: 'Explora nuestras experiencias',
+                ctaSecondary: 'Conoce nuestras experiencias',
             },
             about: {
                 title: '¿Qué es ANKABASI?',
                 p1:
-                    'ANKABASI es una empresa tecnológica y digital que nace desde la comunidad Arhuaca de Gwimake.',
+                    'ANKABASI es una empresa tecnológica y digital que nace desde la comunidad Arhuaca de Gwimake, en la Sierra Nevada de Santa Marta, territorio ancestral conocido como el corazón del mundo.',
                 p2:
-                    'Somos una iniciativa impulsada por jóvenes Arhuacos que busca utilizar la tecnología como herramienta para fortalecer la identidad cultural, reducir brechas digitales, impulsar el emprendimiento y generar nuevas oportunidades de aprendizaje, innovación e intercambio cultural.',
+                    'Somos una iniciativa impulsada por jóvenes Arhuacos que usa la tecnología para fortalecer la identidad cultural, reducir brechas digitales, impulsar el emprendimiento y abrir nuevas oportunidades de aprendizaje e intercambio. No llegamos al territorio desde fuera: pensamos y construimos desde Gwimake.',
                 p3:
-                    'Desarrollamos soluciones digitales, contenido audiovisual, procesos de formación y experiencias de intercambio cultural que conectan el territorio con personas, instituciones y organizaciones de diferentes partes del mundo.',
+                    'Desarrollamos soluciones digitales, contenido audiovisual, procesos de formación y experiencias de intercambio cultural que conectan el territorio con personas, instituciones y organizaciones de distintas partes del mundo. Cada línea de trabajo busca circular conocimiento en ambas direcciones, con respeto y voz propia.',
                 closing: 'Tecnología desde el territorio y para el territorio.',
             },
             pillars: {
                 title: '¿Qué hacemos?',
                 tech_t: 'Tecnología',
-                tech_d: 'Soluciones y herramientas digitales adaptadas a las necesidades del territorio.',
+                tech_d:
+                    'Diseñamos y promovemos herramientas digitales adaptadas a las necesidades de Gwimake. La tecnología sirve para dar visibilidad, organización y soluciones propias del territorio, no para copiar modelos ajenos.',
                 content_t: 'Contenido',
                 content_d:
-                    'Producción audiovisual y narrativas digitales sobre cultura, territorio y comunidad.',
+                    'Producimos fotografía, video e historias digitales sobre cultura, territorio y juventud Arhuaca. El contenido es memoria, diálogo y una forma de contar Gwimake con voz propia, desde quienes habitan el territorio.',
                 training_t: 'Formación',
-                training_d: 'Procesos de aprendizaje y apropiación de herramientas digitales.',
+                training_d:
+                    'Impulsamos procesos de aprendizaje para que jóvenes y emprendedores se apropien de herramientas digitales. Formar es fortalecer capacidades sin desconectar de la identidad ni del conocimiento que ya vive en la comunidad.',
                 exchange_t: 'Intercambio cultural',
                 exchange_d:
-                    'Experiencias que permiten conectar visitantes con el territorio y sus conocimientos.',
+                    'Creamos experiencias donde visitantes y comunidad se escuchan, aprenden y comparten. No es una visita superficial: es un diálogo respetuoso con el territorio y con quienes lo cuidan.',
                 venture_t: 'Emprendimiento',
-                venture_d: 'Tecnología e innovación para impulsar iniciativas económicas y sociales.',
+                venture_d:
+                    'Acompañamos oficios e iniciativas del territorio —café, cacao, mochilas y otros productos— con visibilidad, comercio justo e innovación al servicio de la comunidad y de quienes producen.',
             },
             experience: {
                 title: 'Intercambio cultural en Gwimake',
@@ -138,9 +145,8 @@ export const ui = {
                     'Los valores pueden variar según número de participantes, logística, actividades seleccionadas y condiciones de la experiencia.',
             },
             gallery: {
-                title: 'Historias desde Gwimake',
-                subtitle:
-                    'Contamos historias sobre territorio, cultura, conocimiento, naturaleza, emprendimiento y juventud Arhuaca mediante herramientas audiovisuales y digitales.',
+                title: 'Galería',
+                subtitle: 'Galería',
                 filter_all: 'Todos',
                 filter_photos: 'Fotos',
                 filter_videos: 'Videos',
@@ -244,7 +250,7 @@ export const ui = {
                 note: 'Estamos recopilando las primeras experiencias y opiniones de nuestros usuarios.',
             },
             location: {
-                title: 'Nuestro territorio',
+                title: 'Dónde estamos',
                 subtitle:
                     'El punto de encuentro es Aracataca, desde donde comenzamos el viaje hacia <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>',
                 meeting_t: 'Punto de Partida',
@@ -317,6 +323,10 @@ export const ui = {
                 contenido: 'Content',
                 productosServicios: 'Products and services',
                 ctaExperiencias: 'Discover our experiences',
+                gwimake: 'Gwimake',
+                territorio: 'Where we are',
+                formacion: 'Training',
+                faq: 'FAQ',
             },
             main: {
                 title: 'ANKABASI',
@@ -325,34 +335,38 @@ export const ui = {
                     'A technology and digital company of the Arhuaco community that connects the territory with the world through technology, knowledge, education, content, and cultural exchange.',
                 support:
                     'With support from <strong>Universidad del Magdalena</strong> for <strong>Asoarhuaco</strong> and the <strong>Arhuaco Council of Magdalena and La Guajira</strong>',
-                cta: 'Discover ANKABASI',
+                cta: 'What is ANKABASI',
                 tagline:
                     'We connect ancestral wisdom with the tools of the present to build opportunities for the future.',
-                ctaSecondary: 'Explore our experiences',
+                ctaSecondary: 'Discover our experiences',
             },
             about: {
                 title: 'What is ANKABASI?',
                 p1:
-                    'ANKABASI is a technology and digital company born from the Arhuaco community of Gwimake.',
+                    'ANKABASI is a technology and digital company born from the Arhuaco community of Gwimake, in the Sierra Nevada de Santa Marta — ancestral territory known as the heart of the world.',
                 p2:
-                    'We are an initiative led by Arhuaco youth that uses technology to strengthen cultural identity, reduce digital gaps, foster entrepreneurship, and create new opportunities for learning, innovation, and cultural exchange.',
+                    'We are an initiative led by Arhuaco youth that uses technology to strengthen cultural identity, reduce digital gaps, foster entrepreneurship, and open new opportunities for learning and exchange. We do not arrive from outside: we think and build from Gwimake.',
                 p3:
-                    'We develop digital solutions, audiovisual content, training processes, and cultural exchange experiences that connect the territory with people, institutions, and organizations around the world.',
+                    'We develop digital solutions, audiovisual content, training processes, and cultural exchange experiences that connect the territory with people, institutions, and organizations around the world. Each line of work seeks to circulate knowledge in both directions, with respect and a voice of our own.',
                 closing: 'Technology from the territory and for the territory.',
             },
             pillars: {
                 title: 'What we do',
                 tech_t: 'Technology',
-                tech_d: 'Digital solutions and tools adapted to the needs of the territory.',
+                tech_d:
+                    'We design and promote digital tools adapted to the needs of Gwimake. Technology serves visibility, organization, and solutions that belong to the territory — not copied models from elsewhere.',
                 content_t: 'Content',
                 content_d:
-                    'Audiovisual production and digital narratives about culture, territory, and community.',
+                    'We produce photography, video, and digital stories about Arhuaco culture, territory, and youth. Content is memory, dialogue, and a way to tell Gwimake in its own voice, from those who live the territory.',
                 training_t: 'Training',
-                training_d: 'Learning processes and appropriation of digital tools.',
+                training_d:
+                    'We support learning so that young people and entrepreneurs can take ownership of digital tools. Training strengthens skills without disconnecting from identity or from knowledge that already lives in the community.',
                 exchange_t: 'Cultural exchange',
-                exchange_d: 'Experiences that connect visitors with the territory and its knowledge.',
+                exchange_d:
+                    'We create experiences where visitors and community listen, learn, and share. This is not a superficial visit: it is a respectful dialogue with the territory and with those who care for it.',
                 venture_t: 'Entrepreneurship',
-                venture_d: 'Technology and innovation to boost economic and social initiatives.',
+                venture_d:
+                    'We accompany crafts and initiatives of the territory —coffee, cacao, backpacks, and other products— with visibility, fair trade, and innovation at the service of the community and of those who produce.',
             },
             experience: {
                 title: 'Cultural exchange in Gwimake',
@@ -419,9 +433,8 @@ export const ui = {
                     'Prices may vary according to group size, logistics, selected activities, and the conditions of the experience.',
             },
             gallery: {
-                title: 'Stories from Gwimake',
-                subtitle:
-                    'We tell stories about territory, culture, knowledge, nature, entrepreneurship, and Arhuaco youth through audiovisual and digital tools.',
+                title: 'Gallery',
+                subtitle: 'Gallery',
                 filter_all: 'All',
                 filter_photos: 'Photos',
                 filter_videos: 'Videos',
@@ -523,7 +536,7 @@ export const ui = {
                 note: 'We are gathering the first experiences and feedback from our users.',
             },
             location: {
-                title: 'Our territory',
+                title: 'Where we are',
                 subtitle:
                     'The meeting point is Aracataca, where we begin the journey to <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>',
                 meeting_t: 'Starting point',
@@ -595,6 +608,10 @@ export const ui = {
                 contenido: 'Inhalte',
                 productosServicios: 'Produkte und Leistungen',
                 ctaExperiencias: 'Unsere Erfahrungen kennenlernen',
+                gwimake: 'Gwimake',
+                territorio: 'Wo wir sind',
+                formacion: 'Bildung',
+                faq: 'FAQ',
             },
             main: {
                 title: 'ANKABASI',
@@ -603,34 +620,38 @@ export const ui = {
                     'Ein Technologie- und Digitalunternehmen der Arhuaco-Gemeinschaft, das das Territorium durch Technologie, Wissen, Bildung, Inhalte und kulturellen Austausch mit der Welt verbindet.',
                 support:
                     'Mit Unterstützung der <strong>Universidad del Magdalena</strong> für <strong>Asoarhuaco</strong> und den <strong>Arhuaco-Rat von Magdalena und La Guajira</strong>',
-                cta: 'ANKABASI kennenlernen',
+                cta: 'Was ist ANKABASI',
                 tagline:
                     'Wir verbinden überliefertes Wissen mit den Werkzeugen der Gegenwart, um Chancen für die Zukunft zu schaffen.',
-                ctaSecondary: 'Unsere Erfahrungen entdecken',
+                ctaSecondary: 'Unsere Erfahrungen kennenlernen',
             },
             about: {
                 title: 'Was ist ANKABASI?',
                 p1:
-                    'ANKABASI ist ein Technologie- und Digitalunternehmen, das aus der Arhuaco-Gemeinschaft von Gwimake entsteht.',
+                    'ANKABASI ist ein Technologie- und Digitalunternehmen, das aus der Arhuaco-Gemeinschaft von Gwimake in der Sierra Nevada de Santa Marta entsteht — einem angestammten Territorium, das als Herz der Welt gilt.',
                 p2:
-                    'Wir sind eine Initiative junger Arhuaco, die Technologie nutzt, um kulturelle Identität zu stärken, digitale Lücken zu verringern, Unternehmertum zu fördern und neue Chancen für Lernen, Innovation und kulturellen Austausch zu schaffen.',
+                    'Wir sind eine Initiative junger Arhuaco, die Technologie nutzt, um kulturelle Identität zu stärken, digitale Lücken zu verringern, Unternehmertum zu fördern und neue Chancen für Lernen und Austausch zu öffnen. Wir kommen nicht von außen: Wir denken und bauen von Gwimake aus.',
                 p3:
-                    'Wir entwickeln digitale Lösungen, audiovisuelle Inhalte, Bildungsprozesse und kulturellen Austausch, die das Territorium mit Menschen, Institutionen und Organisationen weltweit verbinden.',
+                    'Wir entwickeln digitale Lösungen, audiovisuelle Inhalte, Bildungsprozesse und kulturellen Austausch, die das Territorium mit Menschen, Institutionen und Organisationen weltweit verbinden. Jede Arbeitslinie soll Wissen in beide Richtungen fließen lassen — mit Respekt und eigener Stimme.',
                 closing: 'Technologie aus dem Territorium und für das Territorium.',
             },
             pillars: {
                 title: 'Was wir tun',
                 tech_t: 'Technologie',
-                tech_d: 'Digitale Lösungen und Werkzeuge, angepasst an die Bedürfnisse des Territoriums.',
+                tech_d:
+                    'Wir entwickeln und fördern digitale Werkzeuge, die den Bedürfnissen von Gwimake entsprechen. Technologie dient Sichtbarkeit, Organisation und Lösungen aus dem Territorium — nicht dem Kopieren fremder Modelle.',
                 content_t: 'Inhalte',
                 content_d:
-                    'Audiovisuelle Produktion und digitale Narrative zu Kultur, Territorium und Gemeinschaft.',
+                    'Wir produzieren Fotografie, Video und digitale Geschichten über Kultur, Territorium und arhuaco Jugend. Inhalte sind Erinnerung, Dialog und eine eigene Stimme für Gwimake, von denen, die das Territorium bewohnen.',
                 training_t: 'Bildung',
-                training_d: 'Lernprozesse und Aneignung digitaler Werkzeuge.',
+                training_d:
+                    'Wir fördern Lernprozesse, damit Jugendliche und Unternehmer digitale Werkzeuge aneignen. Bildung stärkt Fähigkeiten, ohne die Identität oder das Wissen zu lösen, das bereits in der Gemeinschaft lebt.',
                 exchange_t: 'Kultureller Austausch',
-                exchange_d: 'Erfahrungen, die Besuchende mit dem Territorium und seinem Wissen verbinden.',
+                exchange_d:
+                    'Wir schaffen Begegnungen, in denen Besuchende und Gemeinschaft zuhören, lernen und teilen. Kein oberflächlicher Besuch, sondern ein respektvoller Dialog mit dem Territorium und mit denen, die es hüten.',
                 venture_t: 'Unternehmertum',
-                venture_d: 'Technologie und Innovation für wirtschaftliche und soziale Initiativen.',
+                venture_d:
+                    'Wir begleiten Handwerk und Initiativen des Territoriums —Kaffee, Kakao, Mochilas und andere Produkte— mit Sichtbarkeit, fairem Handel und Innovation im Dienst der Gemeinschaft und der Produzierenden.',
             },
             experience: {
                 title: 'Kultureller Austausch in Gwimake',
@@ -698,9 +719,8 @@ export const ui = {
                     'Die Preise können je nach Gruppengröße, Logistik, gewählten Aktivitäten und Bedingungen der Erfahrung variieren.',
             },
             gallery: {
-                title: 'Geschichten aus Gwimake',
-                subtitle:
-                    'Wir erzählen Geschichten über Territorium, Kultur, Wissen, Natur, Unternehmertum und arhuaco Jugend mit audiovisuellen und digitalen Werkzeugen.',
+                title: 'Galerie',
+                subtitle: 'Galerie',
                 filter_all: 'Alle',
                 filter_photos: 'Fotos',
                 filter_videos: 'Videos',
@@ -804,7 +824,7 @@ export const ui = {
                     'Wir sammeln die ersten Erfahrungen und Rückmeldungen unserer Nutzerinnen und Nutzer.',
             },
             location: {
-                title: 'Unser Territorium',
+                title: 'Wo wir sind',
                 subtitle:
                     'Treffpunkt ist Aracataca, von dort starten wir nach <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>',
                 meeting_t: 'Startpunkt',
@@ -876,6 +896,10 @@ export const ui = {
                 contenido: 'Contenus',
                 productosServicios: 'Produits et services',
                 ctaExperiencias: 'Découvrir nos expériences',
+                gwimake: 'Gwimake',
+                territorio: 'Où nous sommes',
+                formacion: 'Formation',
+                faq: 'FAQ',
             },
             main: {
                 title: 'ANKABASI',
@@ -884,34 +908,38 @@ export const ui = {
                     'Une entreprise technologique et numérique de la communauté arhuaco qui relie le territoire au monde par la technologie, la connaissance, l’éducation, les contenus et l’échange culturel.',
                 support:
                     'Avec le soutien de l’<strong>Universidad del Magdalena</strong> pour <strong>Asoarhuaco</strong> et le <strong>Cabildo Arhuaco del Magdalena y La Guajira</strong>',
-                cta: 'Découvrir ANKABASI',
+                cta: 'Qu’est-ce qu’ANKABASI',
                 tagline:
                     'Nous relions la sagesse ancestrale aux outils du présent pour construire des opportunités vers l’avenir.',
-                ctaSecondary: 'Explorer nos expériences',
+                ctaSecondary: 'Découvrir nos expériences',
             },
             about: {
                 title: 'Qu’est-ce qu’ANKABASI ?',
                 p1:
-                    'ANKABASI est une entreprise technologique et numérique née de la communauté arhuaco de Gwimake.',
+                    'ANKABASI est une entreprise technologique et numérique née de la communauté arhuaco de Gwimake, dans la Sierra Nevada de Santa Marta, territoire ancestral connu comme le cœur du monde.',
                 p2:
-                    'Nous sommes une initiative portée par des jeunes Arhuaco qui utilise la technologie pour renforcer l’identité culturelle, réduire les fractures numériques, encourager l’entrepreneuriat et ouvrir de nouvelles opportunités d’apprentissage, d’innovation et d’échange culturel.',
+                    'Nous sommes une initiative portée par des jeunes Arhuaco qui utilise la technologie pour renforcer l’identité culturelle, réduire les fractures numériques, encourager l’entrepreneuriat et ouvrir de nouvelles opportunités d’apprentissage et d’échange. Nous n’arrivons pas de l’extérieur : nous pensons et construisons depuis Gwimake.',
                 p3:
-                    'Nous développons des solutions numériques, des contenus audiovisuels, des processus de formation et des expériences d’échange culturel qui relient le territoire à des personnes, institutions et organisations du monde entier.',
+                    'Nous développons des solutions numériques, des contenus audiovisuels, des processus de formation et des expériences d’échange culturel qui relient le territoire à des personnes, institutions et organisations du monde entier. Chaque ligne de travail cherche à faire circuler le savoir dans les deux sens, avec respect et une voix propre.',
                 closing: 'La technologie depuis le territoire et pour le territoire.',
             },
             pillars: {
                 title: 'Ce que nous faisons',
                 tech_t: 'Technologie',
-                tech_d: 'Solutions et outils numériques adaptés aux besoins du territoire.',
+                tech_d:
+                    'Nous concevons et promouvons des outils numériques adaptés aux besoins de Gwimake. La technologie sert la visibilité, l’organisation et des solutions nées du territoire, sans copier des modèles étrangers.',
                 content_t: 'Contenus',
                 content_d:
-                    'Production audiovisuelle et récits numériques sur la culture, le territoire et la communauté.',
+                    'Nous produisons photographie, vidéo et récits numériques sur la culture, le territoire et la jeunesse arhuaco. Le contenu est mémoire, dialogue et une voix propre pour Gwimake, depuis celles et ceux qui habitent le territoire.',
                 training_t: 'Formation',
-                training_d: 'Processus d’apprentissage et d’appropriation des outils numériques.',
+                training_d:
+                    'Nous soutenons l’apprentissage pour que jeunes et entrepreneurs s’approprient les outils numériques. Former, c’est renforcer des capacités sans se détacher de l’identité ni du savoir qui vit déjà dans la communauté.',
                 exchange_t: 'Échange culturel',
-                exchange_d: 'Expériences qui relient les visiteurs au territoire et à ses savoirs.',
+                exchange_d:
+                    'Nous créons des expériences où visiteurs et communauté s’écoutent, apprennent et partagent. Ce n’est pas une visite superficielle : c’est un dialogue respectueux avec le territoire et avec celles et ceux qui en prennent soin.',
                 venture_t: 'Entrepreneuriat',
-                venture_d: 'Technologie et innovation pour des initiatives économiques et sociales.',
+                venture_d:
+                    'Nous accompagnons les métiers et initiatives du territoire —café, cacao, mochilas et d’autres produits— avec visibilité, commerce équitable et innovation au service de la communauté et de celles et ceux qui produisent.',
             },
             experience: {
                 title: 'Échange culturel à Gwimake',
@@ -979,9 +1007,8 @@ export const ui = {
                     'Les tarifs peuvent varier selon le nombre de participants, la logistique, les activités choisies et les conditions de l’expérience.',
             },
             gallery: {
-                title: 'Histoires depuis Gwimake',
-                subtitle:
-                    'Nous racontons des histoires sur le territoire, la culture, la connaissance, la nature, l’entrepreneuriat et la jeunesse arhuaco avec des outils audiovisuels et numériques.',
+                title: 'Galerie',
+                subtitle: 'Galerie',
                 filter_all: 'Tous',
                 filter_photos: 'Photos',
                 filter_videos: 'Vidéos',
@@ -1084,7 +1111,7 @@ export const ui = {
                 note: 'Nous recueillons les premières expériences et avis de nos utilisateurs.',
             },
             location: {
-                title: 'Notre territoire',
+                title: 'Où nous sommes',
                 subtitle:
                     'Le point de rendez-vous est Aracataca, d’où nous partons vers <a href="https://gwimake.com/" target="_blank" rel="noopener noreferrer"><strong>Gwimake</strong></a>',
                 meeting_t: 'Point de départ',

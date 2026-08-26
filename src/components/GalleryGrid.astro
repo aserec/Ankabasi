@@ -1,0 +1,42 @@
+---
+import type { Locale } from '../i18n/utils';
+import { t } from '../i18n/utils';
+import { GALLERY_ITEMS } from '../data/gallery';
+
+interface Props {
+	locale: Locale;
+}
+const { locale } = Astro.props;
+---
+
+<div class="gallery__filters" data-aos="fade-up">
+	<button class="gallery__filter active" data-filter="all" type="button">{t(locale, 'gallery.filter_all')}</button>
+	<button class="gallery__filter" data-filter="photos" type="button">{t(locale, 'gallery.filter_photos')}</button>
+	<button class="gallery__filter" data-filter="videos" type="button">{t(locale, 'gallery.filter_videos')}</button>
+</div>
+
+<div class="gallery__grid" id="gallery-grid">
+	{
+		GALLERY_ITEMS.map((item, index) => {
+			const isVideo = item.category === 'videos';
+			const lightbox = isVideo
+				? 'type: video; width: 1280; height: 720'
+				: 'type: image';
+			return (
+				<div
+					class="gallery__item"
+					data-category={item.category}
+					data-aos="fade-up"
+					data-aos-delay={Math.min((index + 1) * 50, 400)}
+				>
+					<a href={item.src} class="gallery__link" data-glightbox={lightbox}>
+						<img src={item.thumb} alt={item.alt} class="gallery__image" loading="lazy" />
+						<div class="gallery__overlay">
+							<span class="gallery__icon">{isVideo ? '▶️' : '🔍'}</span>
+						</div>
+					</a>
+				</div>
+			);
+		})
+	}
+</div>

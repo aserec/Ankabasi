@@ -1,6 +1,22 @@
 import type { Locale } from './utils';
 import { localePath } from './utils';
 
+export const pageSlugs = {
+	experiencias: 'experiencias/',
+	territorio: 'territorio/',
+	galeria: 'galeria/',
+	tecnologia: 'tecnologia/',
+	formacion: 'formacion/',
+	productos: 'productos/',
+	contacto: 'contacto/',
+} as const;
+
+export type PageKey = keyof typeof pageSlugs;
+
+export function pagePath(locale: Locale, key: PageKey): string {
+	return localePath(locale, pageSlugs[key]);
+}
+
 export const guideSlugs = {
 	packages: { es: 'paquetes', en: 'packages', de: 'pakete', fr: 'forfaits' },
 	howToGetThere: {

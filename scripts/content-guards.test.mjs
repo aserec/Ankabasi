@@ -70,13 +70,13 @@ describe('ANKABASI repositioning guards', () => {
     }
   });
 
-  it('hides the testimonials section when there are no visitor comments', () => {
+  it('hides visitor experiences from the public site', () => {
     const data = read('src/data/testimonials.ts');
     assert.match(data, /export const TESTIMONIALS/);
     assert.match(data, /TESTIMONIALS[\s\S]*?=\s*\[\s*\]/);
-    const page = home();
-    assert.match(page, /from '\.\.\/data\/testimonials'/);
-    assert.match(page, /TESTIMONIALS\.length\s*>\s*0/);
+    assert.doesNotMatch(home(), /testimonials/);
+    assert.doesNotMatch(home(), /TESTIMONIALS/);
+    assert.doesNotMatch(header(), /nav\.testimonios/);
   });
 
   it('JSON-LD describes an Organization, not a TouristAttraction', () => {
@@ -88,49 +88,51 @@ describe('ANKABASI repositioning guards', () => {
   it('homepage has company sections and company nav', () => {
     assert.match(home(), /id="quienes-somos"/);
     assert.match(home(), /id="pilares"/);
-    assert.match(home(), /id="tecnologia"/);
-    assert.match(header(), /#quienes-somos/);
-    assert.match(header(), /#tecnologia/);
+    assert.doesNotMatch(home(), /id="tecnologia"/);
+    assert.match(header(), /nav\.gwimake/);
+    assert.match(header(), /nav\.mundoAnkabasi/);
     assert.match(footer(), /footer\.pillars/);
   });
 
-  it('primary nav is company-first; Mundo Ankabasi is Blog and Libro only', () => {
+  it('primary nav is Inicio, Gwimake dropdown and Mundo Ankabasi dropdown', () => {
     const h = header();
-    assert.match(h, /nav\.quienesSomos/);
-    assert.match(h, /nav\.tecnologia/);
-    assert.match(h, /nav\.intercambio/);
-    assert.match(h, /nav\.contenido/);
-    assert.match(h, /nav\.productosServicios/);
-    assert.match(h, /nav\.ctaExperiencias/);
-    assert.match(h, /href=\{home \+ '#experiencia'\} class="btn btn--primary"/);
-    assert.doesNotMatch(h, /faqPath/);
+    assert.match(h, /nav\.inicio/);
+    assert.match(h, /nav\.gwimake/);
+    assert.match(h, /nav\.mundoAnkabasi/);
+    assert.match(h, /pagePath\(locale, 'experiencias'\)/);
+    assert.match(h, /pagePath\(locale, 'territorio'\)/);
+    assert.match(h, /pagePath\(locale, 'galeria'\)/);
+    assert.match(h, /pagePath\(locale, 'contacto'\)/);
+    assert.match(h, /pagePath\(locale, 'tecnologia'\)/);
+    assert.match(h, /pagePath\(locale, 'formacion'\)/);
+    assert.match(h, /pagePath\(locale, 'productos'\)/);
+    assert.match(h, /faqPath\(locale\)/);
+    assert.match(h, /nav\.blog/);
+    assert.match(h, /nav\.libro/);
+    assert.doesNotMatch(h, /nav\.ctaExperiencias/);
+    assert.doesNotMatch(h, /class="btn btn--primary"/);
     assert.doesNotMatch(h, /nav\.actividades/);
     assert.doesNotMatch(h, /nav\.precios/);
-    assert.doesNotMatch(h, /nav\.galeria/);
     assert.doesNotMatch(h, /nav\.folleto/);
     assert.doesNotMatch(h, /nav\.testimonios/);
-    assert.doesNotMatch(h, /nav\.donde/);
     assert.doesNotMatch(h, /nav\.reservar/);
-    const mundo = h.split('nav__mundo-list')[1]?.split('</ul>')[0] ?? '';
-    assert.match(mundo, /nav\.blog/);
-    assert.match(mundo, /nav\.libro/);
-    assert.doesNotMatch(mundo, /nav\.productos[^S]/);
-    assert.doesNotMatch(mundo, /nav\.cursos/);
+    const homePage = home();
+    assert.match(homePage, /nav\.ctaExperiencias/);
+    assert.match(homePage, /pagePath\(locale, 'experiencias'\)/);
   });
 
   it('cursos section has four cards, comingSoon, and no outbound course links', () => {
-    const page = home();
-    const cursos = page.split('id="cursos"')[1]?.split('id="mundo-ankabasi"')[0] ?? '';
-    assert.equal((cursos.match(/class="cursos__card"/g) ?? []).length, 4);
-    assert.match(cursos, /cursos\.course1\.title/);
-    assert.match(cursos, /cursos\.course2\.title/);
-    assert.match(cursos, /cursos\.course3\.title/);
-    assert.match(cursos, /cursos\.course4\.title/);
-    assert.match(cursos, /cursos\.comingSoon/);
-    assert.match(cursos, /class="cursos__soon"/);
-    assert.doesNotMatch(cursos, /example\.com/);
-    assert.doesNotMatch(cursos, /cursos\.cta/);
-    assert.doesNotMatch(cursos, /curso-emprendimiento|curso-digital|curso-liderazgo/);
+    const page = read('src/pages/[locale]/formacion.astro');
+    assert.match(page, /id="cursos"/);
+    assert.equal((page.match(/class="cursos__card"/g) ?? []).length, 1);
+    assert.match(page, /cursos\.course1\.title|cursos\.\$\{course\}\.title/);
+    assert.match(page, /course1/);
+    assert.match(page, /course4/);
+    assert.match(page, /cursos\.comingSoon/);
+    assert.match(page, /class="cursos__soon"/);
+    assert.doesNotMatch(page, /example\.com/);
+    assert.doesNotMatch(page, /cursos\.cta/);
+    assert.doesNotMatch(page, /curso-emprendimiento|curso-digital|curso-liderazgo/);
     const css = read('src/styles/style.css');
     const grid = css.split('.cursos__grid {')[1]?.split('}')[0] ?? '';
     assert.match(grid, /auto-fit/);
@@ -145,10 +147,10 @@ describe('ANKABASI repositioning guards', () => {
     assert.match(f, /class="footer__pillars"/);
     assert.match(f, /footer\.pillars/);
     assert.match(f, /#quienes-somos/);
-    assert.match(f, /#tecnologia/);
+    assert.match(f, /pagePath\(locale, 'tecnologia'\)/);
     assert.match(f, /nav\.intercambio/);
     assert.match(f, /faqPath\(locale\)/);
-    assert.doesNotMatch(f, /nav\.experiencia/);
+    assert.doesNotMatch(f, /nav\.experiencia[^s]/);
     assert.doesNotMatch(f, /nav\.precios/);
     const css = read('src/styles/style.css');
     const pillars = css.split('.footer__pillars {')[1]?.split('}')[0] ?? '';
@@ -157,52 +159,38 @@ describe('ANKABASI repositioning guards', () => {
   });
 
   it('experience section is a service line without ritual invitation', () => {
-    const page = home();
-    const exp = page.split('id="experiencia"')[1]?.split('id="actividades"')[0] ?? '';
-    assert.match(exp, /experience\.intro/);
-    assert.match(exp, /experience\.p1/);
-    assert.match(exp, /experience\.p2/);
-    assert.match(exp, /home \+ '#precios'/);
-    assert.doesNotMatch(exp, /tHtml\(locale, 'experience/);
+    const page = read('src/pages/[locale]/experiencias.astro');
+    assert.match(page, /id="experiencia"/);
+    assert.match(page, /experience\.intro/);
+    assert.match(page, /experience\.p2/);
+    assert.doesNotMatch(page, /tHtml\(locale, 'experience/);
     assert.doesNotMatch(ui(), /participa en sus rituales/);
     assert.match(ui(), /Intercambio cultural en Gwimake/);
   });
 
   it('activities grid has eight cultural cards and four desktop columns', () => {
-    const page = home();
-    const acts = page.split('id="actividades"')[1]?.split('id="donde"')[0] ?? '';
-    assert.equal((acts.match(/class="activity__card"/g) ?? []).length, 8);
+    const page = read('src/pages/[locale]/experiencias.astro');
     const order = [
-      'activities.territory_t',
-      'activities.walks_t',
-      'activities.dialogue_t',
-      'activities.food_t',
-      'activities.craft_t',
-      'activities.education_t',
-      'activities.stories_t',
-      'activities.community_t',
+      "key: 'territory'",
+      "key: 'walks'",
+      "key: 'dialogue'",
+      "key: 'food'",
+      "key: 'craft'",
+      "key: 'education'",
+      "key: 'stories'",
+      "key: 'community'",
     ];
     let last = -1;
     for (const key of order) {
-      const i = acts.indexOf(key);
+      const i = page.indexOf(key);
       assert.ok(i > last, key);
       last = i;
     }
-    assert.match(acts, /fa-mountain/);
-    assert.match(acts, /fa-chalkboard-user/);
-    assert.match(acts, /fa-book-open/);
-    assert.match(acts, /fa-people-group/);
-    for (const gone of [
-      'activities.spiritual_',
-      'activities.transport_',
-      'activities.lodging_',
-      'activities.talks_',
-      'activities.threads_',
-      'activities.planting_',
-      'activities.guide_',
-    ]) {
-      assert.equal(acts.includes(gone), false, gone);
-    }
+    assert.match(page, /fa-mountain/);
+    assert.match(page, /fa-chalkboard-user/);
+    assert.match(page, /fa-book-open/);
+    assert.match(page, /fa-people-group/);
+    assert.match(page, /id="actividades"/);
     const css = read('src/styles/style.css');
     assert.match(
       css,
@@ -211,21 +199,22 @@ describe('ANKABASI repositioning guards', () => {
   });
 
   it('pricing keeps published amounts and shows variation disclaimer', () => {
-    const page = home();
-    const pricing = page.split('id="precios"')[1]?.split('id="tecnologia"')[0] ?? '';
-    assert.match(pricing, /pricing\.disclaimer/);
-    assert.match(pricing, /\$700\.000/);
-    assert.match(pricing, /\$1\.300\.000/);
+    const page = read('src/pages/[locale]/experiencias.astro');
+    assert.match(page, /id="precios"/);
+    assert.match(page, /pricing\.disclaimer/);
+    assert.match(page, /\$700\.000/);
+    assert.match(page, /\$1\.300\.000/);
+    assert.match(page, /payment__whisper/);
     assert.match(ui(), /Los valores pueden variar según número de participantes/);
   });
 
   it('territory section titles Gwimake as identity, not unique ancestral experience', () => {
-    const page = home();
-    const loc = page.split('id="donde"')[1]?.split('id="precios"')[0] ?? '';
-    assert.match(loc, /class="location__identity"/);
-    assert.match(loc, /location\.identity/);
+    const page = read('src/pages/[locale]/territorio.astro');
+    assert.match(page, /id="donde"/);
+    assert.match(page, /class="location__identity"/);
+    assert.match(page, /location\.identity/);
     const text = ui();
-    assert.match(text, /title: 'Nuestro territorio'/);
+    assert.match(text, /title: 'Dónde estamos'/);
     assert.match(text, /origen de la identidad y la propuesta de valor de ANKABASI/);
     assert.doesNotMatch(text, /experiencia ancestral única/);
     assert.doesNotMatch(text, /unique ancestral experience/);
@@ -241,20 +230,17 @@ describe('ANKABASI repositioning guards', () => {
     assert.match(g, /cultural accompaniment/);
   });
 
-  it('gallery is contenido with Historias framing, tags, and no ancestral-experience alts', () => {
-    const page = home();
-    const gallery = page.split('id="contenido"')[1]?.split('id="cursos"')[0] ?? '';
-    assert.match(page, /<section class="gallery" id="contenido">/);
-    assert.doesNotMatch(page, /id="galeria"/);
-    assert.match(gallery, /gallery\.title/);
-    assert.match(gallery, /gallery\.subtitle/);
-    assert.match(gallery, /gallery\.tags/);
-    assert.doesNotMatch(gallery, /Experiencia Ancestral/);
-    assert.match(ui(), /title: 'Historias desde Gwimake'/);
+  it('gallery is a dedicated page with a bare title and no ancestral-experience alts', () => {
+    const page = read('src/pages/[locale]/galeria.astro');
+    const grid = read('src/components/GalleryGrid.astro');
+    assert.match(page, /<section class="page gallery" id="contenido">/);
+    assert.match(page, /gallery\.title/);
+    assert.doesNotMatch(page, /gallery\.subtitle/);
+    assert.doesNotMatch(page, /gallery\.tags/);
+    assert.doesNotMatch(page, /Experiencia Ancestral/);
+    assert.doesNotMatch(grid, /Experiencia Ancestral/);
+    assert.match(ui(), /title: 'Galería'/);
     const css = read('src/styles/style.css');
-    const tags = css.split('.gallery__tags {')[1]?.split('}')[0] ?? '';
-    assert.match(tags, /text-align:\s*center/);
-    assert.match(tags, /--color-secondary/);
     const contenido = css.split('#contenido {')[1]?.split('}')[0] ?? '';
     assert.match(contenido, /scroll-margin-top:\s*90px/);
     const srcHits = walkSrc(join(root, 'src')).filter((p) =>
@@ -273,18 +259,9 @@ describe('ANKABASI repositioning guards', () => {
     assert.match(index, /blog\.cat_\$\{post\.category\}/);
   });
 
-  it('homepage FAQ teaser shows three questions and links to the FAQ page', () => {
-    const page = home();
-    const teaser = page.split('id="faq"')[1]?.split('id="contacto"')[0] ?? '';
-    assert.match(page, /<section class="faq-teaser" id="faq">/);
-    assert.match(home(), /faqItems\.slice\(0,\s*3\)/);
-    assert.match(teaser, /teaserFaqs\.map/);
-    assert.match(teaser, /class="faq-teaser__item"/);
-    assert.match(teaser, /faq\.title/);
-    assert.match(teaser, /faq\.seeMore/);
-    assert.match(teaser, /faqPath\(locale\)/);
-    const blog = page.split('id="blog"')[1]?.split('id="libro"')[0] ?? '';
-    assert.doesNotMatch(blog, /faqPath/);
+  it('FAQ lives as its own page, not as a homepage teaser', () => {
+    assert.doesNotMatch(home(), /faq-teaser/);
+    assert.match(header(), /faqPath\(locale\)/);
     const text = ui();
     assert.match(text, /title: 'Preguntas frecuentes'/);
     assert.match(text, /seeMore: 'Ver más preguntas'/);
@@ -293,11 +270,8 @@ describe('ANKABASI repositioning guards', () => {
     assert.match(text, /title: 'Questions fréquentes'/);
   });
 
-  it('libro teaser and page show editorial-in-development status', () => {
-    const page = home();
-    const teaser = page.split('id="libro"')[1]?.split('</section>')[0] ?? '';
-    assert.match(teaser, /libro-teaser__status/);
-    assert.match(teaser, /libro\.status/);
+  it('libro page shows editorial-in-development status', () => {
+    assert.doesNotMatch(home(), /libro-teaser__status/);
     const libro = read('src/pages/[locale]/libro/index.astro');
     assert.match(libro, /libro\.subtitle/);
     assert.match(libro, /<strong>\{t\(locale, 'libro\.status'\)\}<\/strong>/);

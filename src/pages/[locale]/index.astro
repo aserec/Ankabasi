@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import HomeSections from '../../components/HomeSections.astro';
 import { locales, isLocale, t, type Locale } from '../../i18n/utils';
-import { SITE } from '../../data/site';
 
 export function getStaticPaths() {
 	return locales.map((locale) => ({ params: { locale } }));
@@ -16,31 +15,8 @@ const locale = localeParam as Locale;
 
 const title = t(locale, 'meta.title');
 const description = t(locale, 'meta.description');
-
-const offersJsonLd = {
-	'@context': 'https://schema.org',
-	'@type': 'ItemList',
-	name: t(locale, 'pricing.title'),
-	itemListElement: SITE.offers.map((offer, index) => ({
-		'@type': 'ListItem',
-		position: index + 1,
-		item: {
-			'@type': 'TouristTrip',
-			name: `${SITE.name} — ${offer.duration}`,
-			offers: {
-				'@type': 'Offer',
-				priceCurrency: 'COP',
-				...(offer.priceFromCOP != null
-					? { price: offer.priceFromCOP, priceSpecification: { price: offer.priceDisplay } }
-					: {}),
-				availability: 'https://schema.org/InStock',
-				url: `${SITE.url}/${locale}/#precios`,
-			},
-		},
-	})),
-};
 ---
 
-<BaseLayout locale={locale} title={title} description={description} jsonLd={offersJsonLd}>
+<BaseLayout locale={locale} title={title} description={description}>
 	<HomeSections locale={locale} />
 </BaseLayout>

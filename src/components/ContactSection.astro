@@ -1,0 +1,85 @@
+---
+import type { Locale } from '../i18n/utils';
+import { t, tHtml } from '../i18n/utils';
+import { SITE } from '../data/site';
+
+interface Props {
+	locale: Locale;
+}
+const { locale } = Astro.props;
+const waText = encodeURIComponent(t(locale, 'whatsapp.prefill'));
+const waHref = `https://wa.me/${SITE.whatsappE164}?text=${waText}`;
+---
+
+<section class="contact" id="contacto">
+	<div class="container">
+		<h1 class="section__title" data-aos="fade-up">{t(locale, 'contact.title')}</h1>
+		<p class="section__subtitle" data-aos="fade-up">{t(locale, 'contact.subtitle')}</p>
+
+		<div class="contact__content">
+			<div class="contact__form-wrapper contact__image-wrapper" data-aos="fade-up" data-aos-delay="100">
+				<img
+					src="/images/gallery/foto5.jpeg"
+					alt={t(locale, 'contact.imageAlt')}
+					class="contact__image"
+				/>
+			</div>
+
+			<div class="contact__info" data-aos="fade-up" data-aos-delay="200">
+				<div class="contact__item">
+					<div class="contact__icon"><i class="fa-solid fa-envelope-open-text"></i></div>
+					<div class="contact__details">
+						<h2 class="contact__title">{t(locale, 'contact.email')}</h2>
+						<p class="contact__text">{SITE.email}</p>
+					</div>
+				</div>
+
+				<div class="contact__item">
+					<div class="contact__icon"><i class="fa-brands fa-whatsapp"></i></div>
+					<div class="contact__details">
+						<h2 class="contact__title">{t(locale, 'contact.phone')}</h2>
+						<a
+							href={waHref}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="contact__text contact__whatsapp"
+							data-wa-base={`https://wa.me/${SITE.whatsappE164}`}
+						>
+							{SITE.phoneDisplay}
+						</a>
+					</div>
+				</div>
+
+				<div class="contact__item">
+					<div class="contact__icon"><i class="fa-solid fa-location-dot"></i></div>
+					<div class="contact__details">
+						<h2 class="contact__title">{t(locale, 'contact.location')}</h2>
+						<p class="contact__text" set:html={tHtml(locale, 'contact.location_html')}></p>
+					</div>
+				</div>
+
+				<div class="contact__item">
+					<div class="contact__icon"><i class="fa-brands fa-instagram"></i></div>
+					<div class="contact__details">
+						<h2 class="contact__title">{t(locale, 'contact.instagram')}</h2>
+						<a
+							href={SITE.instagram}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="contact__social">@ankabasi</a>
+					</div>
+				</div>
+
+				<a
+					href={waHref}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="btn btn--whatsapp btn--large btn--block"
+					data-wa-base={`https://wa.me/${SITE.whatsappE164}`}
+				>
+					{t(locale, 'contact.whatsappBtn')}
+				</a>
+			</div>
+		</div>
+	</div>
+</section>

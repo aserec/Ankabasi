@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SplitMedia from '../../components/SplitMedia.astro';
+import { locales, isLocale, t, type Locale } from '../../i18n/utils';
+import { pagePath } from '../../i18n/routes';
+import { SITE } from '../../data/site';
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale: localeParam } = Astro.params;
+if (!localeParam || !isLocale(localeParam)) return Astro.redirect('/es/experiencias/');
+const locale = localeParam as Locale;
+const contact = pagePath(locale, 'contacto');
+
+const offers = [
+	{
+		id: 'plan1',
+		image: '/images/gallery/foto5.jpeg',
+		alt: 'Estadía de un día en Gwimake',
+		amount: '$700.000',
+		featured: false,
+		features: ['plan1_f1', 'plan1_f2', 'plan1_f3', 'plan1_f4', 'plan1_f5', 'plan1_f6', 'plan1_f7'],
+		cta: 'nav.reservar',
+	},
+	{
+		id: 'plan2',
+		image: '/images/gallery/foto2.jpeg',
+		alt: 'Estadía de tres días en Gwimake',
+		amount: '$1.300.000',
+		featured: true,
+		features: ['plan2_f0', 'plan2_f1', 'plan2_f2', 'plan2_f3', 'plan2_f4'],
+		cta: 'nav.reservar',
+	},
+	{
+		id: 'plan3',
+		image: '/images/gallery/foto10.jpeg',
+		alt: 'Estadía de una semana en Gwimake',
+		amount: null,
+		featured: false,
+		features: ['plan3_f1', 'plan3_f2', 'plan3_f3', 'plan3_f4', 'plan3_f5'],
+		cta: 'pricing.consult',
+	},
+] as const;
+
+const activities = [
+	{ key: 'territory', icon: 'fa-mountain' },
+	{ key: 'walks', icon: 'fa-person-hiking' },
+	{ key: 'dialogue', icon: 'fa-comments' },
+	{ key: 'food', icon: 'fa-utensils' },
+	{ key: 'craft', icon: 'fa-palette' },
+	{ key: 'education', icon: 'fa-chalkboard-user' },
+	{ key: 'stories', icon: 'fa-book-open' },
+	{ key: 'community', icon: 'fa-people-group' },
+] as const;
+
+const offersJsonLd = {
+	'@context': 'https://schema.org',
+	'@type': 'ItemList',
+	name: t(locale, 'pricing.title'),
+	itemListElement: SITE.offers.map((offer, index) => ({
+		'@type': 'ListItem',
+		position: index + 1,
+		item: {
+			'@type': 'TouristTrip',
+			name: `${SITE.name} — ${offer.duration}`,
+			offers: {
+				'@type': 'Offer',
+				priceCurrency: 'COP',
+				...(offer.priceFromCOP != null
+					? { price: offer.priceFromCOP, priceSpecification: { price: offer.priceDisplay } }
+					: {}),
+				availability: 'https://schema.org/InStock',
+				url: `${SITE.url}${pagePath(locale, 'experiencias')}`,
+			},
+		},
+	})),
+};
+---
+
+<BaseLayout
+	locale={locale}
+	title={`${t(locale, 'experience.title')} — Ankabasi`}
+	description={t(locale, 'experience.intro')}
+	pathAfterLocale="experiencias/"
+	jsonLd={offersJsonLd}
+>
+	<section class="page experience-page" id="experiencia">
+		<div class="container">
+			<header class="page__header" data-aos="fade-up">
+				<h1 class="section__title">{t(locale, 'experience.title')}</h1>
+				<div class="section__underline"></div>
+				<p class="page__lead">{t(locale, 'experience.intro')}</p>
+				<p class="page__lead">{t(locale, 'experience.p2')}</p>
+			</header>
+
+			<div class="split-stack" id="precios">
+				{
+					offers.map((offer, index) => (
+						<SplitMedia image={offer.image} alt={offer.alt} reverse={index % 2 === 1}>
+							{offer.featured && <p class="offer__badge">{t(locale, 'pricing.popular')}</p>}
+							<h2 class="split__title">{t(locale, `pricing.${offer.id}_t`)}</h2>
+							<p class="offer__price">
+								{offer.amount ? (
+									<>
+										<span class="offer__from">{t(locale, 'pricing.from')}</span>
+										<span class="offer__amount">{offer.amount}</span>
+									</>
+								) : (
+									<span class="offer__amount offer__amount--quiet">{t(locale, 'pricing.ask')}</span>
+								)}
+							</p>
+							<ul class="offer__features">
+								{offer.features.map((key) => (
+									<li>{t(locale, `pricing.${key}`)}</li>
+								))}
+							</ul>
+							<a href={contact} class="btn btn--secondary btn--small">
+								{t(locale, offer.cta)}
+							</a>
+						</SplitMedia>
+					))
+				}
+			</div>
+
+			<p class="pricing__disclaimer">{t(locale, 'pricing.disclaimer')}</p>
+
+			<p class="payment__whisper">
+				<span class="payment__whisper-label">{t(locale, 'pricing.paymentTitle')}</span>
+				{t(locale, 'pricing.payment_bank')} · {t(locale, 'pricing.payment_nequi')} ·{' '}
+				{t(locale, 'pricing.payment_daviplata')} · {t(locale, 'pricing.payment_cash')}
+			</p>
+		</div>
+	</section>
+
+	<section class="activities" id="actividades">
+		<div class="container">
+			<h2 class="section__title" data-aos="fade-up">{t(locale, 'activities.title')}</h2>
+			<div class="section__underline" data-aos="fade-up"></div>
+			<div class="activities__grid">
+				{
+					activities.map((item, index) => (
+						<div class="activity__card" data-aos="fade-up" data-aos-delay={100 + index * 40}>
+							<div class="activity__icon">
+								<i class={`fa-solid ${item.icon}`}></i>
+							</div>
+							<h3 class="activity__title">{t(locale, `activities.${item.key}_t`)}</h3>
+							<p class="activity__description">{t(locale, `activities.${item.key}_d`)}</p>
+						</div>
+					))
+				}
+			</div>
+		</div>
+	</section>
+</BaseLayout>

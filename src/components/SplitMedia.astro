@@ -1,0 +1,29 @@
+---
+interface Props {
+	image: string;
+	alt: string;
+	reverse?: boolean;
+	href?: string;
+	aos?: string;
+	aosDelay?: number;
+}
+
+const { image, alt, reverse = false, href, aos, aosDelay = 0 } = Astro.props;
+const Tag = href ? 'a' : 'article';
+---
+
+<Tag
+	class:list={['split', { 'split--reverse': reverse, 'split--link': Boolean(href) }]}
+	href={href}
+	data-aos={aos}
+	data-aos-delay={aos ? String(aosDelay) : undefined}
+	data-aos-easing="ease-out-cubic"
+	data-aos-duration="900"
+>
+	<div class="split__media">
+		<img src={image} alt={alt} class="split__image" loading="lazy" width="640" height="480" />
+	</div>
+	<div class="split__body">
+		<slot />
+	</div>
+</Tag>

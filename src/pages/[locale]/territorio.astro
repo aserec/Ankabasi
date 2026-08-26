@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { locales, isLocale, t, tHtml, type Locale } from '../../i18n/utils';
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale: localeParam } = Astro.params;
+if (!localeParam || !isLocale(localeParam)) return Astro.redirect('/es/territorio/');
+const locale = localeParam as Locale;
+---
+
+<BaseLayout
+	locale={locale}
+	title={`${t(locale, 'location.title')} — Ankabasi`}
+	description={t(locale, 'location.identity')}
+	pathAfterLocale="territorio/"
+>
+	<section class="page location" id="donde">
+		<div class="container">
+			<header class="page__header" data-aos="fade-up">
+				<h1 class="section__title">{t(locale, 'location.title')}</h1>
+				<div class="section__underline"></div>
+				<p class="section__subtitle" set:html={tHtml(locale, 'location.subtitle')}></p>
+				<p class="location__identity">{t(locale, 'location.identity')}</p>
+			</header>
+
+			<div class="location__content" data-aos="fade-up">
+				<div class="location__info">
+					<div class="location__item">
+						<div class="location__icon">📍</div>
+						<div class="location__details">
+							<h2 class="location__title">{t(locale, 'location.meeting_t')}</h2>
+							<p class="location__text">{t(locale, 'location.meeting_line')}</p>
+							<p class="location__description" set:html={tHtml(locale, 'location.meeting_d')}></p>
+						</div>
+					</div>
+					<div class="location__item">
+						<div class="location__icon">🏔️</div>
+						<div class="location__details">
+							<h2 class="location__title">{t(locale, 'location.dest_t')}</h2>
+							<p class="location__text" set:html={tHtml(locale, 'location.dest_line')}></p>
+							<p class="location__description" set:html={tHtml(locale, 'location.dest_d')}></p>
+						</div>
+					</div>
+				</div>
+				<div class="location__map-wrapper">
+					<div class="location__map-container">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4646.288295789986!2d-74.06006062425755!3d10.63665798950371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef50dedd571c8bb%3A0xfaa19f2c09fb39be!2sGwimake!5e1!3m2!1ses!2ses!4v1764967181148!5m2!1ses!2ses"
+							class="location__map"
+							width="100%"
+							height="450"
+							style="border:0;"
+							allowfullscreen=""
+							loading="lazy"
+							referrerpolicy="no-referrer-when-downgrade"
+							title={t(locale, 'location.mapTitle')}></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

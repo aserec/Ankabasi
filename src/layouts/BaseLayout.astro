@@ -124,7 +124,14 @@ const schemas = [organizationJsonLd(), ...(jsonLd ? (Array.isArray(jsonLd) ? jso
 					});
 				}
 				if (window.AOS) {
-					AOS.init({ duration: 800, easing: 'ease-in-out', once: true, offset: 100 });
+					var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+					AOS.init({
+						duration: 900,
+						easing: 'ease-out-cubic',
+						once: true,
+						offset: 72,
+						disable: reduceMotion,
+					});
 				}
 				if (window.GLightbox) {
 					GLightbox({ selector: '.gallery__link' });

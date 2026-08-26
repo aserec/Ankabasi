@@ -4,6 +4,7 @@ import { locales, isLocale, t, localePath, type Locale } from '../../../i18n/uti
 import { BLOG_POSTS } from '../../../data/blog-data';
 import { getBlogPostContent } from '../../../data/blog-content';
 import { SITE } from '../../../data/site';
+import { pagePath } from '../../../i18n/routes';
 
 export function getStaticPaths() {
 	const paths: { params: { locale: string; slug: string } }[] = [];
@@ -71,7 +72,7 @@ const jsonLd = {
 		<div class="blog-article__content" set:html={content.bodyHtml} />
 		<p style="margin-top: 2rem;">
 			<a class="btn btn--secondary" href={blog}>{t(locale, 'blog.allPosts')}</a>
-			<a class="btn btn--primary" href={home + '#contacto'}>{t(locale, 'nav.reservar')}</a>
+			<a class="btn btn--primary" href={pagePath(locale, 'contacto')}>{t(locale, 'nav.reservar')}</a>
 		</p>
 	</article>
 </BaseLayout>

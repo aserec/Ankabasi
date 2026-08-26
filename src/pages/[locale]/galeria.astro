@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GalleryGrid from '../../components/GalleryGrid.astro';
+import { locales, isLocale, t, type Locale } from '../../i18n/utils';
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale: localeParam } = Astro.params;
+if (!localeParam || !isLocale(localeParam)) return Astro.redirect('/es/galeria/');
+const locale = localeParam as Locale;
+---
+
+<BaseLayout
+	locale={locale}
+	title={`${t(locale, 'gallery.title')} — Ankabasi`}
+	description={t(locale, 'gallery.title')}
+	pathAfterLocale="galeria/"
+>
+	<section class="page gallery" id="contenido">
+		<div class="container">
+			<header class="page__header page__header--bare" data-aos="fade-up">
+				<h1 class="section__title">{t(locale, 'gallery.title')}</h1>
+				<div class="section__underline"></div>
+			</header>
+			<GalleryGrid locale={locale} />
+		</div>
+	</section>
+</BaseLayout>

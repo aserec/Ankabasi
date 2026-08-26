@@ -48,6 +48,23 @@ onReady(() => {
 		});
 	}
 
+	const dropdowns = document.querySelectorAll('.nav__dropdown, .lang-switcher');
+	dropdowns.forEach((el) => {
+		el.addEventListener('toggle', () => {
+			if (!el.open) return;
+			dropdowns.forEach((other) => {
+				if (other !== el) other.open = false;
+			});
+		});
+	});
+	document.addEventListener('click', (e) => {
+		const target = e.target;
+		if (!(target instanceof Node)) return;
+		dropdowns.forEach((el) => {
+			if (!el.contains(target)) el.open = false;
+		});
+	});
+
 	const filters = document.querySelectorAll('.gallery__filter');
 	const items = document.querySelectorAll('.gallery__item');
 	filters.forEach((btn) => {

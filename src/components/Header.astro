@@ -2,6 +2,7 @@
 import type { Locale } from '../i18n/utils';
 import { t, localePath } from '../i18n/utils';
 import LangSwitcher from './LangSwitcher.astro';
+import { pagePath, faqPath } from '../i18n/routes';
 
 interface Props {
 	locale: Locale;
@@ -9,12 +10,28 @@ interface Props {
 }
 const { locale, pathAfterLocale = '' } = Astro.props;
 const home = localePath(locale);
+
+const gwimakeLinks = [
+	{ href: pagePath(locale, 'experiencias'), key: 'nav.intercambio' },
+	{ href: pagePath(locale, 'territorio'), key: 'nav.territorio' },
+	{ href: pagePath(locale, 'galeria'), key: 'nav.galeria' },
+	{ href: pagePath(locale, 'tecnologia'), key: 'nav.tecnologia' },
+	{ href: pagePath(locale, 'formacion'), key: 'nav.formacion' },
+	{ href: pagePath(locale, 'productos'), key: 'nav.productos' },
+	{ href: pagePath(locale, 'contacto'), key: 'nav.contacto' },
+];
+
+const mundoLinks = [
+	{ href: localePath(locale, 'blog/'), key: 'nav.blog' },
+	{ href: localePath(locale, 'libro/'), key: 'nav.libro' },
+	{ href: faqPath(locale), key: 'nav.faq' },
+];
 ---
 
 <header class="header" id="header">
 	<nav class="nav" aria-label="Primary">
 		<div class="nav__logo">
-			<a href={home + '#inicio'}>
+			<a href={home}>
 				<img
 					src="/images/logo/ankabasi-icon-outline.png"
 					alt="Ankabasi"
@@ -28,44 +45,50 @@ const home = localePath(locale);
 		<div class="nav__menu" id="nav-menu">
 			<ul class="nav__list">
 				<li class="nav__item">
-					<a href={home + '#inicio'} class="nav__link">{t(locale, 'nav.inicio')}</a>
+					<a href={home} class="nav__link">{t(locale, 'nav.inicio')}</a>
 				</li>
-				<li class="nav__item">
-					<a href={home + '#quienes-somos'} class="nav__link">{t(locale, 'nav.quienesSomos')}</a>
+				<li class="nav__item nav__item--dropdown">
+					<details class="nav__dropdown">
+						<summary class="nav__summary">
+							<span>{t(locale, 'nav.gwimake')}</span>
+							<i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+						</summary>
+						<ul class="nav__dropdown-list">
+							{
+								gwimakeLinks.map((link) => (
+									<li>
+										<a href={link.href} class="nav__dropdown-link">
+											{t(locale, link.key)}
+										</a>
+									</li>
+								))
+							}
+						</ul>
+					</details>
 				</li>
-				<li class="nav__item">
-					<a href={home + '#tecnologia'} class="nav__link">{t(locale, 'nav.tecnologia')}</a>
-				</li>
-				<li class="nav__item">
-					<a href={home + '#experiencia'} class="nav__link">{t(locale, 'nav.intercambio')}</a>
-				</li>
-				<li class="nav__item">
-					<a href={home + '#contenido'} class="nav__link">{t(locale, 'nav.contenido')}</a>
-				</li>
-				<li class="nav__item">
-					<a href={home + '#productos'} class="nav__link">{t(locale, 'nav.productosServicios')}</a>
-				</li>
-			</ul>
-			<div class="nav__mundo">
-				<span class="nav__mundo-label">{t(locale, 'nav.mundoAnkabasi')}</span>
-				<ul class="nav__mundo-list">
-					<li class="nav__item nav__item--mundo">
-						<a href={localePath(locale, 'blog/')} class="nav__link nav__link--mundo">{t(locale, 'nav.blog')}</a>
-					</li>
-					<li class="nav__item nav__item--mundo">
-						<a href={localePath(locale, 'libro/')} class="nav__link nav__link--mundo">{t(locale, 'nav.libro')}</a>
-					</li>
-				</ul>
-			</div>
-			<ul class="nav__list">
-				<li class="nav__item">
-					<a href={home + '#contacto'} class="nav__link">{t(locale, 'nav.contacto')}</a>
+				<li class="nav__item nav__item--dropdown">
+					<details class="nav__dropdown nav__dropdown--mundo">
+						<summary class="nav__summary">
+							<span>{t(locale, 'nav.mundoAnkabasi')}</span>
+							<i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+						</summary>
+						<ul class="nav__dropdown-list nav__mundo-list">
+							{
+								mundoLinks.map((link) => (
+									<li>
+										<a href={link.href} class="nav__dropdown-link">
+											{t(locale, link.key)}
+										</a>
+									</li>
+								))
+							}
+						</ul>
+					</details>
 				</li>
 			</ul>
 		</div>
 
 		<div class="nav__actions">
-			<a href={home + '#experiencia'} class="btn btn--primary">{t(locale, 'nav.ctaExperiencias')}</a>
 			<LangSwitcher locale={locale} pathAfterLocale={pathAfterLocale} />
 			<button
 				type="button"

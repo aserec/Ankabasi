@@ -5,14 +5,38 @@ import { localeNames } from '../i18n/routes';
 
 interface Props {
 	locale: Locale;
-	/** Path after locale, e.g. '' | 'faq/' | 'blog/slug/' */
 	pathAfterLocale?: string;
 }
 const { locale, pathAfterLocale = '' } = Astro.props;
 const rest = pathAfterLocale.replace(/^\/+/, '');
+
+const flags: Record<Locale, string[]> = {
+	es: ['#c60b1e', '#ffc400', '#c60b1e'],
+	en: [],
+	de: ['#000000', '#dd0000', '#ffce00'],
+	fr: ['#0055a4', '#ffffff', '#ef4135'],
+};
 ---
 
-<nav class="lang-switcher" aria-label="Language">
+<details class="lang-switcher">
+	<summary class="lang-switcher__trigger" aria-label={localeNames[locale]}>
+		<span class="lang-switcher__globe" aria-hidden="true">
+			<i class="fa-solid fa-earth-americas"></i>
+		</span>
+		{
+			locale === 'en' ? (
+				<span class="lang-flag lang-flag--en" aria-hidden="true"></span>
+			) : (
+				<span class="lang-flag" aria-hidden="true">
+					{flags[locale].map((color) => (
+						<span class="lang-flag__bar" style={`background:${color}`} />
+					))}
+				</span>
+			)
+		}
+		<span class="lang-switcher__code">{locale.toUpperCase()}</span>
+		<i class="fa-solid fa-chevron-down lang-switcher__caret" aria-hidden="true"></i>
+	</summary>
 	<ul class="lang-switcher__list">
 		{
 			locales.map((code) => (
@@ -24,42 +48,19 @@ const rest = pathAfterLocale.replace(/^\/+/, '');
 						class:list={['lang-switcher__link', { 'is-active': code === locale }]}
 						aria-current={code === locale ? 'page' : undefined}
 					>
-						{code.toUpperCase()}
-						<span class="sr-only"> ({localeNames[code]})</span>
+						{code === 'en' ? (
+							<span class="lang-flag lang-flag--en" aria-hidden="true"></span>
+						) : (
+							<span class="lang-flag" aria-hidden="true">
+								{flags[code].map((color) => (
+									<span class="lang-flag__bar" style={`background:${color}`} />
+								))}
+							</span>
+						)}
+						<span class="lang-switcher__name">{localeNames[code]}</span>
 					</a>
 				</li>
 			))
 		}
 	</ul>
-</nav>
-
-<style>
-	.lang-switcher__list {
-		display: flex;
-		gap: 0.35rem;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-		align-items: center;
-	}
-	.lang-switcher__link {
-		display: inline-block;
-		padding: 0.25rem 0.45rem;
-		font-size: 0.8rem;
-		font-weight: 600;
-		color: inherit;
-		text-decoration: none;
-		border-bottom: 2px solid transparent;
-		opacity: 0.7;
-	}
-	.lang-switcher__link:hover,
-	.lang-switcher__link:focus-visible {
-		opacity: 1;
-		outline: 2px solid currentColor;
-		outline-offset: 2px;
-	}
-	.lang-switcher__link.is-active {
-		opacity: 1;
-		border-bottom-color: currentColor;
-	}
-</style>
+</details>

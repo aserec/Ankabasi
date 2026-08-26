@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { locales, isLocale, t, type Locale } from '../../i18n/utils';
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale: localeParam } = Astro.params;
+if (!localeParam || !isLocale(localeParam)) return Astro.redirect('/es/productos/');
+const locale = localeParam as Locale;
+---
+
+<BaseLayout
+	locale={locale}
+	title={`${t(locale, 'productos.title')} — Ankabasi`}
+	description={t(locale, 'productos.subtitle')}
+	pathAfterLocale="productos/"
+>
+	<section class="page community-section community-section--productos" id="productos">
+		<div class="container">
+			<header class="page__header" data-aos="fade-up">
+				<h1 class="section__title">{t(locale, 'productos.title')}</h1>
+				<div class="section__underline"></div>
+				<p class="section__subtitle">{t(locale, 'productos.subtitle')}</p>
+			</header>
+			<div class="community-section__content" data-aos="fade-up">
+				<div class="community-section__card">
+					<div class="community-section__icon" aria-hidden="true">
+						<i class="fa-solid fa-basket-shopping"></i>
+					</div>
+					<p class="community-section__text">{t(locale, 'productos.description')}</p>
+					<p class="productos__soon">{t(locale, 'productos.cta')}</p>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

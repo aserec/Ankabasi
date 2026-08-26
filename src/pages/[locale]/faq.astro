@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { locales, isLocale, t, localePath, type Locale } from '../../i18n/utils';
+import { locales, isLocale, t, type Locale } from '../../i18n/utils';
 import { faqItems, faqJsonLd } from '../../data/faq';
-import { guidePath } from '../../i18n/routes';
+import { guidePath, pagePath } from '../../i18n/routes';
 
 export function getStaticPaths() {
 	return locales.map((locale) => ({ params: { locale } }));
@@ -14,7 +14,6 @@ const locale = localeParam as Locale;
 
 const title = `FAQ — Ankabasi`;
 const description = t(locale, 'meta.description');
-const home = localePath(locale);
 ---
 
 <BaseLayout
@@ -45,7 +44,7 @@ const home = localePath(locale);
 			))
 		}
 		<p style="margin-top: 2.5rem;">
-			<a class="btn btn--primary" href={home + '#contacto'}>{t(locale, 'nav.reservar')}</a>
+			<a class="btn btn--primary" href={pagePath(locale, 'contacto')}>{t(locale, 'nav.reservar')}</a>
 			{' '}
 			<a class="btn btn--secondary" href={guidePath(locale, 'packages')}>{t(locale, 'pricing.title')}</a>
 		</p>

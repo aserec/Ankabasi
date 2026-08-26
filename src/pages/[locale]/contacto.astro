@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ContactSection from '../../components/ContactSection.astro';
+import { locales, isLocale, t, type Locale } from '../../i18n/utils';
+
+export function getStaticPaths() {
+	return locales.map((locale) => ({ params: { locale } }));
+}
+
+const { locale: localeParam } = Astro.params;
+if (!localeParam || !isLocale(localeParam)) return Astro.redirect('/es/contacto/');
+const locale = localeParam as Locale;
+---
+
+<BaseLayout
+	locale={locale}
+	title={`${t(locale, 'contact.title')} — Ankabasi`}
+	description={t(locale, 'contact.subtitle')}
+	pathAfterLocale="contacto/"
+>
+	<div class="page">
+		<ContactSection locale={locale} />
+	</div>
+</BaseLayout>
