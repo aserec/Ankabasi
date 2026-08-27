@@ -50,29 +50,32 @@ const jsonLd = {
 	ogImage={meta.featuredImage}
 	jsonLd={jsonLd}
 >
-	<article class="blog-article container" style="padding-top: 5.5rem; padding-bottom: 3rem;">
-		<header class="blog-article__header">
-			<nav class="blog-breadcrumb" aria-label="Breadcrumb">
-				<a href={home}>{t(locale, 'nav.inicio')}</a> →
-				<a href={blog}>{t(locale, 'nav.blog')}</a> →
-				<span>{content.title}</span>
-			</nav>
-			<time class="blog-article__date" datetime={meta.date}>{meta.date}</time>
-			<h1 class="blog-article__title">{content.title}</h1>
-		</header>
-		<figure class="blog-article__featured">
-			<img
-				src={meta.featuredImage}
-				alt={content.featuredAlt || content.title}
-				width="1200"
-				height="800"
-				fetchpriority="high"
-			/>
-		</figure>
-		<div class="blog-article__content" set:html={content.bodyHtml} />
-		<p style="margin-top: 2rem;">
-			<a class="btn btn--secondary" href={blog}>{t(locale, 'blog.allPosts')}</a>
-			<a class="btn btn--primary" href={pagePath(locale, 'contacto')}>{t(locale, 'nav.reservar')}</a>
-		</p>
+	<article class="page page--mundo blog-article">
+		<div class="container">
+			<header class="blog-article__header" data-aos="fade-up">
+				<nav class="blog-breadcrumb" aria-label="Breadcrumb">
+					<a href={home}>{t(locale, 'nav.inicio')}</a> →
+					<a href={blog}>{t(locale, 'nav.blog')}</a> →
+					<span>{content.title}</span>
+				</nav>
+				<p class="page__eyebrow">{t(locale, 'nav.mundoAnkabasi')}</p>
+				<time class="blog-article__date" datetime={meta.date}>{meta.date}</time>
+				<h1 class="blog-article__title">{content.title}</h1>
+			</header>
+			<figure class="blog-article__featured" data-aos="fade-up">
+				<img
+					src={meta.featuredImage}
+					alt={content.featuredAlt || content.title}
+					width="1200"
+					height="800"
+					fetchpriority="high"
+				/>
+			</figure>
+			<div class="blog-article__content" set:html={content.bodyHtml} />
+			<p class="page__actions">
+				<a class="btn btn--secondary" href={blog}>{t(locale, 'blog.allPosts')}</a>
+				<a class="btn btn--primary" href={pagePath(locale, 'contacto')}>{t(locale, 'nav.reservar')}</a>
+			</p>
+		</div>
 	</article>
 </BaseLayout>

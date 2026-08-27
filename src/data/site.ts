@@ -29,7 +29,6 @@ export const SITE = {
 			duration: '3 days / 2 nights',
 			priceFromCOP: 1_300_000,
 			priceDisplay: '$1.300.000',
-			featured: true,
 		},
 		{
 			id: '1w',

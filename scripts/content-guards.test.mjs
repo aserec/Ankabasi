@@ -259,6 +259,12 @@ describe('ANKABASI repositioning guards', () => {
     assert.match(index, /blog\.cat_\$\{post\.category\}/);
   });
 
+  it('FAQ and guide paths keep trailing slashes for local Astro routing', () => {
+    const routes = read('src/i18n/routes.ts');
+    assert.match(routes, /function faqPath[\s\S]*localePath\(locale, 'faq\/'\)/);
+    assert.match(routes, /function guidePath[\s\S]*\$\{guideSlugs\[key\]\[locale\]\}\//);
+  });
+
   it('FAQ lives as its own page, not as a homepage teaser', () => {
     assert.doesNotMatch(home(), /faq-teaser/);
     assert.match(header(), /faqPath\(locale\)/);

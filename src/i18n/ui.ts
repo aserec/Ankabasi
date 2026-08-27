@@ -178,7 +178,7 @@ export const ui = {
                 download: '📥 Descargar Folleto',
             },
             blog: {
-                title: 'Mundo ANKABASI',
+                title: 'Historias',
                 subtitle:
                     'Cultura, territorio, tecnología, juventud, emprendimiento, historias y educación.',
                 readMore: 'Leer artículo',
@@ -465,7 +465,7 @@ export const ui = {
                 download: '📥 Download brochure',
             },
             blog: {
-                title: 'ANKABASI World',
+                title: 'Stories',
                 subtitle: 'Culture, territory, technology, youth, entrepreneurship, stories, and education.',
                 readMore: 'Read article',
                 allPosts: 'View all articles',
@@ -751,7 +751,7 @@ export const ui = {
                 download: '📥 Broschüre herunterladen',
             },
             blog: {
-                title: 'ANKABASI Welt',
+                title: 'Geschichten',
                 subtitle:
                     'Kultur, Territorium, Technologie, Jugend, Unternehmertum, Geschichten und Bildung.',
                 readMore: 'Artikel lesen',
@@ -1039,7 +1039,7 @@ export const ui = {
                 download: '📥 Télécharger la brochure',
             },
             blog: {
-                title: 'Monde ANKABASI',
+                title: 'Histoires',
                 subtitle:
                     'Culture, territoire, technologie, jeunesse, entrepreneuriat, histoires et éducation.',
                 readMore: 'Lire l\'article',

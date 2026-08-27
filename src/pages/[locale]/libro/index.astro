@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import SplitMedia from '../../../components/SplitMedia.astro';
 import { locales, isLocale, t, localePath, type Locale } from '../../../i18n/utils';
 
 export function getStaticPaths() {
@@ -18,22 +19,27 @@ const home = localePath(locale);
 	description={t(locale, 'libro.subtitle')}
 	pathAfterLocale="libro/"
 >
-	<section class="container" style="padding: 6rem 1.25rem 4rem; max-width: 720px;">
-		<h1>{t(locale, 'libro.bookTitle')}</h1>
-		<p style="line-height: 1.7; margin: 1.25rem 0;">{t(locale, 'libro.excerpt')}</p>
-		<p>{t(locale, 'libro.subtitle')}</p>
-		<p><strong>{t(locale, 'libro.status')}</strong></p>
-		<p>
-			<a class="btn btn--primary" href="/libro/">{t(locale, 'libro.startReading')}</a>
-			{' '}
-			<a class="btn btn--secondary" href={home}>{t(locale, 'libro.backHome')}</a>
-		</p>
-		<p style="margin-top: 1.5rem; font-size: 0.95rem; color: #666;">
-			{
-				locale === 'es'
-					? 'La lectura completa interactiva sigue disponible; la migraremos íntegramente a Astro en una siguiente iteración.'
-					: 'The full interactive reader remains available; a full Astro port follows in a later iteration.'
-			}
-		</p>
+	<section class="page page--mundo libro-page">
+		<div class="container">
+			<header class="page__header page__header--bare" data-aos="fade-up">
+				<p class="page__eyebrow">{t(locale, 'nav.mundoAnkabasi')}</p>
+				<h1 class="section__title">{t(locale, 'libro.bookTitle')}</h1>
+				<div class="section__underline"></div>
+				<p class="page__lead">{t(locale, 'libro.subtitle')}</p>
+			</header>
+			<SplitMedia
+				image="/images/blog/DSC09240.jpg"
+				alt="Tejido y memoria en el territorio"
+				objectPosition="center 40%"
+				aos="fade-up"
+			>
+				<p class="split__text">{t(locale, 'libro.excerpt')}</p>
+				<p><strong>{t(locale, 'libro.status')}</strong></p>
+				<p class="page__actions">
+					<a class="btn btn--primary" href="/libro/">{t(locale, 'libro.startReading')}</a>
+					<a class="btn btn--secondary" href={home}>{t(locale, 'libro.backHome')}</a>
+				</p>
+			</SplitMedia>
+		</div>
 	</section>
 </BaseLayout>

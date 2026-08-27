@@ -6,9 +6,10 @@ interface Props {
 	href?: string;
 	aos?: string;
 	aosDelay?: number;
+	objectPosition?: string;
 }
 
-const { image, alt, reverse = false, href, aos, aosDelay = 0 } = Astro.props;
+const { image, alt, reverse = false, href, aos, aosDelay = 0, objectPosition } = Astro.props;
 const Tag = href ? 'a' : 'article';
 ---
 
@@ -21,7 +22,15 @@ const Tag = href ? 'a' : 'article';
 	data-aos-duration="900"
 >
 	<div class="split__media">
-		<img src={image} alt={alt} class="split__image" loading="lazy" width="640" height="480" />
+		<img
+			src={image}
+			alt={alt}
+			class="split__image"
+			loading="lazy"
+			width="640"
+			height="480"
+			style={objectPosition ? `object-position: ${objectPosition}` : undefined}
+		/>
 	</div>
 	<div class="split__body">
 		<slot />

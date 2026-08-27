@@ -43,11 +43,11 @@ export const guideSlugs = {
 export type GuideKey = keyof typeof guideSlugs;
 
 export function guidePath(locale: Locale, key: GuideKey): string {
-	return localePath(locale, guideSlugs[key][locale]);
+	return localePath(locale, `${guideSlugs[key][locale]}/`);
 }
 
 export function faqPath(locale: Locale): string {
-	return guidePath(locale, 'faq');
+	return localePath(locale, 'faq/');
 }
 
 /** Find guide key from a URL slug in any locale. */

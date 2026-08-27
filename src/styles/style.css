@@ -404,12 +404,6 @@ ul {
     content: '';
 }
 
-.lang-switcher__globe {
-    color: var(--color-primary);
-    font-size: 1.05rem;
-    line-height: 1;
-}
-
 .lang-switcher__caret {
     font-size: 0.6rem;
     color: var(--color-secondary);
@@ -561,7 +555,7 @@ ul {
     font-family: var(--font-body);
     font-size: clamp(1rem, 2vw, 1.35rem);
     font-weight: 400;
-    margin-bottom: 1rem;
+    margin-bottom: 0.85rem;
     color: rgba(255, 255, 255, 0.92);
     max-width: 32em;
     margin-left: auto;
@@ -673,6 +667,21 @@ ul {
     text-align: center;
 }
 
+.about .split {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.about .split .about__text {
+    max-width: none;
+    margin: 0;
+    text-align: left;
+}
+
+.about .split .about__text p:last-child {
+    margin-bottom: 0;
+}
+
 .about__text p {
     font-size: 1.1rem;
     line-height: 1.8;
@@ -740,7 +749,7 @@ ul {
 .split__image {
     width: 100%;
     height: 100%;
-    max-height: 300px;
+    max-height: 340px;
     object-fit: cover;
     display: block;
     transition: transform 0.5s ease;
@@ -765,6 +774,26 @@ ul {
     padding-bottom: 4rem;
 }
 
+.page.gallery,
+.page.location,
+.page.tech,
+.page.community-section,
+.page.faq-page,
+.page.blog-page,
+.page.libro-page,
+.page.blog-article,
+.page.guide {
+    padding-top: 6.5rem;
+    padding-bottom: 4rem;
+}
+
+.page--mundo {
+    background-color: #faf8f5;
+    background-image:
+        linear-gradient(180deg, rgba(45, 80, 22, 0.04) 0%, transparent 140px),
+        radial-gradient(ellipse at 18% 0%, rgba(139, 111, 71, 0.08) 0%, transparent 48%);
+}
+
 .page__header {
     max-width: 720px;
     margin: 0 auto 3rem;
@@ -775,11 +804,29 @@ ul {
     margin-bottom: 1.75rem;
 }
 
+.page__eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-secondary);
+    margin-bottom: 0.75rem;
+}
+
 .page__lead {
     font-size: 1.08rem;
     line-height: 1.7;
     color: var(--color-text-light);
     margin-bottom: 0.85rem;
+}
+
+.page__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 2.5rem;
 }
 
 .offer__badge {
@@ -826,6 +873,44 @@ ul {
 
 .offer__features li {
     padding: 0.2rem 0;
+}
+
+.experience-page {
+    padding-bottom: 1rem;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+    align-items: stretch;
+}
+
+.offer-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-bg-lighter);
+    display: flex;
+    flex-direction: column;
+}
+
+.offer-card--featured {
+    border-color: var(--color-primary);
+}
+
+.offer-card__title {
+    font-family: var(--font-heading);
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    color: var(--color-primary);
+    margin: 0 0 0.5rem;
+}
+
+.offer-card .btn {
+    margin-top: auto;
+    align-self: flex-start;
 }
 
 .pricing__disclaimer {
@@ -1028,6 +1113,27 @@ ul {
 .activity__icon {
     font-size: 2.5rem;
     margin-bottom: 0.75rem;
+}
+
+.activity__card--photo {
+    padding: 0;
+    overflow: hidden;
+    text-align: left;
+}
+
+.activity__photo {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
+}
+
+.activity__card--photo .activity__title {
+    margin: 0.9rem 1rem 0.4rem;
+}
+
+.activity__card--photo .activity__description {
+    margin: 0 1rem 1.1rem;
 }
 
 .activity__title {
@@ -1492,6 +1598,21 @@ ul {
     font-weight: 500;
 }
 
+.location__photo {
+    margin: 2rem auto 0;
+    max-width: 960px;
+    overflow: hidden;
+    border-radius: 16px;
+}
+
+.location__photo-img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: center 40%;
+    display: block;
+}
+
 .location__content {
     margin-top: 3rem;
 }
@@ -1862,61 +1983,25 @@ ul {
     scroll-margin-top: 90px;
 }
 
-/* ===== FAQ teaser ===== */
-.faq-teaser {
-    padding: var(--section-padding);
-    background-color: var(--color-bg);
-}
-
-#faq {
+/* ===== FAQ page ===== */
+.faq-page {
     scroll-margin-top: 90px;
 }
 
-.faq-teaser__list {
-    position: relative;
+.faq-list {
     max-width: 720px;
     margin: 0 auto;
-    padding-left: 1.75rem;
 }
 
-.faq-teaser__list::before {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 1.15rem;
-    bottom: 1.15rem;
-    width: 2px;
-    background: linear-gradient(
-        180deg,
-        var(--color-primary) 0%,
-        var(--color-secondary) 100%
-    );
-}
-
-.faq-teaser__item {
-    position: relative;
+.faq-item {
     margin-bottom: 0.75rem;
-    background-color: var(--color-bg);
+    background-color: var(--color-white);
     border: 1px solid rgba(139, 111, 71, 0.22);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-sm);
 }
 
-.faq-teaser__item::before {
-    content: '';
-    position: absolute;
-    left: calc(-1.75rem + 5px - 6px);
-    top: 1.15rem;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: var(--color-primary);
-    border: 2px solid var(--color-bg);
-    box-shadow: 0 0 0 2px var(--color-primary-light);
-    z-index: 1;
-}
-
-.faq-teaser__item summary {
+.faq-item summary {
     cursor: pointer;
     list-style: none;
     display: flex;
@@ -1929,13 +2014,13 @@ ul {
     color: var(--color-primary);
 }
 
-.faq-teaser__item summary::-webkit-details-marker,
-.faq-teaser__item summary::marker {
+.faq-item summary::-webkit-details-marker,
+.faq-item summary::marker {
     display: none;
     content: '';
 }
 
-.faq-teaser__item summary::after {
+.faq-item summary::after {
     content: '+';
     flex-shrink: 0;
     font-size: 1.25rem;
@@ -1944,25 +2029,44 @@ ul {
     color: var(--color-secondary);
 }
 
-.faq-teaser__item[open] summary::after {
+.faq-item[open] summary::after {
     content: '−';
 }
 
-.faq-teaser__item summary:focus-visible {
+.faq-item summary:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
     border-radius: var(--border-radius);
 }
 
-.faq-teaser__item p {
+.faq-item p {
     padding: 0 1.25rem 1.15rem;
     color: var(--color-text-light);
     line-height: 1.65;
 }
 
-.faq-teaser__actions {
-    margin-top: 2rem;
-    text-align: center;
+.libro-page .split__body .page__actions {
+    justify-content: flex-start;
+    margin-top: 1.5rem;
+}
+
+.libro-page .split__text {
+    margin-bottom: 1rem;
+}
+
+.guide .container {
+    max-width: 760px;
+}
+
+.guide__nav {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.guide__body p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: var(--color-text-light);
 }
 
 /* ===== Contact Section ===== */

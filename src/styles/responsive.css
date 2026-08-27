@@ -275,6 +275,10 @@
     .activity__card {
         padding: 1.5rem;
     }
+
+    .activity__card--photo {
+        padding: 0;
+    }
     
     .pricing__card {
         padding: 2rem;

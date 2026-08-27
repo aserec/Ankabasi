@@ -17,20 +17,21 @@ const description = t(locale, 'blog.subtitle');
 ---
 
 <BaseLayout locale={locale} title={title} description={description} pathAfterLocale="blog/">
-	<section class="blog-page" style="padding-top: 5.5rem; padding-bottom: 3rem;">
+	<section class="page page--mundo blog-page">
 		<div class="container">
-			<header class="blog-page__header">
+			<header class="page__header" data-aos="fade-up">
+				<p class="page__eyebrow">{t(locale, 'nav.mundoAnkabasi')}</p>
 				<h1 class="section__title">{t(locale, 'blog.title')}</h1>
 				<div class="section__underline"></div>
-				<p class="section__subtitle">{t(locale, 'blog.subtitle')}</p>
+				<p class="page__lead">{t(locale, 'blog.subtitle')}</p>
 			</header>
 			<div class="blog-list">
 				{
-					BLOG_POSTS.map((post) => {
+					BLOG_POSTS.map((post, index) => {
 						const content = getBlogPostContent(post.slug, locale);
 						if (!content) return null;
 						return (
-							<article class="blog-card">
+							<article class="blog-card" data-aos="fade-up" data-aos-delay={Math.min(80 + index * 80, 240)}>
 								<a href={localePath(locale, `blog/${post.slug}/`)} class="blog-card__link">
 									<img
 										src={post.featuredImage}

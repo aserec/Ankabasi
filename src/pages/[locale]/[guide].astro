@@ -73,24 +73,30 @@ const crumbs = {
 	pathAfterLocale={`${guideSlug}/`}
 	jsonLd={[jsonLd, crumbs]}
 >
-	<article class="guide container" style="padding: 6rem 1.25rem 4rem; max-width: 720px;">
-		<nav aria-label="Breadcrumb" style="margin-bottom: 1.5rem; font-size: 0.9rem;">
-			<a href={home}>Ankabasi</a>
-			<span aria-hidden="true"> / </span>
-			<span>{title}</span>
-		</nav>
-		<h1 style="font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 1rem;">{title}</h1>
-		<p class="guide__lead" style="font-size: 1.1rem; line-height: 1.65; margin-bottom: 1.75rem;">
-			{guide.lead[locale]}
-		</p>
-		{
-			guide.body[locale].map((p) => (
-				<p style="line-height: 1.7; margin-bottom: 1rem; color: #4a4a4a;">{p}</p>
-			))
-		}
-		<p style="margin-top: 2.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
-			<a class="btn btn--primary" href={pagePath(locale, 'contacto')}>{t(locale, 'nav.reservar')}</a>
-			<a class="btn btn--secondary" href={localePath(locale, 'faq/')}>FAQ</a>
-		</p>
+	<article class="page page--mundo guide">
+		<div class="container">
+			<nav class="guide__nav" aria-label="Breadcrumb" data-aos="fade-up">
+				<a href={home}>Ankabasi</a>
+				<span aria-hidden="true"> / </span>
+				<span>{title}</span>
+			</nav>
+			<header class="page__header page__header--bare" data-aos="fade-up">
+				<p class="page__eyebrow">{t(locale, 'nav.mundoAnkabasi')}</p>
+				<h1 class="section__title">{title}</h1>
+				<div class="section__underline"></div>
+				<p class="page__lead">{guide.lead[locale]}</p>
+			</header>
+			<div class="guide__body" data-aos="fade-up">
+				{
+					guide.body[locale].map((p) => (
+						<p>{p}</p>
+					))
+				}
+			</div>
+			<p class="page__actions" data-aos="fade-up">
+				<a class="btn btn--primary" href={pagePath(locale, 'contacto')}>{t(locale, 'nav.reservar')}</a>
+				<a class="btn btn--secondary" href={localePath(locale, 'faq/')}>FAQ</a>
+			</p>
+		</div>
 	</article>
 </BaseLayout>

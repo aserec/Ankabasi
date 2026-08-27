@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../i18n/utils';
-import { t, localePath } from '../i18n/utils';
+import { t } from '../i18n/utils';
 import { pagePath } from '../i18n/routes';
 import SplitMedia from './SplitMedia.astro';
 
@@ -8,7 +8,6 @@ interface Props {
 	locale: Locale;
 }
 const { locale } = Astro.props;
-const home = localePath(locale);
 
 const pillars = [
 	{
@@ -26,8 +25,8 @@ const pillars = [
 	{
 		key: 'training',
 		href: pagePath(locale, 'formacion'),
-		image: '/images/gallery/foto4.jpeg',
-		alt: 'Taller de aprendizaje compartido en Gwimake',
+		image: '/images/gallery/foto6.jpeg',
+		alt: 'Aprendizaje compartido en el territorio',
 	},
 	{
 		key: 'exchange',
@@ -49,11 +48,9 @@ const pillars = [
 	<div class="main__content container" data-aos="fade-up" data-aos-easing="ease-out-cubic">
 		<h1 class="main__title">{t(locale, 'main.title')}</h1>
 		<h2 class="main__subtitle">{t(locale, 'main.subtitle')}</h2>
-		<p class="main__description">{t(locale, 'main.description')}</p>
 		<p class="main__tagline">{t(locale, 'main.tagline')}</p>
 		<div class="main__actions">
-			<a href={home + '#quienes-somos'} class="btn btn--primary btn--large">{t(locale, 'main.cta')}</a>
-			<a href={pagePath(locale, 'experiencias')} class="btn btn--secondary btn--large">
+			<a href={pagePath(locale, 'experiencias')} class="btn btn--primary btn--large">
 				{t(locale, 'nav.ctaExperiencias')}
 			</a>
 		</div>
@@ -64,24 +61,19 @@ const pillars = [
 	<div class="container">
 		<h2 class="section__title" data-aos="fade-up" data-aos-easing="ease-out-cubic">{t(locale, 'about.title')}</h2>
 		<div class="section__underline" data-aos="fade-up" data-aos-easing="ease-out-cubic"></div>
-		<div class="about__text">
-			<p data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-duration="900">{t(locale, 'about.p1')}</p>
-			<p data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-delay="140" data-aos-duration="900">
-				{t(locale, 'about.p2')}
-			</p>
-			<p data-aos="fade-up" data-aos-easing="ease-out-cubic" data-aos-delay="260" data-aos-duration="900">
-				{t(locale, 'about.p3')}
-			</p>
-			<p
-				class="about__closing"
-				data-aos="fade-up"
-				data-aos-easing="ease-out-cubic"
-				data-aos-delay="380"
-				data-aos-duration="900"
-			>
-				{t(locale, 'about.closing')}
-			</p>
-		</div>
+		<SplitMedia
+			image="/images/gallery/foto11.jpeg"
+			alt="Camino y viviendas en Gwimake"
+			objectPosition="center 30%"
+			aos="fade-up"
+		>
+			<div class="about__text">
+				<p>{t(locale, 'about.p1')}</p>
+				<p>{t(locale, 'about.p2')}</p>
+				<p>{t(locale, 'about.p3')}</p>
+				<p class="about__closing">{t(locale, 'about.closing')}</p>
+			</div>
+		</SplitMedia>
 	</div>
 </section>
 

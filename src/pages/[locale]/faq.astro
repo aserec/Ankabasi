@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { locales, isLocale, t, type Locale } from '../../i18n/utils';
 import { faqItems, faqJsonLd } from '../../data/faq';
-import { guidePath, pagePath } from '../../i18n/routes';
+import { pagePath } from '../../i18n/routes';
 
 export function getStaticPaths() {
 	return locales.map((locale) => ({ params: { locale } }));
@@ -13,7 +13,7 @@ if (!localeParam || !isLocale(localeParam)) return Astro.redirect('/es/faq/');
 const locale = localeParam as Locale;
 
 const title = `FAQ — Ankabasi`;
-const description = t(locale, 'meta.description');
+const description = t(locale, 'faq.subtitle');
 ---
 
 <BaseLayout
@@ -23,30 +23,28 @@ const description = t(locale, 'meta.description');
 	pathAfterLocale="faq/"
 	jsonLd={faqJsonLd(locale)}
 >
-	<article class="guide container" style="padding: 6rem 1.25rem 4rem; max-width: 720px;">
-		<p class="guide__lead" style="font-size: 1.05rem; line-height: 1.6; margin-bottom: 2rem;">
-			{
-				locale === 'es'
-					? 'Respuestas sobre ANKABASI, empresa tecnológica y digital de la comunidad Arhuaca de Gwimake, y sobre su línea de intercambio cultural.'
-					: locale === 'en'
-						? 'Answers about ANKABASI, a technology and digital company of the Arhuaco community of Gwimake, and its cultural exchange line.'
-						: locale === 'de'
-							? 'Antworten zu ANKABASI, dem Technologie- und Digitalunternehmen der Arhuaco-Gemeinschaft von Gwimake, und zur Linie des kulturellen Austauschs.'
-							: 'Réponses sur ANKABASI, entreprise technologique et numérique de la communauté arhuaco de Gwimake, et sur sa ligne d’échange culturel.'
-			}
-		</p>
-		{
-			faqItems.map((item) => (
-				<section style="margin-bottom: 1.75rem;">
-					<h2 style="font-size: 1.2rem; margin-bottom: 0.5rem;">{item.question[locale]}</h2>
-					<p style="line-height: 1.65; color: #4a4a4a;">{item.answer[locale]}</p>
-				</section>
-			))
-		}
-		<p style="margin-top: 2.5rem;">
-			<a class="btn btn--primary" href={pagePath(locale, 'contacto')}>{t(locale, 'nav.reservar')}</a>
-			{' '}
-			<a class="btn btn--secondary" href={guidePath(locale, 'packages')}>{t(locale, 'pricing.title')}</a>
-		</p>
-	</article>
+	<section class="page page--mundo faq-page" id="faq">
+		<div class="container">
+			<header class="page__header" data-aos="fade-up">
+				<p class="page__eyebrow">{t(locale, 'nav.mundoAnkabasi')}</p>
+				<h1 class="section__title">{t(locale, 'faq.title')}</h1>
+				<div class="section__underline"></div>
+				<p class="page__lead">{t(locale, 'faq.subtitle')}</p>
+			</header>
+			<div class="faq-list">
+				{
+					faqItems.map((item, index) => (
+						<details class="faq-item" data-aos="fade-up" data-aos-delay={Math.min(80 + index * 40, 280)}>
+							<summary>{item.question[locale]}</summary>
+							<p>{item.answer[locale]}</p>
+						</details>
+					))
+				}
+			</div>
+			<p class="page__actions" data-aos="fade-up">
+				<a class="btn btn--primary" href={pagePath(locale, 'contacto')}>{t(locale, 'nav.reservar')}</a>
+				<a class="btn btn--secondary" href={pagePath(locale, 'experiencias')}>{t(locale, 'pricing.title')}</a>
+			</p>
+		</div>
+	</section>
 </BaseLayout>
