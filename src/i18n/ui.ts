@@ -215,7 +215,7 @@ export const ui = {
                 subtitle: 'Café, cacao y mochilas Arhuacas desde el territorio',
                 description:
                     'ANKABASI impulsa productos del territorio —café, cacao y mochilas Arhuacas— elaborados con respeto por la cultura, el comercio justo y la economía de la comunidad.',
-                cta: 'Catálogo próximamente',
+                cta: 'Comprar mochilas',
             },
             cursos: {
                 title: 'Formación y aprendizaje digital',
@@ -501,7 +501,7 @@ export const ui = {
                 subtitle: 'Coffee, cacao, and Arhuaco mochilas from the territory',
                 description:
                     'ANKABASI supports products of the territory — coffee, cacao, and Arhuaco mochilas — made with respect for culture, fair trade, and the community economy.',
-                cta: 'Catalog coming soon',
+                cta: 'Buy backpacks',
             },
             cursos: {
                 title: 'Digital training and learning',
@@ -788,7 +788,7 @@ export const ui = {
                 subtitle: 'Kaffee, Kakao und Arhuaco-Mochilas aus dem Territorium',
                 description:
                     'ANKABASI stärkt Produkte des Territoriums — Kaffee, Kakao und Arhuaco-Mochilas — mit Respekt für Kultur, fairen Handel und die lokale Wirtschaft.',
-                cta: 'Katalog demnächst',
+                cta: 'Mochilas kaufen',
             },
             cursos: {
                 title: 'Digitale Bildung und Lernen',
@@ -1076,7 +1076,7 @@ export const ui = {
                 subtitle: 'Café, cacao et mochilas arhuaco du territoire',
                 description:
                     'ANKABASI soutient des produits du territoire — café, cacao et mochilas arhuaco — élaborés dans le respect de la culture, du commerce équitable et de l’économie communautaire.',
-                cta: 'Catalogue bientôt disponible',
+                cta: 'Acheter des mochilas',
             },
             cursos: {
                 title: 'Formation et apprentissage numérique',
